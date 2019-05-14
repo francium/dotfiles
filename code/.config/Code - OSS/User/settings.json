@@ -1,0 +1,51 @@
+{
+    "window.titleBarStyle": "custom",
+    "gitlens.defaultDateStyle": "absolute",
+    "editor.fontSize": 10,
+    "editor.renderWhitespace": "boundary",
+    "files.insertFinalNewline": true,
+    "workbench.colorCustomizations": {
+        "statusBar.background": "#005f5f",
+        "statusBar.noFolderBackground": "#005f5f",
+        "statusBar.debuggingBackground": "#005f5f"
+    },
+    "editor.minimap.enabled": false,
+    "telemetry.enableCrashReporter": false,
+    "update.channel": "none",
+    "update.enableWindowsBackgroundUpdates": false,
+    "telemetry.enableTelemetry": false,
+    "terminal.integrated.cursorBlinking": true,
+    "terminal.integrated.fontSize": 11,
+    "terminal.integrated.fontFamily": "'Source Code Pro Semibold', 'Droid Sans Mono'",
+    "editor.fontFamily": "'Source Code Pro Semibold', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "window.menuBarVisibility": "default",
+    "workbench.sideBar.location": "left",
+    "workbench.statusBar.visible": true,
+    "editor.lineNumbers": "relative",
+    "editor.rulers": [80, 90],
+    "[javascript]": {
+        "editor.tabSize": 2
+    },
+    "[typescript]": {
+        "editor.tabSize": 2
+    },
+    "[json]": {
+        "editor.tabSize": 4
+    },
+    "[css]": {
+        "editor.tabSize": 2
+    },
+    "[scss]": {
+        "editor.tabSize": 2
+    },
+    "vim.mouseSelectionGoesIntoVisualMode": false,
+    "vim.foldfix": true,
+    "vim.history": 100,
+    "vim.enableNeovim": false,
+    "vim.neovimPath": "nvim",
+    "editor.parameterHints.enabled": false,
+    "editor.quickSuggestions": false,
+    "git.autofetch": true,
+    "window.zoomLevel": 0,
+    "workbench.colorTheme": "Default Light+"
+}

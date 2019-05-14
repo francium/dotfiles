@@ -1,0 +1,9 @@
+map i recolor
+map = zoom in
+set selection-clipboard clipboard
+map , navigate previous
+map . navigate next
+set guioptions v
+set show-scrollbars false
+set adjust-open width
+set recolor-keephue

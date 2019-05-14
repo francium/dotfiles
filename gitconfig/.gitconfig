@@ -1,0 +1,27 @@
+[user]
+    email = francium@francium.cc
+    name = francium
+[credential]
+    helper = cache
+[core]
+    excludesfile = ~/.gitignore_global
+    autocrlf = input
+[pager]
+    diff = diff-so-fancy | less --tabs=1,5 -RFX
+    show = diff-so-fancy | less --tabs=1,5 -RFX
+[alias]
+    b  = branch
+    d  = diff
+    ds = diff --staged
+    co = checkout
+    ph = push origin HEAD
+    pf = push origin HEAD --force-with-lease
+    s  = status -ss
+    ss = status
+    cm = commit
+    cmempty = commit --allow-empty --allow-empty-message -m ''
+    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    cloner = clone --recursive -j 4
+    subinit = submodule update --init --recursive
+    prune-remote = remote prune origin
+    cm-empty = commit --allow-empty-message
