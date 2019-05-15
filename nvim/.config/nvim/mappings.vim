@@ -21,10 +21,11 @@ autocmd BufEnter term://.*:bash tnoremap <ESC> <C-\><C-n>
 autocmd BufLeave term://.*:bash tunmap <ESC>
 
 " SPLITTING --------------------------------------------------------------------
-nnoremap <C-J> <C-W><C-J>
-nnoremap <C-K> <C-W><C-K>
-nnoremap <C-L> <C-W><C-L>
-nnoremap <C-H> <C-W><C-H>
+" Disabled because Tmux Vim Navigator mappings are used to handle movement
+" nmap <C-J> <C-W><C-J>
+" nmap <C-K> <C-W><C-K>
+" nmap <C-L> <C-W><C-L>
+" nmap <C-H> <C-W><C-H>
 
 " Close other split
 nnoremap <C-x> <C-W>w:q<CR>
@@ -33,8 +34,8 @@ nnoremap <C-x> <C-W>w:q<CR>
 nnoremap <leader>q :q
 
 " Scrolling other split
-nmap <a-j> <C-W>w<C-E><C-W>w
-nmap <a-k> <C-W>w<C-Y><C-W>w
+nmap <silent> <a-j> <C-W>w<C-E><C-W>w
+nmap <silent> <a-k> <C-W>w<C-Y><C-W>w
 
 " TABS -------------------------------------------------------------------------
 

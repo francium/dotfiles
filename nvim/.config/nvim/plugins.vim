@@ -5,7 +5,6 @@ Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/jistr/vim-nerdtree-tabs'
 Plug 'https://github.com/junegunn/fzf.vim'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
-Plug 'https://github.com/mattn/emmet-vim'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/scrooloose/nerdcommenter'
 Plug 'https://github.com/scrooloose/nerdtree'
@@ -15,6 +14,9 @@ Plug 'https://github.com/tpope/vim-fugitive'
 Plug 'https://github.com/tpope/vim-sensible'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/w0rp/ale'
+
+" HTML
+Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
 
 " Colorschemes
 Plug 'https://github.com/morhetz/gruvbox'
@@ -38,7 +40,7 @@ let g:lightline = {
       \ 'colorscheme': 'deus',
       \ 'active': {
       \   'left': [ [ 'mode' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'mode', 'paste' ] ]
+      \             [ 'fugitive', 'readonly', 'filename', 'modified', 'paste' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightlineFugitive',
@@ -137,7 +139,6 @@ let g:NERDCommentEmptyLines = 1
 
 " Enable trimming of trailing whitespace when uncommenting
 let g:NERDTrimTrailingWhitespace = 1
-
 
 " Vim-Tmux-Navigator ---------------------------------------------------------
 let g:tmux_navigator_no_mappings = 1
