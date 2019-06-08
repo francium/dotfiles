@@ -78,3 +78,27 @@ vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
 " JSON Formatting
 nmap <leader>jf :%!python -m json.tool<CR>
+
+" Toggle darkness
+function! ToggleBackgroundDarkness()
+    if &background ==# "light"
+        set background=dark
+        colorscheme gruvbox
+    else
+        set background=light
+        colorscheme one
+    endif
+
+    highlight ExtraWhitespace ctermbg=brown
+    highlight ExtraWhitespace guibg=orange
+endfunction
+map <F4> :call ToggleBackgroundDarkness()<CR>
+
+" Replace the word under the cursor
+nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
+
+" "move lines around
+" nnoremap <leader>k :m-2<cr>==
+" nnoremap <leader>j :m+<cr>==
+" xnoremap <leader>k :m-2<cr>gv=gv
+" xnoremap <leader>j :m'>+<cr>gv=gv

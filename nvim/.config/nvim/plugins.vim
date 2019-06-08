@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'https://github.com/airblade/vim-gitgutter'
+" Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/jistr/vim-nerdtree-tabs'
@@ -11,6 +12,7 @@ Plug 'https://github.com/scrooloose/nerdtree'
 Plug 'https://github.com/simeji/winresizer'
 Plug 'https://github.com/thirtythreeforty/lessspace.vim'
 Plug 'https://github.com/tpope/vim-fugitive'
+Plug 'https://github.com/tpope/vim-repeat'
 Plug 'https://github.com/tpope/vim-sensible'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/w0rp/ale'
@@ -28,9 +30,14 @@ call plug#end()
 let g:ale_lint_delay = 1000
 
 
+" Emmet Vim -------------------------------------------------------------------
+let g:user_emmet_install_global = 0
+autocmd FileType html,css EmmetInstall
+
 " FZF -------------------------------------------------------------------------
 nmap <leader>f :FZF<CR>
-let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git'
+nnoremap <leader>/ :Rg<space>
+let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules --exclude venv'
 
 
 " Lightline ------------------------------------------------------------------
@@ -40,7 +47,7 @@ let g:lightline = {
       \ 'colorscheme': 'deus',
       \ 'active': {
       \   'left': [ [ 'mode' ],
-      \             [ 'fugitive', 'readonly', 'filename', 'modified', 'paste' ] ]
+      \             [ 'readonly', 'filename', 'modified', 'paste' ] ]
       \ },
       \ 'component_function': {
       \   'fugitive': 'LightlineFugitive',
@@ -73,6 +80,7 @@ function! LightlineReadonly()
   endif
 endfunction
 
+" fiugitive get head Seems to slow down things when scrolling slow
 function! LightlineFugitive()
   if exists("*fugitive#head")
     let branch = fugitive#head()

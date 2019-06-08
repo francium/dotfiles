@@ -30,7 +30,8 @@ colo one
 let &colorcolumn=80 . "," . join(range(90,500),",")
 
 " Text width
-set tw=90
+" 0 = no wrapping
+set tw=0
 
 " Show special characters
 set list
@@ -75,3 +76,20 @@ autocmd BufEnter * set mouse=
 autocmd BufWinEnter,WinEnter term://* startinsert
 " Disable spelling and line numbers
 autocmd TermOpen term://* set nospell | set nonu
+
+
+" " Disable parentheses matching depends on system. This way we should address all cases (?)
+" set noshowmatch
+" " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
+" " Trying disable MatchParen after loading all plugins
+" "
+" function! g:FckThatMatchParen ()
+"     if exists(":NoMatchParen")
+"         :NoMatchParen
+"     endif
+" endfunction
+"
+" augroup plugin_initialize
+"     autocmd!
+"     autocmd VimEnter * call FckThatMatchParen()
+" augroup END
