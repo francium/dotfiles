@@ -13,12 +13,12 @@ Clone this repository into your `$HOME` directory and `cd` into the clone repo.
 
 
 ## Install
-
+    git clone --recursive -j 4 <repo URL>
+    cd dotfiles
     make install
-    make init
 
 Vim requires separate initialization using `:PlugInstall` from the Vim command line.
-Tmux requires separate initialization using `<prefix><shift><i>`.
+Tmux requires separate initialization using `<prefix> <shift><i>`.
 
 
 ## Updating
