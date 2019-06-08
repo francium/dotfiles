@@ -22,6 +22,7 @@
 # Utils
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='python -m http.server'
+    alias httpsserve='~/linux-scripts/httpsserve'
 
 
 # NodeJS
