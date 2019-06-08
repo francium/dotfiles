@@ -1,4 +1,5 @@
 # General
+    alias reload='source ~/.bashrc'
     alias :q='exit'
     alias :wq='exit'
     alias ..='cd ..'
@@ -96,4 +97,12 @@ function log {
         echo -e "# `date '+%A, %B %d %Y'`\n\n\n" > $filename
     fi
     $EDITOR $filename
+}
+
+# Use fzf to find a file and open it in the $EDITOR
+function fe {
+    FILE=`fzf`
+    if [ $? == 0 ]; then
+        $EDITOR $FILE
+    fi
 }
