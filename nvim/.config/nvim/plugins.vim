@@ -20,9 +20,17 @@ Plug 'https://github.com/w0rp/ale'
 " HTML
 Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
 
+" Rust
+Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
+
+" Zig
+Plug 'https://github.com/ziglang/zig.vim', {'for': 'zig'}
+
 " Colorschemes
 Plug 'https://github.com/morhetz/gruvbox'
 Plug 'https://github.com/rakr/vim-one'
+Plug 'https://github.com/endel/vim-github-colorscheme'
+Plug 'https://github.com/srcery-colors/srcery-vim'
 call plug#end()
 
 
