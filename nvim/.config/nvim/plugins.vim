@@ -20,6 +20,9 @@ Plug 'https://github.com/w0rp/ale'
 " HTML
 Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
 
+" Typescript
+Plug 'https://github.com/leafgarland/typescript-vim', {'for': 'typescript'}
+
 " Rust
 Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
 
