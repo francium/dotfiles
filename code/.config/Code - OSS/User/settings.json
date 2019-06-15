@@ -1,6 +1,6 @@
 {
-    "editor.fontFamily": "'Source Code Pro Semibold', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
-    "editor.fontSize": 10,
+    "editor.fontFamily": "'Source Code Pro Medium', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontSize": 11,
     "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": false,
@@ -10,6 +10,19 @@
     "editor.suggestOnTriggerCharacters": false,
 
     "files.insertFinalNewline": true,
+    "files.exclude": {
+        "**/node_modules": true,
+        "**/venv": true,
+        "**/.mypy_cache": true,
+    },
+    "files.watcherExclude": {
+        "**/venv/**": true,
+        "**/.mypy_cache/**": true,
+    },
+    "search.exclude": {
+        "**/venv": true,
+        "**/.mypy_cache": true,
+    },
 
     "git.autofetch": true,
     "gitlens.defaultDateStyle": "absolute",
@@ -26,6 +39,7 @@
 
     "window.menuBarVisibility": "toggle",
     "window.titleBarStyle": "custom",
+    "breadcrumbs.enabled": false,
     "window.zoomLevel": 0,
 
     "workbench.editor.enablePreview": false,
@@ -36,11 +50,13 @@
         // "activityBar.background": "#1A1A1A",
         // "sideBar.background": "#1A1A1A"
     },
-    "workbench.colorTheme": "GitHub Plus",
+    "workbench.colorTheme": "Light Delight",
     "workbench.sideBar.location": "left",
     "workbench.statusBar.visible": true,
-    // To allow jk in sidebar
+    // To allow movement using jk in sidebar
     "workbench.list.keyboardNavigation": "simple",
+    "workbench.activityBar.visible": false,
+    "workbench.tree.indent": 24,
 
     // Lang
     "[javascript]": {
@@ -59,9 +75,7 @@
         "editor.tabSize": 2
     },
 
-    // Scrolloff
-    "scrolloff.scrolloff": 5,
-    "workbench.activityBar.visible": false,
+    // PLUGINS /////////////////////////////////////////////////////////////////
 
     // Vim extension
     "vim.mouseSelectionGoesIntoVisualMode": false,
@@ -69,7 +83,6 @@
     "vim.history": 100,
     "vim.enableNeovim": false,
     "vim.neovimPath": "/usr/bin/nvim",
-
     "vim.normalModeKeyBindings": [{
         "before": ["H"],
         "after": ["g", "T"]
@@ -87,5 +100,12 @@
         "commands" : [
             "redo"
         ]
-    }]
+    }],
+
+    // Gitlens
+    "gitlens.views.repositories.location": "gitlens",
+    "gitlens.views.fileHistory.location": "gitlens",
+    "gitlens.views.lineHistory.location": "gitlens",
+    "gitlens.views.compare.location": "gitlens",
+    "gitlens.views.search.location": "gitlens",
 }
