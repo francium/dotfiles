@@ -20,7 +20,7 @@
     ss = status
     cm = commit
     cmempty = commit --allow-empty --allow-empty-message -m ''
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
+    lg = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold blue)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s'
     cloner = clone --recursive -j 4
     subinit = submodule update --init --recursive
     prune-remote = remote prune origin
