@@ -1,7 +1,7 @@
 {
-    "editor.fontFamily": "'Source Code Pro Medium', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "'Source Code Pro Semibold', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontSize": 11,
-    "editor.formatOnSave": true,
+    // "editor.formatOnSave": true,
     // "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
     "editor.parameterHints.enabled": false,
@@ -33,7 +33,6 @@
         "**/.mypy_cache": true,
     },
     "git.autofetch": true,
-    "gitlens.defaultDateStyle": "absolute",
     "telemetry.enableCrashReporter": false,
     "telemetry.enableTelemetry": false,
     "terminal.integrated.cursorBlinking": true,
@@ -121,6 +120,7 @@
         }
     ],
     // Gitlens
+    "gitlens.defaultDateStyle": "absolute",
     "gitlens.views.repositories.location": "gitlens",
     "gitlens.views.fileHistory.location": "gitlens",
     "gitlens.views.lineHistory.location": "gitlens",
@@ -133,4 +133,5 @@
     "elm.formatCommand": "~/.nvm/versions/node/v10.12.0/bin/elm-format",
     "elm.analyseCommand": "~/.nvm/versions/node/v10.12.0/bin/elm-analyse",
     "elm.makeCommand": "~/.nvm/versions/node/v10.12.0/bin/elm-make",
+    "workbench.startupEditor": "newUntitledFile",
 }
