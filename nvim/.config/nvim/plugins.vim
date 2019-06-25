@@ -1,10 +1,13 @@
 call plug#begin()
+Plug 'https://github.com/Shougo/denite.nvim'
+Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/airblade/vim-gitgutter'
-" Plug 'https://github.com/andymass/vim-matchup'
+Plug 'https://github.com/andymass/vim-matchup'
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/jistr/vim-nerdtree-tabs'
 Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/kshenoy/vim-signature'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
 Plug 'https://github.com/scrooloose/nerdcommenter'
@@ -17,11 +20,21 @@ Plug 'https://github.com/tpope/vim-sensible'
 Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/w0rp/ale'
 
+" Elm
+Plug 'https://github.com/ElmCast/elm-vim', {'for': 'elm'}
+
 " HTML
 Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
 
 " Typescript
 Plug 'https://github.com/leafgarland/typescript-vim', {'for': 'typescript'}
+Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
+Plug 'mhartington/nvim-typescript', {'do': './install.sh'}
+    let g:nvim_typescript#default_mappings=1
+    " TODO: Map :TS* commands to shortcuts only for *.ts files
+    " TODO: Research and fix
+    " autocmd! BufEnter *.ts noremap gh :TSDefPreview<CR>
+    " autocmd! BufLeave *.ts nunmap gh
 
 " Rust
 Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
@@ -41,11 +54,16 @@ call plug#end()
 let g:ale_lint_delay = 1000
 
 
+" Deoplete --------------------------------------------------------------------
+let g:deoplete#enable_at_startup = 1
+
+
 " Emmet Vim -------------------------------------------------------------------
 let g:user_emmet_install_global = 0
 autocmd FileType html,css EmmetInstall
 
 " FZF -------------------------------------------------------------------------
+nmap <leader>; :Commands<CR>
 nmap <leader>f :FZF<CR>
 nnoremap <leader>/ :Rg<space>
 let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules --exclude venv'
@@ -126,10 +144,12 @@ let NERDTreeIgnore = [ '\.swp$',
                      \ '\.egg-info$',
                      \ '\.git$' ]
 
+nmap <leader>g :NERDTreeFind<CR>
+
 
 " NERDTREE tabs --------------------------------------------------------------
 " Map Ctrl+n to toggle (Using nerdtree tabs instead)
-map <C-n> :NERDTreeTabsToggle<CR>
+nmap <C-n> :NERDTreeTabsToggle<CR>
 
 " Open on console startup
 let g:nerdtree_tabs_open_on_console_startup = 0
