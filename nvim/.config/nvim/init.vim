@@ -18,6 +18,18 @@ source ~/.config/nvim/mappings.vim
 " Spelling
 set spell
 
+" Case insensitive searching by default
+set ignorecase
+
+" Highlight current line
+set cursorline
+
+" Us memory for swapfiles -- Won't be able to recover files after a system
+" crash, but will allow warning when opening the same file in multiple
+" instances
+" Double slash tells vim to use full filename to avoid collisions
+set directory=/dev/shm//
+
 " Color
 let g:gruvbox_contrast_dark='hard'
 let g:gruvbox_contrast_light='hard'

@@ -55,6 +55,10 @@ nnoremap <A-8> :tabn8<CR>
 nnoremap <A-9> :tabn8<CR>
 nnoremap <A-0> :tabn10<CR>
 
+" Tab reordering
+nmap <leader>,, :tabm -1<CR>
+nmap <leader>.. :tabm +1<CR>
+
 " jj -> esc
 imap jj <ESC>
 
