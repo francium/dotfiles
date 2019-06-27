@@ -3,10 +3,15 @@ Plug 'https://github.com/Shougo/denite.nvim'
 Plug 'https://github.com/Shougo/deoplete.nvim'
 Plug 'https://github.com/airblade/vim-gitgutter'
 Plug 'https://github.com/andymass/vim-matchup'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 Plug 'https://github.com/christoomey/vim-tmux-navigator'
 Plug 'https://github.com/itchyny/lightline.vim'
 Plug 'https://github.com/jistr/vim-nerdtree-tabs'
 Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'https://github.com/justinmk/vim-sneak'
 Plug 'https://github.com/kshenoy/vim-signature'
 Plug 'https://github.com/ludovicchabant/vim-gutentags'
 Plug 'https://github.com/ntpeters/vim-better-whitespace'
@@ -65,11 +70,19 @@ autocmd FileType html,css EmmetInstall
 " FZF -------------------------------------------------------------------------
 nmap <leader>; :Commands<CR>
 nmap <leader>f :FZF<CR>
+nmap <leader>b :Buffers<CR>
 nnoremap <leader>/ :Rg<space>
-let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules --exclude venv'
+let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .git --exclude node_modules --exclude venv --exclude elm-stuff'
 
 
-" Lightline ------------------------------------------------------------------
+" LanguageClient --------------------------------------------------------------
+let g:LanguageClient_serverCommands = {
+    \ 'rust': ['~/.cargo/bin/rustup', 'run', 'stable', 'rls'],
+    \ 'python': ['pyls'],
+    \ }
+
+
+" Lightline -------------------------------------------------------------------
 " Don't show default mode label
 set noshowmode
 let g:lightline = {
