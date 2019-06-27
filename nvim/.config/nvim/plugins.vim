@@ -26,7 +26,8 @@ Plug 'https://github.com/tpope/vim-surround'
 Plug 'https://github.com/w0rp/ale'
 
 " Elm
-Plug 'https://github.com/ElmCast/elm-vim', {'for': 'elm'}
+" Fork with some fixes
+Plug 'https://github.com/francium/elm-vim', {'for': 'elm'}
 
 " HTML
 Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
