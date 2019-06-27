@@ -65,8 +65,8 @@ imap jj <ESC>
 " write
 nnoremap <leader>s :w<CR>
 
-" Search highlights clear using Space
-nnoremap <silent> <Space> :nohlsearch<Bar>:echo<CR>
+" Search highlights clear using escape
+nnoremap <silent> <esc> :nohlsearch<Bar>:echo<CR>
 
 " Search current word under cursor without jumping
 nnoremap * *``
