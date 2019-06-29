@@ -28,6 +28,10 @@ Plug 'https://github.com/w0rp/ale'
 " Elm
 " Fork with some fixes
 Plug 'https://github.com/francium/elm-vim', {'for': 'elm'}
+    " elm-vim relies on Elm Oracle, which doesn't support Elm 0.19, so disable
+    " for now
+    autocmd BufEnter *.elm execute 'call deoplete#disable()'
+    autocmd BufLeave *.elm execute 'call deoplete#enable()'
 
 " HTML
 Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
