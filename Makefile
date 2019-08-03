@@ -6,6 +6,7 @@ install:
 		nvim \
 		mpv \
 		ranger \
+		sway \
 		tmux \
 		zathura
 
@@ -22,5 +23,6 @@ uninstall:
 		nvim \
 		mpv \
 		ranger \
+		sway \
 		tmux \
 		zathura
