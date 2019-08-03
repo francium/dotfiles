@@ -68,8 +68,9 @@ nnoremap <leader>s :w<CR>
 " Search highlights clear using escape
 nnoremap <silent> <esc> :nohlsearch<Bar>:echo<CR>
 
+" NOTE: Disabled b/c it seems to do weird jumping sometimes
 " Search current word under cursor without jumping
-nnoremap * *``
+" nnoremap * *``
 
 " clipboard shortcuts (copy, paste)
 map <leader>y "+y:echo "Copied to clipboard"<CR>
