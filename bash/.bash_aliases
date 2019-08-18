@@ -36,6 +36,7 @@
 
 # Vim
     alias n='nvim'
+    alias nd='d=1 nvim' # dark theme
     # Reopen last file edited with vim
     alias :e='nvim $( history | sed -n "s/^ *[0-9][0-9]* *vim *\(.*\)/\1/p" | tail -1 )'
 
