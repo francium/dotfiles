@@ -1,7 +1,7 @@
 " Reload config
 nnoremap <F8> :so $MYVIMRC<CR>
 
-" TERMINAL ---------------------------------------------------------------------
+" {{{ TERMINAL ---------------------------------------------------------------------
 " More sensible terminal opening commands
 ca term :split term://bash
 ca vterm :vsplit term://bash
@@ -19,6 +19,7 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " causing fzf to go into normal mode instead of closing)
 autocmd BufEnter term://.*:bash tnoremap <ESC> <C-\><C-n>
 autocmd BufLeave term://.*:bash tunmap <ESC>
+" }}} --------------------------------------------------------------------------
 
 " SPLITTING --------------------------------------------------------------------
 " Disabled because Tmux Vim Navigator mappings are used to handle movement
@@ -84,7 +85,7 @@ vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 " JSON Formatting
 nmap <leader>jf :%!python -m json.tool<CR>
 
-" Toggle darkness
+" Toggle light/dark colorscheme
 function! ToggleBackgroundDarkness()
     if &background ==# "light"
         set background=dark
@@ -107,3 +108,5 @@ nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 " nnoremap <leader>j :m+<cr>==
 " xnoremap <leader>k :m-2<cr>gv=gv
 " xnoremap <leader>j :m'>+<cr>gv=gv
+
+" vim: set foldmethod=marker:

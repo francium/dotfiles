@@ -1,0 +1,19 @@
+{
+    "coc.preferences.formatOnSaveFiletypes": [
+        "python",
+        "rust",
+        "css",
+        "markdown",
+        "Markdown",
+        "javascript",
+        "javascriptreact",
+        "typescript",
+        "typescriptreact",
+    ],
+    "diagnostic.signOffset": 9999999,
+    "diagnostic.warningSign": "⫸",
+    "diagnostic.errorSign": "✖",
+    "diagnostic.infosign": "‼️",
+    "diagnostic.hintSign": "❗",
+    // "suggest.autoTrigger": "none"
+}

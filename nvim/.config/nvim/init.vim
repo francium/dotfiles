@@ -1,19 +1,17 @@
-" Fixes -----------------------------------------------------------------------
-" If you use vim inside tmux, see https://github.com/vim/vim/issues/993
-" " set Vim-specific sequences for RGB colors
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
-
-" Light colorshcmes background issue
-set t_ut=
-
-if (has("termguicolors"))
-    set termguicolors
-endif
-" -----------------------------------------------------------------------------
-
 source ~/.config/nvim/plugins.vim
 source ~/.config/nvim/mappings.vim
+
+" Color
+colo one
+if $d
+    set bg=dark
+else
+    set bg=light
+endif
+" highlight Folded guifg=NONE guibg=#302D2A gui=bold
+
+" undo history
+set undolevels=25000
 
 " Hidden buffers
 " Required by some plugins to allow refactoring
@@ -38,25 +36,13 @@ set cursorline
 " Double slash tells vim to use full filename to avoid collisions
 set directory=/dev/shm//
 
-" Color
-let g:gruvbox_contrast_dark='hard'
-let g:gruvbox_contrast_light='hard'
-set bg=light
-colo one
-" highlight Folded guifg=NONE guibg=#302D2A gui=bold
-
 " 90 column warning
-" set colorcolumn=80,90
+set colorcolumn=80,90,100
 " Margin at 80 and solid background after 90
-let &colorcolumn=80 . "," . join(range(90,500),",")
-
-" Text width
-" 0 = no wrapping
-set tw=0
+" let &colorcolumn=80 . "," . join(range(90,500),",")
 
 " Show special characters
 set list
-
 " Show tabs
 set listchars=tab:░░
 
@@ -68,6 +54,10 @@ set number
 
 " Scroll padding
 set so=2
+
+" Text width
+" 0 = no wrapping
+set tw=0
 
 " No tab characters
 set expandtab
@@ -98,28 +88,7 @@ autocmd BufWinEnter,WinEnter term://* startinsert
 " Disable spelling and line numbers
 autocmd TermOpen term://* set nospell | set nonu
 
-" -----------------------------------------------------------------------------
-"  NOTE: Disabled b/c performance can be improved by using a faster terminal
-"  emulator instead of disabling paren matching
-" -----------------------------------------------------------------------------
-" " Disable parentheses matching depends on system. This way we should address all cases (?)
-" set noshowmatch
-" " NoMatchParen " This doesnt work as it belongs to a plugin, which is only loaded _after_ all files are.
-" " Trying disable MatchParen after loading all plugins
-" "
-" function! g:FckThatMatchParen ()
-"     if exists(":NoMatchParen")
-"         :NoMatchParen
-"     endif
-" endfunction
-"
-" augroup plugin_initialize
-"     autocmd!
-"     autocmd VimEnter * call FckThatMatchParen()
-" augroup END
-" -----------------------------------------------------------------------------
-
-" Triger `autoread` when files changes on disk --------------------------------
+" {{{ Triger `autoread` when files changes on disk ----------------------------
 " Source: https://unix.stackexchange.com/a/383044
 " https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
 " https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
@@ -128,9 +97,9 @@ autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checkti
 " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
 autocmd FileChangedShellPost *
   \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-" -----------------------------------------------------------------------------
+" }}} -------------------------------------------------------------------------
 
-" Pretty folded text ----------------------------------------------------------
+" {{{ Pretty folded text ------------------------------------------------------
 " `foo { ... }`
 " Source: https://coderwall.com/p/usd_cw/a-pretty-vim-foldtext-function
 set foldtext=FoldText()
@@ -168,4 +137,20 @@ function! FoldText()
 
     return l:text . repeat(' ', l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
 endfunction
+" }}} -------------------------------------------------------------------------
+
+" Fixes -----------------------------------------------------------------------
+" If you use vim inside tmux, see https://github.com/vim/vim/issues/993
+" " set Vim-specific sequences for RGB colors
+set t_8b=^[[48;2;%lu;%lu;%lum
+set t_8f=^[[38;2;%lu;%lu;%lum
+
+" Light colorshcmes background issue
+set t_ut=
+
+if (has("termguicolors"))
+    set termguicolors
+endif
 " -----------------------------------------------------------------------------
+
+" vim: set foldmethod=marker:
