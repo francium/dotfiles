@@ -4,6 +4,7 @@ Note: Some configs are Linux specific.
 # Requirements
 
 - Make (installation)
+- Stow (installing files)
 - git (initializing plugins)
 
 
