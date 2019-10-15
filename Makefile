@@ -1,6 +1,7 @@
 install:
 	stow \
 		bash \
+		bin \
 		code \
 		gitconfig \
 		nvim \
@@ -18,6 +19,7 @@ update:
 uninstall:
 	stow -D \
 		bash \
+		bin \
 		code \
 		gitconfig \
 		nvim \

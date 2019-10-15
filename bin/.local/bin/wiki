@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Set terminal title
+PROMPT_COMMAND=
+echo -en "\033]0;Wiki\a"
+
+# Open wiki
+nvim "+cd ~/wiki" ~/wiki/index.md

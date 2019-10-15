@@ -1,0 +1,8 @@
+#!/bin/sh
+
+name=`zenity --entry --text="Enter file name"`
+folder=`date +%F`
+mkdir $folder
+cd $folder
+convert "$1" "$name.pdf"
+

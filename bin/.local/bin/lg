@@ -1,0 +1,26 @@
+#!/bin/bash
+
+pushd . > /dev/null
+
+if [ ! -e ~/logs ]; then
+    mkdir ~/logs
+fi
+cd ~/logs
+
+filename=`date +%Y-%m-%d`.md
+if [ ! -e $filename ]; then
+    echo -e "# `date '+%A, %B %d %Y'`\n\n\n" > $filename
+fi
+nvim $filename
+
+# -N lets git know we intend to add unstaged files and allows -p to work with untracked
+# files
+git add -N .
+git add -p
+git commit -vv --allow-empty-message
+if [ $? == 0 ]; then
+    git pull origin master
+    git push origin master
+fi
+
+popd > /dev/null

@@ -1,0 +1,31 @@
+#!/usr/bin/env python
+
+# https://www.piware.de/2011/01/creating-an-https-server-in-python/
+# generate server.xml with the following command (**note that the keyout and out arguments
+# point to the same file, this file will contain both the cert and private key**):
+#    openssl req -new -x509 -keyout server.pem -out server.pem -days 365 -nodes
+# run as follows:
+#    httpsserve cert.pem 8000
+# then in your browser, visit (**Make sure you visit using the https protocol otherwise
+# the browser will not load anything**):
+#    https://localhost:8000
+
+from http.server import HTTPServer, SimpleHTTPRequestHandler
+import ssl
+from sys import argv
+
+certfile = argv[1]
+port = int(argv[2])
+host='0.0.0.0'
+
+class RequestHandler(SimpleHTTPRequestHandler):
+    def end_headers(self):
+        #  self.send_header('Access-Control-Allow-Origin', '*')
+        #  self.send_header('Access-Control-Allow-Methods', '*')
+        #  self.send_header('Access-Control-Allow-Headers', '*')
+        SimpleHTTPRequestHandler.end_headers(self)
+
+httpd = HTTPServer((host, port), RequestHandler)
+httpd.socket = ssl.wrap_socket(httpd.socket, certfile=certfile, server_side=True)
+print(f'Starting server on https://{host}:{port}')
+httpd.serve_forever()
