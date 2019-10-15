@@ -15,5 +15,6 @@
     "diagnostic.errorSign": "✖",
     "diagnostic.infosign": "‼️",
     "diagnostic.hintSign": "❗",
+    "diagnostic.refreshOnInsertMode": true
     // "suggest.autoTrigger": "none"
 }

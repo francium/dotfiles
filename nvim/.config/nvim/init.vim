@@ -36,6 +36,11 @@ set cursorline
 " Double slash tells vim to use full filename to avoid collisions
 set directory=/dev/shm//
 
+" Time to write swapfile to disk (improves coc.vim responsiveness)
+" Use with in memory swap files to reduce disk io
+set updatetime=300
+
+
 " 90 column warning
 set colorcolumn=80,90,100
 " Margin at 80 and solid background after 90
