@@ -38,6 +38,11 @@ session) to update plugins.
 ```
 
 
+## Private bash modules
+Each directory under `~/.bash_private/` that has a `init.sh` script will be
+sourced
+
+
 ## Installing Coc Plugins
 See https://github.com/neoclide/coc.nvim/wiki/Language-servers for additional
 plugins

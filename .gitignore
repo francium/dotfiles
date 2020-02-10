@@ -1,3 +1,4 @@
+bash/.bash_private/*
 tmux/.tmux/plugins/
 nvim/.config/nvim/spell
 nvim/.config/nvim/plugged
