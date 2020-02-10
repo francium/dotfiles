@@ -5,6 +5,11 @@ nmap <leader><f2> :tabedit $MYVIMRC<CR>
 
 " Basic -----------------------------------------------------------------------
 
+func! Eatchar(pat)
+    let c =  nr2char(getchar(0))
+    return (c=~ a:pat) ? '' : c
+endfunc
+
 " jj -> esc
 imap jj <ESC>
 
@@ -22,6 +27,10 @@ nnoremap * *``
 map <leader>y "+y:echo "Copied to clipboard"<CR>
 imap <leader>p <C-R>+":echo "Pasted from clipboard"<CR>
 map <leader>p "+p:echo "Copied to clipboard"<CR>
+
+" iabbr <silent> if if ()<left><c-r>=Eatchar('\s')<cr>
+" iabbr <silent> while while ()<left><c-r>=Eatchar('\s')<cr>
+" iabbr <silent> for for ()<left><c-r>=Eatchar('\s')<cr>
 
 " Sort words
 " DrAl, spatz from StackOverflow
