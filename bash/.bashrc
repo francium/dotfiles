@@ -1,28 +1,21 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [ -e /usr/share/terminfo/x/xterm-256color ] && [ "$COLORTERM" ==\
-    "gnome-terminal" ]
+if [ -e /usr/share/terminfo/x/xterm-256color ] && [ "$COLORTERM" == "gnome-terminal" ]
 then
     export TERM=xterm-256color
 fi
-
 ##############################################################################
+
 
 # Bash history size
 HISTSIZE=100000
 
+
 export EDITOR=nvim
-export PATH=$PATH:~/.local/bin
+export PATH=$PATH:~/.local/bin:~/bin
 export XDG_CONFIG_HOME=~/.config
 
-export FZF_DEFAULT_COMMAND='fd --exclude .git --exclude node_modules --hidden .'
-export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
-export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
-export BAT_THEME="Monokai Extended Light"
-
-# Ranger
-export TERMCMD="gnome-terminal"
 
 # Bash vi mode
 # set -o vi
@@ -30,18 +23,33 @@ export TERMCMD="gnome-terminal"
 # Cycle command completion mode
 bind TAB:menu-complete
 
-# Modules
-source ~/.bash_prompt
-source ~/.bash_aliases
 
-# nvm
-source /usr/share/nvm/init-nvm.sh 2> /dev/null
+# Modules
+[[ -f ~/.bash_prompt ]] && source ~/.bash_prompt
+[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
+[[ -f ~/.bash_fzf ]] && source ~/.bash_fzf
+[[ -f ~/.bash_work ]] && source ~/.bash_work
+
+
+# Bat
+export BAT_THEME="Monokai Extended Light"
+
+
+# Ranger
+export TERMCMD="gnome-terminal"
+
 
 # git-subrepo
-source ~/.local/bin/git-subrepo/.rc 2> /dev/null
+[[ -f ~/.local/bin/git-subrepo/.rc ]] && source ~/.local/bin/git-subrepo/.rc
 
-# FZF keybindings
-source /usr/share/fzf/key-bindings.bash
 
 # https://github.com/rupa/z
-[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+[[ -f /usr/share/z/z.sh ]] && source /usr/share/z/z.sh
+
+
+# NVM
+source /usr/share/nvm/init-nvm.sh 2> /dev/null
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+export PATH=$PATH:`npm config --global get prefix`/bin

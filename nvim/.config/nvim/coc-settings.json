@@ -1,20 +1,40 @@
 {
-    "coc.preferences.formatOnSaveFiletypes": [
-        "python",
-        "rust",
-        "css",
-        "markdown",
-        "Markdown",
-        "javascript",
-        "javascriptreact",
-        "typescript",
-        "typescriptreact",
-    ],
+    // Can't enable this without losing coc completion in omni complete, but
+    // without it get coc warning spam while in insert mode
+    // "suggest.autoTrigger": "none",
     "diagnostic.signOffset": 9999999,
-    "diagnostic.warningSign": "⫸",
-    "diagnostic.errorSign": "✖",
-    "diagnostic.infosign": "‼️",
-    "diagnostic.hintSign": "❗",
-    "diagnostic.refreshOnInsertMode": true
-    // "suggest.autoTrigger": "none"
+    "diagnostic.warningSign": "⚠️",
+    "diagnostic.errorSign": "⛔",
+    "diagnostic.infosign": "ℹ",
+    "diagnostic.hintSign": "ℹ",
+    "suggest.timeout": 5000,
+    "suggest.completionItemKindLabels": {
+        "keyword": "kw",
+        "variable": "var",
+        "value": "val",
+        "operator": "oper",
+        "function": "func",
+        "reference": "ref",
+        "constant": "cnst",
+        "method": "mthd",
+        "struct": "strc",
+        "class": "clss",
+        "interface": "ifce",
+        "text": "txt",
+        "enum": "enum",
+        "enumMember": "enumbr",
+        "module": "module",
+        "color": "color",
+        "property": "prop",
+        "field": "field",
+        "unit": "unit",
+        "event": "evnt",
+        "file": "file",
+        "folder": "folder",
+        "snippet": "snip",
+        "typeParameter": "type", "default": "typdft"
+    },
+
+    // Let coc download language server and use it
+    "python.jediEnabled": false
 }

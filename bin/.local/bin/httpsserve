@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # https://www.piware.de/2011/01/creating-an-https-server-in-python/
 # generate server.xml with the following command (**note that the keyout and out arguments
