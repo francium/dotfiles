@@ -4,6 +4,7 @@ install:
 		bin \
 		code \
 		gitconfig \
+		npm \
 		nvim \
 		mpv \
 		ranger \
@@ -26,6 +27,7 @@ uninstall:
 		bin \
 		code \
 		gitconfig \
+		npm \
 		nvim \
 		mpv \
 		ranger \
