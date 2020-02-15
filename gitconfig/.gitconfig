@@ -1,6 +1,8 @@
+[include]
+    # Variable config such as email and name
+    path = ~/.gitconfig_private
 [user]
-    email = francium@francium.cc
-    name = francium
+    # Should be set in `~/.gitconfig_private`
 [credential]
     helper = cache
 [core]

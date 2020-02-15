@@ -38,6 +38,15 @@ session) to update plugins.
 ```
 
 
+## Per machine gitconfig
+Create a `~/.gitconfig_private` to allow a per-machine config
+```
+[user]
+    email = bob@example.com
+    name = bob
+```
+
+
 ## Private bash modules
 Each directory under `~/.bash_private/` that has a `init.sh` script will be
 sourced
