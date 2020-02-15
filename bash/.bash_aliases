@@ -28,6 +28,8 @@
 
 
 # Utils
+    alias sel='xclip -selection c'
+    alias pst='xclip -selection c -o'
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
     alias make-m3u-playlist='ls -l | grep -v .m3u > 00-playlist.m3u'

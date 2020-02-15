@@ -1,2 +1,42 @@
+## Set vi mode, instead of emacs
+# set editing-mode vi
+
+## Add indicator to editing mode
+# set show-mode-in-prompt on
+# set vi-ins-mode-string "\1\e[1;31m\2>> \1\e[0m\2"
+# set vi-cmd-mode-string "\1\e[1;31m\2:: \1\e[0m\2"
+
+
+## Cycle command completion mode
+TAB: menu-complete
+## shift-tab cycle backwards
+"\e[Z": menu-complete-backward
+
+## Cycle history using C-p, C-n (needed for vi mode)
+"\C-p":history-search-backward
+"\C-n":history-search-forward
+
+# Ctrl-left/right jump words in emacs mode
 "\e[1;5C": forward-word
 "\e[1;5D": backward-word
+
+
+## This line sets readline to display possible completions using different
+## colors to indicate their file types. The colors are determined by the
+## environmental variable LS_COLORS
+set colored-stats on
+
+
+## Append a '/' to completed symlinks to directories
+set mark-symlinked-directories on
+
+
+## Ignore case
+set completion-ignore-case on
+
+## Show all completions as soon as I press tab, even if there's more than one
+#set show-all-if-ambiguous on
+
+## on menu-complete, first display the common prefix, then cycle through the
+## options when hitting TAB
+#set menu-complete-display-prefix on

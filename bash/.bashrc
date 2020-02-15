@@ -17,13 +17,6 @@ export PATH=$PATH:~/.local/bin:~/bin
 export XDG_CONFIG_HOME=~/.config
 
 
-# Bash vi mode
-# set -o vi
-
-# Cycle command completion mode
-bind TAB:menu-complete
-
-
 # Modules
 [[ -f ~/.bash_prompt ]] && source ~/.bash_prompt
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
@@ -56,3 +49,7 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
 export PATH=$PATH:`npm config --global get prefix`/bin
+
+
+# NPM completion
+[[ -x "$(command -v npm)" ]] && source <(npm completion)
