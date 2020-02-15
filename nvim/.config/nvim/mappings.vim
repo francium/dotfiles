@@ -21,7 +21,13 @@ nnoremap <leader>wa :wall<CR>
 nmap <silent> <esc> :nohlsearch<Bar>:echo<CR>
 
 " Search current word under cursor without jumping
+" TODO: If there is no match, the cursor will jump back instead of staying on
+" current line
 nnoremap * *``
+" nmap * viw"zy:let @/=@z<CR>n``
+" Search selection
+vmap * y/<c-r>"<CR>``
+
 
 " clipboard shortcuts (copy, paste)
 map <leader>y "+y:echo "Copied to clipboard"<CR>
@@ -116,7 +122,11 @@ nmap <leader>l :vsplit <CR>
 " TABS -------------------------------------------------------------------------
 
 " Tab split
-nmap <C-t> :tab split<CR>
+" TODO: Might be gitten overridden by something
+nnoremap <C-t> :tab split<CR>
+
+" TODO: Close split and reopen in a new tab
+" copy current buffer number then `:tab b{buffer num}`
 
 " Tab switching
 au TabLeave * let g:lasttab = tabpagenr()
@@ -146,13 +156,12 @@ function! ToggleBackgroundDarkness()
     if &background ==# "light"
         set background=dark
         colorscheme one
+        call ConfigureVimOneColors()
     else
         set background=light
         colorscheme one
+        call ConfigureVimOneColors()
     endif
-
-    highlight ExtraWhitespace ctermbg=brown
-    highlight ExtraWhitespace guibg=orange
 endfunction
 map <F4> :call ToggleBackgroundDarkness()<CR>
 

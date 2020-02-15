@@ -8,7 +8,14 @@ let g:lightline = {
 \   'active': {
 \       'left': [
 \           [ 'mode' ],
-\           [ 'readonly', 'filename', 'modified', 'paste', 'langclient' ]
+\           [
+\             'readonly',
+\             'filename',
+\             'modified',
+\             'paste',
+\             'langclient',
+\             'cocStatus',
+\           ]
 \       ]
 \   },
 \   'component_function': {
@@ -16,6 +23,7 @@ let g:lightline = {
 \       'readonly': 'LightlineReadonly',
 \       'modified': 'LightlineModified',
 \       'langclient': 'LightlineLangClient',
+\       'cocStatus': 'coc#status',
 \   },
 \   'separator': { 'left': '', 'right': '' },
 \   'subseparator': { 'left': '│', 'right': '│' },

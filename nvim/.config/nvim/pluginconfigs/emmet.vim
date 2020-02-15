@@ -1,4 +1,7 @@
-Plug 'https://github.com/mattn/emmet-vim', {'for': 'html'}
+function! Plugin_InitEmmet()
+    let g:user_emmet_install_global = 0
+    autocmd FileType html,css EmmetInstall
+endfunction
 
-let g:user_emmet_install_global = 0
-autocmd FileType html,css EmmetInstall
+Plug 'https://github.com/mattn/emmet-vim', {'for': ['html', 'css']}
+autocmd! User emmet-vim call Plugin_InitEmmet()

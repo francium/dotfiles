@@ -13,108 +13,166 @@ endif
 " -----------------------------------------------------------------------------
 
 
-source ~/.config/nvim/plugins.vim
-source ~/.config/nvim/mappings.vim
+function! SourceModules()
+    source ~/.config/nvim/plugins.vim
+    source ~/.config/nvim/mappings.vim
+    if filereadable(expand('~/.vim_private/init.vim'))
+        source ~/.vim_private/init.vim
+    endif
+endfunction
 
-" Set undo limit
-set undolevels=25000
 
-" Allow switching buffers without saving
-set hidden
+function! BaseConfig()
+    syntax on
 
-" Spelling
-set spell
+    " File specific settings
+    filetype plugin indent on
 
-" Encoding
-"   Needed by vim-devicon
-set encoding=UTF-8
+    " Set undo limit
+    set undolevels=25000
 
-" Case insensitive searching by default, overridden by capitalized characters
-set ignorecase
-set smartcase
+    " Allow switching buffers without saving
+    set hidden
 
-set shiftround
+    " Spelling
+    set spell
 
-" Highlight current line
-set cursorline
+    " Encoding
+    "   Needed by vim-devicon
+    set encoding=UTF-8
 
-" Don't softwrap lines
-set nowrap
+    " Case insensitive searching by default, overridden by capitalized characters
+    set ignorecase
+    set smartcase
 
-" Disable swapfiles
-set noswapfile
+    set shiftround
 
-" Color
-colo one
-if $d
-    set bg=dark
-else
-    set bg=light
-endif
+    " Highlight current line
+    set cursorline
 
-" 90 column warning
-set colorcolumn=80,90,100
-" Margin at 80 and solid background after 90
-" let &colorcolumn=80 . "," . join(range(90,500),",")
+    " Don't softwrap lines
+    set nowrap
 
-" Text width
-" 0 = no wrapping
-set tw=0
+    " Disable swapfiles
+    set noswapfile
 
-" Show special characters
-set list
+    " 90 column warning
+    set colorcolumn=80,90,100
+    " Margin at 80 and solid background after 90
+    " let &colorcolumn=80 . "," . join(range(90,500),",")
 
-" Show tabs
-set listchars=tab:░░
+    " Text width
+    " 0 = no wrapping
+    set tw=0
 
-" Status line
-set laststatus=2
+    " Show special characters
+    set list
 
-" Line numbers
-set number
+    " Show tabs
+    set listchars=tab:░░
 
-" Scroll padding
-set so=2
+    " Status line
+    set laststatus=2
 
-" No tab characters
-set expandtab
+    " Line numbers
+    set number
 
-" Relative numbering seems to be fast enough when using Alacritty
-set relativenumber
+    " Scroll padding
+    set so=2
 
-" Indenting and tabbing
-set sw=4
-set ts=4
+    " No tab characters
+    set expandtab
 
-" File specific settings
-filetype plugin indent on
+    " Relative numbering seems to be fast enough when using Alacritty
+    set relativenumber
 
-" Fix deoplete being too eager and selecting first option automatically
-" set completeopt+=noinsert
-set completeopt =longest,menu
-set completeopt-=preview
+    " Indenting and tabbing
+    set sw=4
+    set ts=4
 
-" Include hyphenated words in completion
-set iskeyword+=-
+    " Fix deoplete being too eager and selecting first option automatically
+    " set completeopt+=noinsert
+    set completeopt =longest,menu
+    set completeopt-=preview
 
-" Backup files (~ files)and write directly instead of temp file (and rename)
-" to avoid issues with some build tools that watch files
-set nobackup
-set nowritebackup
-set backupcopy=yes
+    " Include hyphenated words in completion
+    set iskeyword+=-
+    set iskeyword-=:
 
-" Splitting
-set splitbelow
-set splitright
+    " Backup files (~ files)and write directly instead of temp file (and rename)
+    " to avoid issues with some build tools that watch files
+    set nobackup
+    set nowritebackup
+    set backupcopy=yes
 
-" Disable mouse clicking (scrolling not affected)
-autocmd BufEnter * set mouse=
+    " Splitting
+    set splitbelow
+    set splitright
 
-" Terminal
-" Start in insert mode
-autocmd BufWinEnter,WinEnter term://* startinsert
-" Disable spelling and line numbers
-autocmd TermOpen term://* set nospell | set nonu
+    " Disable mouse clicking (scrolling not affected)
+    autocmd BufEnter * set mouse=
+
+    " Terminal
+    " Start in insert mode
+    autocmd BufWinEnter,WinEnter term://* startinsert
+    " Disable spelling and line numbers
+    autocmd TermOpen term://* set nospell | set nonu
+endfunction
+
+
+" Triger `autoread` when files changes on disk
+" Source: https://unix.stackexchange.com/a/383044
+" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
+" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
+function! BaseConfig_AutoReloadFileOnChange()
+    autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
+    " Notification after file change
+    " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
+    autocmd FileChangedShellPost *
+    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+endfunction
+
+
+" Pretty folded text ----------------------------------------------------------
+" `foo { ... }`
+" Source: https://coderwall.com/p/usd_cw/a-pretty-vim-foldtext-function
+function! BaseConfig_FoldText()
+    set foldtext=FoldText()
+    function! FoldText()
+        let l:lpadding = &fdc
+        redir => l:signs
+        execute 'silent sign place buffer='.bufnr('%')
+        redir End
+        let l:lpadding += l:signs =~ 'id=' ? 2 : 0
+
+        if exists("+relativenumber")
+        if (&number)
+            let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
+        elseif (&relativenumber)
+            let l:lpadding += max([&numberwidth, strlen(v:foldstart - line('w0')), strlen(line('w$') - v:foldstart), strlen(v:foldstart)]) + 1
+        endif
+        else
+        if (&number)
+            let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
+        endif
+        endif
+
+        " expand tabs
+        let l:start = substitute(getline(v:foldstart), '\t', repeat(' ', &tabstop), 'g')
+        let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
+
+        let l:info = ' (' . (v:foldend - v:foldstart) . ')'
+        let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
+        let l:width = winwidth(0) - l:lpadding - l:infolen
+
+        let l:separator = ' … '
+        let l:separatorlen = strlen(substitute(l:separator, '.', 'x', 'g'))
+        let l:start = strpart(l:start , 0, l:width - strlen(substitute(l:end, '.', 'x', 'g')) - l:separatorlen)
+        let l:text = l:start . ' … ' . l:end
+
+        return l:text . repeat(' ', l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
+    endfunction
+endfunction
 
 
 " " Disable parentheses matching depends on system. This way we should address all cases (?)
@@ -134,52 +192,13 @@ autocmd TermOpen term://* set nospell | set nonu
 " augroup END
 
 
-" Triger `autoread` when files changes on disk
-" Source: https://unix.stackexchange.com/a/383044
-" https://unix.stackexchange.com/questions/149209/refresh-changed-content-of-file-opened-in-vim/383044#383044
-" https://vi.stackexchange.com/questions/13692/prevent-focusgained-autocmd-running-in-command-line-editing-mode
-autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | checktime | endif
-" Notification after file change
-" https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-autocmd FileChangedShellPost *
-  \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
-
-
-" Pretty folded text ----------------------------------------------------------
-" `foo { ... }`
-" Source: https://coderwall.com/p/usd_cw/a-pretty-vim-foldtext-function
-set foldtext=FoldText()
-function! FoldText()
-    let l:lpadding = &fdc
-    redir => l:signs
-      execute 'silent sign place buffer='.bufnr('%')
-    redir End
-    let l:lpadding += l:signs =~ 'id=' ? 2 : 0
-
-    if exists("+relativenumber")
-      if (&number)
-        let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
-      elseif (&relativenumber)
-        let l:lpadding += max([&numberwidth, strlen(v:foldstart - line('w0')), strlen(line('w$') - v:foldstart), strlen(v:foldstart)]) + 1
-      endif
-    else
-      if (&number)
-        let l:lpadding += max([&numberwidth, strlen(line('$'))]) + 1
-      endif
-    endif
-
-    " expand tabs
-    let l:start = substitute(getline(v:foldstart), '\t', repeat(' ', &tabstop), 'g')
-    let l:end = substitute(substitute(getline(v:foldend), '\t', repeat(' ', &tabstop), 'g'), '^\s*', '', 'g')
-
-    let l:info = ' (' . (v:foldend - v:foldstart) . ')'
-    let l:infolen = strlen(substitute(l:info, '.', 'x', 'g'))
-    let l:width = winwidth(0) - l:lpadding - l:infolen
-
-    let l:separator = ' … '
-    let l:separatorlen = strlen(substitute(l:separator, '.', 'x', 'g'))
-    let l:start = strpart(l:start , 0, l:width - strlen(substitute(l:end, '.', 'x', 'g')) - l:separatorlen)
-    let l:text = l:start . ' … ' . l:end
-
-    return l:text . repeat(' ', l:width - strlen(substitute(l:text, ".", "x", "g"))) . l:info
-endfunction
+" NOTE: To be able to override color highlighting, all highlighting commands
+" must be after the calls to
+" ```
+" filetype plugin indent on
+" syntax on
+" ```
+call BaseConfig()
+call BaseConfig_AutoReloadFileOnChange()
+call BaseConfig_FoldText()
+call SourceModules()

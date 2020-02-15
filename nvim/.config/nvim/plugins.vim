@@ -1,6 +1,10 @@
-function! InitPlugins()
+source ~/.config/nvim/colors.vim
+
+
+function! LoadPlugins()
     call plug#begin()
-    source ~/.config/nvim/colors.vim
+
+    call g:LoadColors()
 
     source ~/.config/nvim/pluginconfigs/ale.vim
     source ~/.config/nvim/pluginconfigs/coc.vim
@@ -13,6 +17,7 @@ function! InitPlugins()
     source ~/.config/nvim/pluginconfigs/nerdcommenter.vim
     source ~/.config/nvim/pluginconfigs/vim-tmux-navigator.vim
     source ~/.config/nvim/pluginconfigs/winresizer.vim
+    source ~/.config/nvim/pluginconfigs/vim-devicons.vim
 
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
@@ -22,7 +27,6 @@ function! InitPlugins()
     Plug 'https://github.com/justinmk/vim-sneak'
     Plug 'https://github.com/kshenoy/vim-signature'
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
-    " Plug 'https://github.com/ryanoasis/vim-devicons'
     Plug 'https://github.com/thirtythreeforty/lessspace.vim'
     Plug 'https://github.com/tpope/vim-fugitive'
     Plug 'https://github.com/tpope/vim-repeat'
@@ -32,8 +36,8 @@ function! InitPlugins()
     " Typescript ---------------------------------------------------------------
     Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
     Plug 'https://github.com/Quramy/vim-js-pretty-template', {'for': ['typescript']}
-        " autocmd! FileType typescript JsPreTmpl html
-        " autocmd! FileType typescript syn clear foldBraces
+    " autocmd! FileType typescript JsPreTmpl html
+    " autocmd! FileType typescript syn clear foldBraces
 
     " Rust ---------------------------------------------------------------------
     Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
@@ -44,13 +48,15 @@ function! InitPlugins()
     " Disabled -----------------------------------------------------------------
     " Plug 'https://github.com/ncm2/float-preview.nvim'
     " Plug 'https://github.com/ludovicchabant/vim-gutentags'
-        " appears that ctags can't handle long names, causing formatting errors
+    " appears that ctags can't handle long names, causing formatting errors
     " Plug 'https://github.com/liuchengxu/vista.vim'
-        " let g:vista_executive_for = {
-        " \ 'typescript': 'lcn',
-        " \ }
-        " nmap <C-m> :Vista!!<CR>
+    " let g:vista_executive_for = {
+    " \ 'typescript': 'lcn',
+    " \ }
+    " nmap <C-m> :Vista!!<CR>
 
     call plug#end()
 endfunction
-call InitPlugins()
+
+call LoadPlugins()
+call PostLoadColors()

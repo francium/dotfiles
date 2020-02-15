@@ -2,7 +2,10 @@
 " of every kind of file and language
 
 " only enable if `coc` env var set
-if $coc
+if !$coc
+    " Otherwise, enable lazy loading to ensure it does get installed
+    Plug 'neoclide/coc.nvim', {'branch': 'release', 'for': []}
+else
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     set cmdheight=1
