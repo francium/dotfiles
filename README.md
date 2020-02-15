@@ -43,6 +43,11 @@ Each directory under `~/.bash_private/` that has a `init.sh` script will be
 sourced
 
 
+## Vim
+Need to install extra packages for some things
+- `npm i -g neovim` (possibly for syntax highlighting in some cases)
+
+
 ## Installing Coc Plugins
 See https://github.com/neoclide/coc.nvim/wiki/Language-servers for additional
 plugins
