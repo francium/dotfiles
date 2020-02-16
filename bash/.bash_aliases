@@ -70,14 +70,10 @@ function findfile {
 watchexec() {
     # watchexec WATCHED_FILE "command to execute..."
     # Make sure command to execute is within strings.
+
     while true; do
-        inotifywait -e modify $1
-        rc=$?
-        if [ $rc == 1 ]; then
-            eval ${@:2}
-        else
-            echo "Unhandled return code $rc"
-        fi
+        inotifywait -e modify $1 2> /dev/null
+        eval $2
     done
 }
 

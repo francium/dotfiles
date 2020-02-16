@@ -111,10 +111,6 @@ nnoremap <C-x> <C-W>w:q<CR>
 " Quickly close focused split or window
 nnoremap <leader>q :q
 
-" Scrolling other split
-nmap <silent> <a-j> <C-W>w<C-E><C-W>w
-nmap <silent> <a-k> <C-W>w<C-Y><C-W>w
-
 nmap <leader>j :split<CR>
 nmap <leader>l :vsplit <CR>
 
