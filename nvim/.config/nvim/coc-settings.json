@@ -2,13 +2,13 @@
     "codeLens.enable": false,
     // Can't enable this without losing coc completion in omni complete, but
     // without it get coc warning spam while in insert mode
-    // "suggest.autoTrigger": "none",
+    "suggest.autoTrigger": "trigger",
     "diagnostic.signOffset": 9999999,
     "diagnostic.warningSign": "⚠️",
     "diagnostic.errorSign": "⛔",
     "diagnostic.infosign": "ℹ",
     "diagnostic.hintSign": "ℹ",
-    "suggest.timeout": 5000,
+    "suggest.timeout": 500,
     "suggest.completionItemKindLabels": {
         "keyword": "kw",
         "variable": "var",
@@ -40,4 +40,18 @@
     "python.jediEnabled": false,
 
     // "tsserver.trace.server": "verbose",
+
+    // C/C++/Obj-C
+    "languageserver": {
+        "ccls": {
+            "command": "ccls",
+            "filetypes": ["c", "cpp", "objc", "objcpp"],
+            "rootPatterns": [".ccls", "compile_commands.json", ".git/", ".hg/"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/ccls"
+                }
+            }
+        }
+    }
 }

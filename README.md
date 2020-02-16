@@ -63,3 +63,10 @@ plugins
 
 ### Rust
 `:CocInstall coc-rust-analyzer`
+
+### C/C++/Obj-C
+Installed the Clang language server
+```
+# Arch Linux
+pacman -S ccls
+```
