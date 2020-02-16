@@ -1,4 +1,12 @@
 {
+    // "coc.preferences.previewAutoClose": false,
+
+    "list.nextKeymap": "<C-n>",
+    "list.previousKeymap": "<C-p>",
+
+    // Use quickfix instead of default list view
+    "coc.preferences.useQuickfixForLocations": true,
+
     "codeLens.enable": false,
     // Can't enable this without losing coc completion in omni complete, but
     // without it get coc warning spam while in insert mode

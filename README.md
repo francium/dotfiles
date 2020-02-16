@@ -61,6 +61,11 @@ Need to install extra packages for some things
 See https://github.com/neoclide/coc.nvim/wiki/Language-servers for additional
 plugins
 
+### Use coc-marketplace to quick fix and list extensions
+`:CocInstall coc-marketplace`
+
+- List extensions: `CocList marketplace`
+
 ### Rust
 `:CocInstall coc-rust-analyzer`
 
