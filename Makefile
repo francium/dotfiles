@@ -4,6 +4,7 @@ install:
 		bin \
 		code \
 		gitconfig \
+		inputrc \
 		nautilus \
 		npm \
 		nvim \
@@ -28,6 +29,7 @@ uninstall:
 		bin \
 		code \
 		gitconfig \
+		inputrc \
 		nautilus \
 		npm \
 		nvim \

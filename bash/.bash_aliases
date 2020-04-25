@@ -18,6 +18,7 @@
     # -v prints out each directory created
     alias mkdir='mkdir -pv'
     alias open='xdg-open'
+    alias dotfiles='cd ~/dotfiles'
 
 
 # System
@@ -60,17 +61,6 @@ function name {
 # find wrapper
 function findfile {
     find . -iname "*$1*"
-}
-
-
-watchexec() {
-    # watchexec WATCHED_FILE "command to execute..."
-    # Make sure command to execute is within strings.
-
-    while true; do
-        inotifywait -e modify $1 2> /dev/null
-        eval $2
-    done
 }
 
 

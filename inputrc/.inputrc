@@ -8,17 +8,17 @@
 
 
 ## Cycle command completion mode
-TAB: menu-complete
+TAB:menu-complete
 ## shift-tab cycle backwards
-"\e[Z": menu-complete-backward
+"\e[Z":menu-complete-backward
 
 ## Cycle history using C-p, C-n (needed for vi mode)
 "\C-p":history-search-backward
 "\C-n":history-search-forward
 
 # Ctrl-left/right jump words in emacs mode
-"\e[1;5C": forward-word
-"\e[1;5D": backward-word
+"\e[1;5C":forward-word
+"\e[1;5D":backward-word
 
 
 ## This line sets readline to display possible completions using different
