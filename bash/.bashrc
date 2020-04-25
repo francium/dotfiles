@@ -9,7 +9,9 @@ fi
 
 
 # Bash history size
-HISTSIZE=100000
+export HISTSIZE=100000
+# Prevent back-to-back duplicates from being saved
+export HISTCONTROL=ignoreboth:erasedups
 
 
 export EDITOR=nvim
