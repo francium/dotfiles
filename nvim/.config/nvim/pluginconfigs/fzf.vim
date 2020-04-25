@@ -58,5 +58,5 @@ if has('nvim')
     autocmd BufWipeout <buffer> execute 'bwipeout' s:frame
   endfunction
 
-  let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.6, "Comment")' }
+  let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.9, "Comment")' }
 endif

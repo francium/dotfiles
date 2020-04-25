@@ -14,6 +14,7 @@ endif
 
 
 function! SourceModules()
+    source ~/.config/nvim/util.vim
     source ~/.config/nvim/plugins.vim
     source ~/.config/nvim/mappings.vim
     if filereadable(expand('~/.vim_private/init.vim'))
@@ -57,9 +58,10 @@ function! BaseConfig()
     set noswapfile
 
     " 90 column warning
-    set colorcolumn=80,90,100
-    " Margin at 80 and solid background after 90
-    " let &colorcolumn=80 . "," . join(range(90,500),",")
+    " only add to file buffer instead of non-file buffers like coc
+    " and NERDTree -- does result in extension-less files not receiving
+    " colorcolumns
+    autocmd FileType * setlocal colorcolumn=80,90,100
 
     " Text width
     " 0 = no wrapping
@@ -93,11 +95,7 @@ function! BaseConfig()
     " Fix deoplete being too eager and selecting first option automatically
     " set completeopt+=noinsert
     set completeopt =longest,menu
-    set completeopt-=preview
-
-    " Include hyphenated words in completion
-    set iskeyword+=-
-    set iskeyword-=:
+    " set completeopt-=preview
 
     " Backup files (~ files)and write directly instead of temp file (and rename)
     " to avoid issues with some build tools that watch files

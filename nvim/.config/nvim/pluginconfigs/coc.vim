@@ -9,9 +9,17 @@ else
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     set cmdheight=1
+    " You will have bad experience for diagnostic messages when it's default 4000.
     set updatetime=300
+    " don't give |ins-completion-menu| messages.
     set shortmess+=c
     set signcolumn=yes
+
+    " Use <cr> to confirm completion, `<C-g>u` means break undo chain at current position.
+    " Coc only does snippet and additional edit on confirm.
+    inoremap <expr> <cr> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
+    " Or use `complete_info` if your vim support it, like:
+    " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
     nmap <silent> [c <Plug>(coc-diagnostic-prev)
     nmap <silent> ]c <Plug>(coc-diagnostic-next)
@@ -73,6 +81,10 @@ else
     nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
     " Resume latest coc list
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
+
+    " Format buffer
+    nnoremap <silent> g= :call CocAction('format')<CR>
+    vnoremap <silent> g= <Plug>(coc-format-selected)
 
     function! _cocrestart()
         echo "Restarting COC"

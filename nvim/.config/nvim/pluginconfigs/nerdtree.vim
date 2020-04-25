@@ -30,7 +30,7 @@ nmap <leader>g :NERDTreeFind<CR>
 
 " NERDTREE tabs --------------------------------------------------------------
 " Map Ctrl+n to toggle (Using nerdtree tabs instead)
-nmap <tab><tab> :NERDTreeTabsToggle<CR>
+nmap <leader><tab> :NERDTreeTabsToggle<CR>
 
 " Open on console startup
 let g:nerdtree_tabs_open_on_console_startup = 0
