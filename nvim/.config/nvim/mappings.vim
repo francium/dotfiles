@@ -62,8 +62,11 @@ inoremap ``` ```
 inoremap ``i ``<Esc>i
 inoremap ''i ''<Esc>i
 inoremap ""i ""<Esc>i
+inoremap <<i <><Esc>i
 inoremap ((i ()<Esc>i
 inoremap ((o (<CR>)<Esc>ko
+inoremap [[i []<Esc>i
+inoremap [[o [<CR>]<Esc>ko
 inoremap {{i {}<Esc>i
 inoremap {{o {<CR>}<Esc>ko
 inoremap {{{i {{}}<Esc>hi
@@ -111,24 +114,25 @@ nnoremap <C-x> <C-W>w:q<CR>
 " Quickly close focused split or window
 nnoremap <leader>q :q
 
-nmap <leader>j :split<CR>
-nmap <leader>l :vsplit <CR>
+nmap <leader>b :split<CR>
+nmap <leader>v :vsplit <CR>
 
 
 " TABS -------------------------------------------------------------------------
 
 " Tab split
 " TODO: Might be gitten overridden by something
-nnoremap <C-t> :tab split<CR>
+nnoremap <leader>T :tab split<CR>
 
 " TODO: Close split and reopen in a new tab
 " copy current buffer number then `:tab b{buffer num}`
 
 " Tab switching
 au TabLeave * let g:lasttab = tabpagenr()
-nnoremap <silent> <C-S-T> :exe "tabn ".g:lasttab<cr>
 nnoremap <S-H> gT
 nnoremap <S-L> gt
+" Last tab
+nnoremap <A-0> :exe "tabn ".g:lasttab<cr>
 nnoremap <A-1> :tabn1<CR>
 nnoremap <A-2> :tabn2<CR>
 nnoremap <A-3> :tabn3<CR>
@@ -138,7 +142,6 @@ nnoremap <A-6> :tabn6<CR>
 nnoremap <A-7> :tabn7<CR>
 nnoremap <A-8> :tabn8<CR>
 nnoremap <A-9> :tabn8<CR>
-nnoremap <A-0> :tabn10<CR>
 
 " Tab reordering
 nmap <leader>,, :tabm -1<CR>
