@@ -14,7 +14,7 @@
     "diagnostic.signOffset": 9999999,
     "diagnostic.warningSign": "⚠️",
     "diagnostic.errorSign": "⛔",
-    "diagnostic.infosign": "ℹ",
+    "diagnostic.infoSign": "ℹ",
     "diagnostic.hintSign": "ℹ",
     "suggest.timeout": 500,
     "suggest.completionItemKindLabels": {
@@ -46,8 +46,13 @@
 
     // Let coc download language server and use it
     "python.jediEnabled": false,
+    "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv"],
+    "python.terminal.activateEnvironment": true,
 
+    // TypeScript
     // "tsserver.trace.server": "verbose",
+    // Relative imports
+    "typescript.preferences.importModuleSpecifier": "relative",
 
     // C/C++/Obj-C
     "languageserver": {
