@@ -14,15 +14,6 @@ install:
 		zathura
 
 
-update:
-	make .update && make .vim-init && make .tmux-init
-
-update:
-	git pull && \
-		make uninstall && \
-		make install
-
-
 uninstall:
 	stow -D \
 		bash \
@@ -39,12 +30,20 @@ uninstall:
 		zathura
 
 
-vim-init:
-	vim '+PlugUpgrade | PlugInstall | PlugUpdate | qall'
+update:
+	make .update && make .vim-init && make .tmux-init
 
 
-# TODO: Can't seem to call the `update_plugins` script directly, it relies on
-# internal variables to be set, which aren't when you call it directly
-tmux-init:
-	~/.tmux/plugins/tpm/bindings/install_plugins
-	# ~/.tmux/plugins/tpm/bindings/update_plugins all
+.update:
+	git fetch
+	git merge origin/master
+	make uninstall
+	make install
+
+
+.vim-init:
+	nvim '+PlugUpgrade | PlugInstall | PlugUpdate | qall'
+
+
+.tmux-init:
+	~/.tmux/plugins/tpm/scripts/install_plugins.sh
