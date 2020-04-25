@@ -44,12 +44,30 @@ export TERMCMD="gnome-terminal"
 
 
 # NVM
-source /usr/share/nvm/init-nvm.sh 2> /dev/null
-export NVM_DIR="$HOME/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-export PATH=$PATH:`npm config --global get prefix`/bin
+# Load manually
+function nvmi {
+    echo -n "Initialising nvm..."
 
+    source /usr/share/nvm/init-nvm.sh 2> /dev/null
+    export NVM_DIR="$HOME/.nvm"
+    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+    export PATH=$PATH:`npm config --global get prefix`/bin
 
-# NPM completion
-[[ -x "$(command -v npm)" ]] && source <(npm completion)
+    # NPM completion
+    [[ -x "$(command -v npm)" ]] && source <(npm completion)
+
+    # clear line
+    echo -ne "\r$(tput el)"
+}
+# Args: <command to run after initialization>
+function nvmi-proxy {
+    unalias node
+    unalias npm
+    unalias nvm
+    nvmi
+    $1
+}
+alias node="nvmi-proxy node"
+alias npm="nvmi-proxy npm"
+alias nvm="nvmi-proxy nvm"
