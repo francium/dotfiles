@@ -27,11 +27,17 @@ function! LoadPlugins()
     Plug 'https://github.com/justinmk/vim-sneak'
     Plug 'https://github.com/kshenoy/vim-signature'
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
+    Plug 'https://github.com/t9md/vim-choosewin'
+        nmap  -  <Plug>(choosewin)
+        let g:choosewin_overlay_enable = 1
     Plug 'https://github.com/thirtythreeforty/lessspace.vim'
     Plug 'https://github.com/tpope/vim-fugitive'
     Plug 'https://github.com/tpope/vim-repeat'
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
+
+    " Haskell ------------------------------------------------------------------
+    Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
 
     " Typescript ---------------------------------------------------------------
     Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
