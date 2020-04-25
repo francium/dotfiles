@@ -4,6 +4,7 @@ install:
 		bin \
 		code \
 		gitconfig \
+		nautilus \
 		npm \
 		nvim \
 		mpv \
@@ -27,6 +28,7 @@ uninstall:
 		bin \
 		code \
 		gitconfig \
+		nautilus \
 		npm \
 		nvim \
 		mpv \
