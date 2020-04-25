@@ -33,6 +33,7 @@
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
     alias make-m3u-playlist='ls -l | grep -v .m3u > 00-playlist.m3u'
+    alias mpv-audio='mpv --no-video'
 
 
 # NodeJS
@@ -53,11 +54,6 @@
 function name {
     PROMPT_COMMAND=
     echo -en "\033]0;$1\a"
-}
-
-
-function mpv-audio {
-    mpv --no-video $1
 }
 
 
