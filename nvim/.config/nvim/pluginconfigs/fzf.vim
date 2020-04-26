@@ -2,6 +2,9 @@ Plug 'https://github.com/junegunn/fzf.vim'
 
 let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .cache --exclude .git --exclude node_modules --exclude venv'
 
+" Disable preview window
+let g:fzf_preview_window=''
+
 " Override Rg command and add extra custom flags to `rg`
 " - `--hidden`
 " - `--invert-match`
