@@ -6,14 +6,18 @@
     # line with it
     alias ↳=''
 
-    alias reload='source ~/.bashrc'
-    alias :q='exit'
-    alias :wq='exit'
-    alias ..='cd ..'
-    alias grep='grep --color=always'
     alias ls='ls -hlx --color=auto'
     alias l='ls -hlX --color=auto'
     alias ll='ls -ahlX --color=auto'
+
+    alias c='command cd'
+    function cd { command cd $1; ls; }
+    alias ..='cd ..'
+
+    alias reload='source ~/.bashrc'
+    alias :q='exit'
+    alias :wq='exit'
+    alias grep='grep --color=always'
     alias rm='rm  -i'
     # -v prints out each directory created
     alias mkdir='mkdir -pv'
