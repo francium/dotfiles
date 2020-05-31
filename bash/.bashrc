@@ -45,6 +45,11 @@ export TERMCMD="gnome-terminal"
 [[ -f /usr/share/z/z.sh ]] && source /usr/share/z/z.sh
 
 
+# Nix
+[ -e /home/francium/.nix-profile/etc/profile.d/nix.sh ] \
+    && source /home/francium/.nix-profile/etc/profile.d/nix.sh
+
+
 # NVM
 # Load manually
 function nvmi {

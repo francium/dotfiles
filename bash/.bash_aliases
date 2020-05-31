@@ -37,7 +37,15 @@
     alias pst='xclip -selection c -o'
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
-    alias make-m3u-playlist='ls -l | grep -v .m3u > 00-playlist.m3u'
+    function make-m3u-playlist {
+        PATTERN=$1
+        if [ -z $PATTERN ]; then
+            echo "Usage: $0 <media file extension>"
+            exit 1
+        fi
+
+        ls -1 | grep --color=never -E $PATTERN > "00 - playlist.m3u"
+    }
     alias mpv-audio='mpv --no-video'
 
 
