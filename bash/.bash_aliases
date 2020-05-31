@@ -11,7 +11,7 @@
     alias ll='ls -ahlX --color=auto'
 
     alias c='command cd'
-    function cd { command cd $1; ls; }
+    function cd { command cd "${@:1}"; ls; }
     alias ..='cd ..'
 
     alias reload='source ~/.bashrc'
