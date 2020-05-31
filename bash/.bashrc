@@ -73,7 +73,9 @@ function nvmi-proxy {
     unalias npm
     unalias nvm
     nvmi
-    $1
+
+    # All args after first are treated as command + args to execute
+    ${@:1}
 }
 alias node="nvmi-proxy node"
 alias npm="nvmi-proxy npm"
