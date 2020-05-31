@@ -33,6 +33,9 @@
 
 
 # Utils
+    function col {
+        awk '{ print $1 }'
+    }
     alias sel='xclip -selection c'
     alias pst='xclip -selection c -o'
     alias wget-dir='wget -r --no-parent'
