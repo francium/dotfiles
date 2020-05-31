@@ -41,7 +41,7 @@
         PATTERN=$1
         if [ -z $PATTERN ]; then
             echo "Usage: $0 <media file extension>"
-            exit 1
+            return
         fi
 
         ls -1 | grep --color=never -E $PATTERN > "00 - playlist.m3u"
