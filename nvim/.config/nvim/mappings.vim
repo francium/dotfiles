@@ -78,6 +78,9 @@ inoremap {{{o {{<CR>}}<Esc>ko
 " xnoremap <leader>k :m-2<cr>gv=gv
 " xnoremap <leader>j :m'>+<cr>gv=gv
 
+" Next/previous quickfix item
+nmap <leader>cn :cnext<CR>
+nmap <leader>cp :cprev<CR>
 
 " TERMINAL ---------------------------------------------------------------------
 
