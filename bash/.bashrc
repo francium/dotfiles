@@ -50,6 +50,10 @@ export TERMCMD="gnome-terminal"
     && source /home/francium/.nix-profile/etc/profile.d/nix.sh
 
 
+# Go version manager, https://github.com/moovweb/gvm
+[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
+
+
 # NVM
 # Load manually
 function nvmi {

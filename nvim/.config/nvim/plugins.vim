@@ -23,6 +23,7 @@ function! LoadPlugins()
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/airblade/vim-gitgutter'
     Plug 'https://github.com/andymass/vim-matchup'
+    Plug 'https://github.com/editorconfig/editorconfig-vim'
     Plug 'https://github.com/glacambre/firenvim'
     Plug 'https://github.com/justinmk/vim-sneak'
     Plug 'https://github.com/kshenoy/vim-signature'
@@ -38,6 +39,11 @@ function! LoadPlugins()
 
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
+
+    " Python -------------------------------------------------------------------
+    Plug 'https://github.com/Vimjas/vim-python-pep8-indent', {'for': 'python'}
+    " Syntax
+    " Plug 'https://github.com/numirias/semshi', {'for': 'python'}
 
     " Typescript ---------------------------------------------------------------
     Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}

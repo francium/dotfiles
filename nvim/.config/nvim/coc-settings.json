@@ -12,10 +12,10 @@
     // without it get coc warning spam while in insert mode
     "suggest.autoTrigger": "trigger",
     "diagnostic.signOffset": 9999999,
-    "diagnostic.warningSign": "⚠️",
-    "diagnostic.errorSign": "⛔",
-    "diagnostic.infoSign": "ℹ",
-    "diagnostic.hintSign": "ℹ",
+    "diagnostic.warningSign": "⮚",
+    "diagnostic.errorSign": "⮞",
+    "diagnostic.infoSign": "I",
+    "diagnostic.hintSign": "H",
     "suggest.timeout": 500,
     "suggest.completionItemKindLabels": {
         "keyword": "kw",
@@ -53,6 +53,7 @@
     // "tsserver.trace.server": "verbose",
     // Relative imports
     "typescript.preferences.importModuleSpecifier": "relative",
+    "tsserver.implicitProjectConfig.experimentalDecorators": true,
 
     // C/C++/Obj-C
     "languageserver": {
