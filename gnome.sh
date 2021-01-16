@@ -1,5 +1,13 @@
 #!/bin/bash
 
+# gsettings set org.gnome.desktop.background picture-uri none
+# gsettings set org.gnome.desktop.background primary-color '#FF0000'
+# gsettings set org.gnome.desktop.background color-shading-type 'solid'
+
+gsettings set org.gnome.desktop.background color-shading-type vertical # or horizontal
+gsettings set org.gnome.desktop.background primary-color "#000000"
+gsettings set org.gnome.desktop.background secondary-color "#1a0404"
+
 gsettings set  org.gnome.desktop.interface clock-show-seconds       true
 gsettings set  org.gnome.desktop.interface enable-animations        false
 gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 8'"
