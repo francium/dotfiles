@@ -34,7 +34,7 @@
 
 # Utils
     function col {
-        awk '{ print $1 }'
+        eval "awk '{ print \$1 }'"
     }
     alias sel='xclip -selection c'
     alias pst='xclip -selection c -o'
@@ -50,6 +50,10 @@
         ls -1 | grep --color=never -E $PATTERN > "00 - playlist.m3u"
     }
     alias mpv-audio='mpv --no-video'
+    function nite {
+        pkill gammastep
+        gammastep -P -O $1 &
+    }
 
 
 # NodeJS
