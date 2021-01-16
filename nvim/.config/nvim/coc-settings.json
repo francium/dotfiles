@@ -31,7 +31,7 @@
         "interface": "ifce",
         "text": "txt",
         "enum": "enum",
-        "enumMember": "enumbr",
+        "enumMember": "enumMbr",
         "module": "module",
         "color": "color",
         "property": "prop",
@@ -41,7 +41,8 @@
         "file": "file",
         "folder": "folder",
         "snippet": "snip",
-        "typeParameter": "type", "default": "typdft"
+        "typeParameter": "type",
+        "default": "dfult"
     },
 
     // Let coc download language server and use it
@@ -66,5 +67,8 @@
                 }
             }
         }
-    }
+    },
+
+    "rust-analyzer.inlayHints.refreshOnInsertMode": true,
+    "rust-analyzer.trace.server": "verbose",
 }

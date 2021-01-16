@@ -36,6 +36,12 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
 
+    " C/C++ --------------------------------------------------------------------
+    Plug 'https://github.com/bfrg/vim-cpp-modern'
+
+    " GLSL --------------------------------------------------------------------
+    Plug 'https://github.com/tikhomirov/vim-glsl'
+
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
 
@@ -50,6 +56,7 @@ function! LoadPlugins()
 
     " Zig ----------------------------------------------------------------------
     Plug 'https://github.com/ziglang/zig.vim', {'for': 'zig'}
+        let g:zig_fmt_autosave = 0
 
     " Disabled -----------------------------------------------------------------
     " Plug 'https://github.com/ncm2/float-preview.nvim'

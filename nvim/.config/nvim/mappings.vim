@@ -48,6 +48,9 @@ vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 " Replace the word under the cursor
 nnoremap <leader>* :%s/\<<c-r><c-w>\>//g<left><left>
 
+" Replace selection selection
+vnoremap <leader>* y:%s/\<<c-r><c-w>\>//g<left><left>
+
 " Horizontal panning (like C-e/C-y)
 nmap ( zh
 nmap ) zl
