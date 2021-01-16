@@ -3,6 +3,7 @@ elm_stuff/
 node_modules/
 tags
 venv/
+.venv
 .mypy_cache
 .pytest_cache
 __pycache__
