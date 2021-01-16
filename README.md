@@ -17,6 +17,9 @@ Clone this repository into your `$HOME` directory and `cd` into the clone repo.
     git clone --recursive -j 4 <repo URL>
     cd dotfiles
     make install
+
+    # optionally configure GNOME
+    ./gnome.sh
 ```
 
 Tmux requires an additional step using `<prefix> <shift><i>` (from within a tmux
@@ -26,6 +29,9 @@ session) to install plugins.
 ## Updating
 ```
     make update
+
+    # optionally apply GNOME configurations
+    ./gnome.sh
 ```
 
 Tmux requires an additional step using `<prefix><shift><u>` (from within a tmux
@@ -36,6 +42,7 @@ session) to update plugins.
 ```
     make uninstall
 ```
+Note GNOME configuration's aren't reset
 
 
 ## Per machine gitconfig
