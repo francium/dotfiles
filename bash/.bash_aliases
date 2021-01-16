@@ -64,6 +64,10 @@
     alias pe='pipenv'
 
 
+# Tmux
+    alias t='tmux'
+
+
 # Vim
     alias n='nvim'
     # Reopen last file edited with vim

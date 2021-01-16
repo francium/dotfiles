@@ -14,6 +14,7 @@ command! -bang -nargs=* Rgi call fzf#vim#grep("rg --column --line-number --no-he
 nmap <leader>ff :FZF<CR>
 nmap <leader>fc :Commands<CR>
 nmap <leader>fb :Buffers<CR>
+nmap <leader>fv :History:<CR>
 nmap <leader>fm :Marks<CR>
 nmap <leader>fr :Rg<space>
 " Search selection using Rg
