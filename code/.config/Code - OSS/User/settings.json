@@ -4,12 +4,14 @@
     "editor.formatOnSave": true,
     // "editor.lineNumbers": "relative",
     "editor.minimap.enabled": false,
+    "editor.lineNumbers": "relative",
     "editor.parameterHints.enabled": true,
     "editor.quickSuggestions": true,
     "editor.renderWhitespace": "boundary",
     "editor.rulers": [
         80,
         90,
+        100,
         120
     ],
     "editor.suggestOnTriggerCharacters": false,
@@ -86,6 +88,25 @@
     "vim.normalModeKeyBindings": [
         {
             "before": [
+                "\\",
+                "w",
+                "a"
+            ],
+            "commands": [
+                "workbench.action.files.saveAll",
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "s",
+            ],
+            "commands": [
+                "workbench.action.files.save",
+            ]
+        },
+        {
+            "before": [
                 "H"
             ],
             "after": [
@@ -118,7 +139,53 @@
             "commands": [
                 "redo"
             ]
-        }
+        },
+        {
+            "before": [
+                "]",
+                "c"
+            ],
+            "commands": [
+                "editor.action.marker.nextInFiles"
+            ]
+        },
+        {
+            "before": [
+                "[",
+                "c"
+            ],
+            "commands": [
+                "editor.action.marker.prevInFiles"
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "a",
+                "c",
+            ],
+            "commands": [
+                "editor.action.quickFix",
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "tab",
+            ],
+            "commands": [
+                "workbench.action.toggleSidebarVisibility",
+            ]
+        },
+        {
+            "before": [
+                "\\",
+                "shift+tab",
+            ],
+            "commands": [
+                "workbench.action.toggleActivityBarVisibility",
+            ]
+        },
     ],
     // Gitlens
     "gitlens.views.repositories.location": "gitlens",
@@ -136,4 +203,8 @@
     "workbench.startupEditor": "newUntitledFile",
     // Scrolloff
     "scrolloff.scrolloff": 3,
+    "rust.rustup": {
+        "toolchain": "stable-x86_64-unknown-linux-gnu"
+    },
+    "rust.mode": "rls",
 }

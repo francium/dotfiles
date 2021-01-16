@@ -1,5 +1,10 @@
 // Place your key bindings in this file to overwrite the defaults
 [
+    {
+        "key": "capslock",
+        "command": "notifications.clearAll",
+        "when": "messageVisible"
+    },
     // Fix capslock escape
     {
         "key": "capslock",
@@ -24,23 +29,17 @@
         "key": "ctrl+j",
         "command": "workbench.action.navigateDown"
     },
-
     // Fix forward/backward using vim C-o, C-i
     // Can't seem to add these two to the vim keybindings successfully, so
     // leaving them here since they work
-    { "key": "ctrl+o",  "command": "workbench.action.navigateBack" },
-    { "key": "ctrl+i", "command": "workbench.action.navigateForward" },
-
-    // UI
     {
-        "key": "ctrl+shift+n",
-        "command": "workbench.action.toggleActivityBarVisibility"
+        "key": "ctrl+o",
+        "command": "workbench.action.navigateBack"
     },
     {
-        "key": "ctrl+n",
-        "command": "workbench.action.toggleSidebarVisibility"
+        "key": "ctrl+i",
+        "command": "workbench.action.navigateForward"
     },
-
     // Editor actions
     {
         "key": "ctrl+shift+g",
@@ -54,5 +53,15 @@
     {
         "key": "ctrl+shift+b",
         "command": "references-view.find"
+    },
+    {
+        "key": "ctrl+l",
+        "command": "editor.action.triggerSuggest",
+        "when": "editorTextFocus"
+    },
+    {
+        "key": "shift+k",
+        "command": "editor.action.showHover",
+        "when": "editorTextFocus"
     },
 ]
