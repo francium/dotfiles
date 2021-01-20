@@ -5,9 +5,9 @@ pushd . > /dev/null
 if [ ! -e ~/wiki/logs ]; then
     mkdir -p ~/wiki/logs
 fi
-cd ~/wiki/logs
+cd ~/wiki/
 
-filename=`date +%Y-%m-%d`.md
+filename=logs/`date +%Y-%m-%d`.md
 if [ ! -e $filename ]; then
     echo -e "# `date '+%A, %B %d %Y'`\n\n\n" > $filename
 fi
