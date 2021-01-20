@@ -2,10 +2,10 @@
 
 pushd . > /dev/null
 
-if [ ! -e ~/logs ]; then
-    mkdir ~/logs
+if [ ! -e ~/wiki/logs ]; then
+    mkdir -p ~/wiki/logs
 fi
-cd ~/logs
+cd ~/wiki/logs
 
 filename=`date +%Y-%m-%d`.md
 if [ ! -e $filename ]; then
