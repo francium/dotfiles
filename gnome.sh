@@ -106,3 +106,9 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  binding  "'<Super>e'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'nautilus'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Files'"
+
+
+# Nautilus
+
+# Mac-like folder expansion
+    gsettings set  org.gnome.nautilus.list-view  use-tree-view  true
