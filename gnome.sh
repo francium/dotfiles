@@ -110,5 +110,5 @@
 
 # Nautilus
 
-# Mac-like folder expansion
+# Mac-like folder expansion (make sure 'sushi' is installed)
     gsettings set  org.gnome.nautilus.list-view  use-tree-view  true
