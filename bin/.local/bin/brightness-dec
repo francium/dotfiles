@@ -1,0 +1,5 @@
+#!/bin/bash
+
+val=`cat /sys/class/backlight/intel_backlight/brightness`
+
+sudo sh -c "echo $((val - 5)) > /sys/class/backlight/intel_backlight/brightness"
