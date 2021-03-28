@@ -40,6 +40,9 @@ function! LoadPlugins()
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
 
+    " Go ---------------------------------------------------------------------
+    Plug 'https://github.com/fatih/vim-go'
+
     " GLSL --------------------------------------------------------------------
     Plug 'https://github.com/tikhomirov/vim-glsl'
 
