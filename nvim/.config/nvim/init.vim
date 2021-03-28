@@ -115,6 +115,19 @@ function! BaseConfig()
     autocmd BufWinEnter,WinEnter term://* startinsert
     " Disable spelling and line numbers
     autocmd TermOpen term://* set nospell | set nonu
+
+    " Add suffixes for related files so `gf` works for files without extensions
+    augroup suffixes
+        autocmd!
+
+        let associations = [
+            \["javascript", ".js,.jsx,.ts,.tsx"],
+        \]
+
+        for ft in associations
+            execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
+        endfor
+    augroup END
 endfunction
 
 
