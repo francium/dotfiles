@@ -84,3 +84,11 @@ function nvmi-proxy {
 alias node="nvmi-proxy node"
 alias npm="nvmi-proxy npm"
 alias nvm="nvmi-proxy nvm"
+
+
+## Pyenv
+export PYENV_ROOT="$HOME/.pyenv"
+export PATH="$PYENV_ROOT/bin:$PATH"
+if command -v pyenv 1>/dev/null 2>&1; then
+    eval "$(pyenv init -)"
+fi
