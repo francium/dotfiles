@@ -47,7 +47,7 @@
 
     // Let coc download language server and use it
     "python.jediEnabled": false,
-    "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv"],
+    "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv", ".venv"],
     "python.terminal.activateEnvironment": true,
 
     // TypeScript
