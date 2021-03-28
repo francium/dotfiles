@@ -55,6 +55,8 @@
         gammastep -P -O $1 &
     }
 
+    alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
+
 
 # NodeJS
     alias nbin='PATH=$PATH:`npm bin`'
