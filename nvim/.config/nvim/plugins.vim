@@ -36,6 +36,7 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-repeat'
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
+    Plug 'https://github.com/nicwest/vim-http'
 
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
