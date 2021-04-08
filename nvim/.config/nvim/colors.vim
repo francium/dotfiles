@@ -14,12 +14,20 @@ function! PostLoadColors()
     " Must be set before bg
     let g:gruvbox_transp_bg = 1
 
-    if $d
+    if !empty($d)
         set bg=dark
-        colo gruvbox8_hard
     else
         set bg=light
-        colo one
+    endif
+
+    if !empty($colo)
+        color $colo
+    else
+        if $d
+            colo gruvbox8_hard
+        else
+            colo one
+        endif
     endif
 
     call ConfigureVimOneColors()
