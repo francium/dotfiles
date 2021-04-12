@@ -154,6 +154,11 @@ nmap <leader>,, :tabm -1<CR>
 nmap <leader>.. :tabm +1<CR>
 
 
+" JSON formatting
+com! FormatJSON :%!python -m json.tool
+com! -range FormatJSONRange <line1>,<line2>:!python -m json.tool
+
+
 " Misc -------------------------------------------------------------------------
 
 " Toggle darkness
