@@ -34,9 +34,10 @@
 
 # Utils
     function col {
-        eval "awk '{ print \$1 }'"
+        eval "awk '{ print \$$1 }'"
     }
-    alias sel='xclip -selection c'
+    alias sel='tr --delete "\n" | xclip -selection c'
+    alias seln='xclip -selection c'
     alias pst='xclip -selection c -o'
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
