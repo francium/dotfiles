@@ -32,7 +32,7 @@ gf() {
 
 gb() {
   is_in_git_repo &&
-    git branch -a -vv --color=always | grep -v '/HEAD\s' |
+    git branch --sort=committerdate -vv --color=always | grep -v '/HEAD\s' |
     fzf --height 40% --ansi --multi --tac | sed 's/^..//' | awk '{print $1}' |
     sed 's#^remotes/[^/]*/##'
 }
