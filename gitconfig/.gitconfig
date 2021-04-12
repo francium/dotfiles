@@ -33,3 +33,5 @@
     subinit = submodule update --init --recursive
     prune-remote = remote prune origin
     cm-empty = commit --allow-empty-message
+[init]
+	defaultBranch = master
