@@ -55,10 +55,17 @@ vnoremap <leader>* y:%s/\<<c-r><c-w>\>//g<left><left>
 nmap ( zh
 nmap ) zl
 
-" Move left
-inoremap xxh <Esc>i
-" Move right
-inoremap xxl <Esc>la
+" Insert mode movement
+inoremap <C-h> <Left>
+" inoremap <C-j> <Down>
+" inoremap <C-k> <Up>
+inoremap <C-l> <Right>
+
+" Command mode movement
+cnoremap <C-h> <Left>
+" cnoremap <C-j> <Down>
+" cnoremap <C-k> <Up>
+cnoremap <C-l> <Right>
 
 " Quotes and brackets
 inoremap ``` ```
