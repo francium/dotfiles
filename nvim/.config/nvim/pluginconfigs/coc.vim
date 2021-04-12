@@ -40,7 +40,7 @@ else
     nmap <leader>rn <Plug>(coc-rename)
 
     " Use trigger completion
-    inoremap <silent><expr> <c-l> coc#refresh()
+    inoremap <silent><expr> <c-j> coc#refresh()
 
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
