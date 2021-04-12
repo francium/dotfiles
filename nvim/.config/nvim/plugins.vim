@@ -18,6 +18,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-tmux-navigator.vim
     source ~/.config/nvim/pluginconfigs/winresizer.vim
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
+    source ~/.config/nvim/pluginconfigs/vim-http.vim
 
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
@@ -36,11 +37,6 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-repeat'
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
-    Plug 'https://github.com/nicwest/vim-http'
-        let g:vim_http_tempbuffer = 1
-        autocmd FileType http nmap <buffer> <leader>hi :call append(0, "GET example.com HTTP/1.1")<CR>
-        autocmd FileType http nmap <buffer> <leader>hh :Http<CR>
-        autocmd FileType http nmap <buffer> <leader>hj :call http#set_header('Content-Type', 'application/json')<CR>
 
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
