@@ -112,8 +112,8 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 
 " Terminal escape (only enabled on plain terminals and disable when leaving it to avoid
 " causing fzf to go into normal mode instead of closing)
-autocmd BufEnter term://.*:bash tnoremap <ESC> <C-\><C-n>
-autocmd BufLeave term://.*:bash tunmap <ESC>
+autocmd BufEnter term://.*:bash silent! tnoremap <ESC> <C-\><C-n>
+autocmd BufLeave term://.*:bash silent! tunmap <ESC>
 
 
 " SPLITTING --------------------------------------------------------------------
