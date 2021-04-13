@@ -1,6 +1,9 @@
-Plug 'https://github.com/junegunn/fzf.vim'
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .cache --exclude .git --exclude node_modules --exclude venv --exclude .venv --exclude __pycache__'
+" Prompt at top of screen
+let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 " Disable preview window
 let g:fzf_preview_window=''
@@ -12,24 +15,31 @@ command! -bang -nargs=* Rg call fzf#vim#grep("rg --column --line-number --no-hea
 command! -bang -nargs=* Rgi call fzf#vim#grep("rg --column --line-number --no-heading --color=always --smart-case --hidden --invert-match ".shellescape(<q-args>), 1, <bang>0)
 
 nmap <leader>ff :FZF<CR>
+nmap <leader>fd :FZF %:p:h<CR>
 nmap <leader>fc :Commands<CR>
 nmap <leader>fb :Buffers<CR>
+nmap <leader>fh :History<CR>
 nmap <leader>fv :History:<CR>
 nmap <leader>fm :Marks<CR>
 nmap <leader>fr :Rg<space>
 " Search selection using Rg
 vmap <leader>fr y:Rg<space><c-r>"<CR>
+" TODO Doesn't work
 vmap <leader>f* y/<c-r>"<CR>``
 
-" TODO
-function! FZFFileRelativeSearch()
-    let l:prevcwd = getcwd()
-    echo l:prevPwd
-    " cd %:p:h
-    " FZF
-    " cd l:prevPwd
+" An action can be a reference to a function that processes selected lines
+function! s:build_quickfix_list(lines)
+  call setqflist(map(copy(a:lines), '{ "filename": v:val }'))
+  copen
+  cc
 endfunction
-nmap <leader>fF :call FZFFileRelativeSearch()<CR>
+
+" Override fzf's s:default_action to add quickfix option
+let g:fzf_action = {
+  \ 'ctrl-q': function('s:build_quickfix_list'),
+  \ 'ctrl-t': 'tab split',
+  \ 'ctrl-x': 'split',
+  \ 'ctrl-v': 'vsplit' }
 
 " Using floating windows of Neovim to start fzf
 if has('nvim')
@@ -66,3 +76,36 @@ if has('nvim')
 
   let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.9, "Comment")' }
 endif
+
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+function! s:list_buffers()
+  redir => list
+  silent ls
+  redir END
+  return split(list, "\n")
+endfunction
+
+function! s:delete_buffers(lines)
+  execute 'bwipeout' join(map(a:lines, {_, line -> split(line)[0]}))
+endfunction
+
+" Close multiple buffers
+" Usage: run `:BD`, then use <tab>/<shift-tab> to select buffers, press enter
+" to close selected
+"
+" NOTE this won't have nice formatting. To get that you would have to create a new
+" format_buffers function and chain that,
+"     function! s:format_buffers(buf)
+"       " a:buf is the arg
+"       ...
+"     endfunction
+"
+"     'source:' map(s:list_buffers(), 's:format_buffer(v:val)')
+" As long as the line's structure isn't changed, the delete_buffers can still
+" parse out the buf number from the line with its current implementation of
+" splitting the line and taking the first item
+command! BD call fzf#run(fzf#wrap({
+  \ 'source': s:list_buffers(),
+  \ 'sink*': { lines -> s:delete_buffers(lines) },
+  \ 'options': '--multi --reverse --bind ctrl-a:select-all+accept'
+\ }))

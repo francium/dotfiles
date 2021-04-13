@@ -19,14 +19,13 @@ let g:lightline = {
 \       ]
 \   },
 \   'component_function': {
-\       'fugitive': 'LightlineFugitive',
 \       'readonly': 'LightlineReadonly',
 \       'modified': 'LightlineModified',
 \       'langclient': 'LightlineLangClient',
 \       'cocStatus': 'coc#status',
 \   },
 \   'separator': { 'left': '', 'right': '' },
-\   'subseparator': { 'left': '│', 'right': '│' },
+\   'subseparator': { 'left': '', 'right': '' },
 \   'mode_map': {
 \       'n' : 'N',
 \       'i' : 'I',
@@ -72,13 +71,4 @@ function! LightlineReadonly()
   else
     return ""
   endif
-endfunction
-
-" fiugitive get head Seems to slow down things when scrolling slow
-function! LightlineFugitive()
-  if exists("*fugitive#head")
-    let branch = fugitive#head()
-    return branch !=# '' ? ' ⎇  '.branch : ''
-  endif
-  return ''
 endfunction

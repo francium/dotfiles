@@ -22,7 +22,11 @@ else
     " inoremap <expr> <cr> complete_info()["selected"] != "-1" ? "\<C-y>" : "\<C-g>u\<CR>"
 
     nmap <silent> [c <Plug>(coc-diagnostic-prev)
+    nmap <silent> [c <Plug>(coc-diagnostic-prev-error)
     nmap <silent> ]c <Plug>(coc-diagnostic-next)
+    nmap <silent> ]c <Plug>(coc-diagnostic-next-error)
+    nmap <silent> [[c <Plug>(coc-diagnostic-prev)
+    nmap <silent> ]]c <Plug>(coc-diagnostic-next)
 
     " See `help coc-nvim
     nmap <silent> gd <Plug>(coc-definition)
@@ -88,9 +92,7 @@ else
 
     function! _cocrestart()
         echo "Restarting COC"
-        syntax off
         CocRestart
-        syntax on
     endfunction
     nmap <leader><f5> :call _cocrestart()<CR>
 endif

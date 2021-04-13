@@ -5,6 +5,9 @@ nmap <leader><f2> :tabedit $MYVIMRC<CR>
 
 " Basic -----------------------------------------------------------------------
 
+" Make backtick another <leader> key
+nmap ` <leader>
+
 func! Eatchar(pat)
     let c =  nr2char(getchar(0))
     return (c=~ a:pat) ? '' : c
@@ -142,8 +145,8 @@ nnoremap <leader>T :tab split<CR>
 
 " Tab switching
 au TabLeave * let g:lasttab = tabpagenr()
-nnoremap <S-H> gT
-nnoremap <S-L> gt
+nnoremap H gT
+nnoremap L gt
 " Last tab
 nnoremap <A-0> :exe "tabn ".g:lasttab<cr>
 nnoremap <A-1> :tabn1<CR>

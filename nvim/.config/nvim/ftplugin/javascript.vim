@@ -5,6 +5,13 @@ if !$coc
 endif
 
 " Snips -----------------------------------------------------------------------
+" if
+inoremap xxif if ()<space>{<cr>}<esc>k<esc>f(a
+" if/else
+inoremap xxei if ()<space>{<cr>} else if () {<cr>} else {<cr>}<esc>3k<esc>f(a
+" if/else if/else
+inoremap xxel if ()<space>{<cr>} else {<cr>}<esc>2k<esc>f(a
+
 inoremap xxfn ()<space>=><esc>3hi
 inoremap xxfunc function<space>()<space>{}<esc>_wi
 

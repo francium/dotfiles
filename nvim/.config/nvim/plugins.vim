@@ -23,6 +23,12 @@ function! LoadPlugins()
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/airblade/vim-gitgutter'
+        let g:gitgutter_map_keys = 0 " Disable default key mappings
+        nmap <leader>hn <Plug>(GitGutterNextHunk)
+        nmap <leader>hp <Plug>(GitGutterPrevHunk)
+        nmap <leader>hs <Plug>(GitGutterPreviewHunk)
+        nmap <leader>hS <Plug>(GitGutterStageHunk)
+        nmap <leader>hx <Plug>(GitGutterUndoHunk)
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
     Plug 'https://github.com/glacambre/firenvim'
@@ -34,9 +40,16 @@ function! LoadPlugins()
         let g:choosewin_overlay_enable = 1
     Plug 'https://github.com/thirtythreeforty/lessspace.vim'
     Plug 'https://github.com/tpope/vim-fugitive'
+        nmap <leader>gs :vertical Git<cr>
     Plug 'https://github.com/tpope/vim-repeat'
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
+
+    " ANTLR 3/4 ----------------------------------------------------------------
+    Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
+
+    " HTML ---------------------------------------------------------------------
+    Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}
 
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'

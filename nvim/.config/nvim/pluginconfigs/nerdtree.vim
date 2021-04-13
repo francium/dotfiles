@@ -25,7 +25,7 @@ let NERDTreeIgnore = [ '\.swp$',
                      \ '\.egg-info$',
                      \ '\.git$' ]
 
-nmap <leader>g :NERDTreeFind<CR>
+nmap <leader>gg :NERDTreeFind<CR>
 
 
 " NERDTREE tabs --------------------------------------------------------------
