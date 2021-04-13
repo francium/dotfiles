@@ -64,6 +64,10 @@ Need to install extra packages for some things
 - `npm i -g neovim` (possibly for syntax highlighting in some cases)
 
 
+## Private vim modules
+If `~/.vim_private/init.vim` exists, it will be sourced
+
+
 ## Installing Coc Plugins
 See https://github.com/neoclide/coc.nvim/wiki/Language-servers for additional
 plugins
@@ -77,7 +81,7 @@ plugins
 `:CocInstall coc-rust-analyzer`
 
 ### C/C++/Obj-C
-Installed the Clang language server
+Install the Clang language server
 ```
 # Arch Linux
 pacman -S ccls
