@@ -12,10 +12,11 @@
     // without it get coc warning spam while in insert mode
     "suggest.autoTrigger": "trigger",
     "diagnostic.signOffset": 9999999,
+    // You can prefix by a braille whitespace, '⠀' (u+2800) if wanted
     "diagnostic.warningSign": "⮚",
     "diagnostic.errorSign": "⮞",
-    "diagnostic.infoSign": "I",
-    "diagnostic.hintSign": "H",
+    "diagnostic.infoSign": "▷",
+    "diagnostic.hintSign": "◁",
     "suggest.timeout": 500,
     "suggest.completionItemKindLabels": {
         "keyword": "kw",
@@ -50,11 +51,12 @@
     "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv", ".venv"],
     "python.terminal.activateEnvironment": true,
 
-    // TypeScript
+    // JavaScript/TypeScript
     // "tsserver.trace.server": "verbose",
     // Relative imports
     "typescript.preferences.importModuleSpecifier": "relative",
-    "tsserver.implicitProjectConfig.experimentalDecorators": true,
+    "typescript.preferences.quoteStyle": "single",
+    "typescript.updateImportsOnFileMove.enable": false,
 
     // C/C++/Obj-C
     "languageserver": {
