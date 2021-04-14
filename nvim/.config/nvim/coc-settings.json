@@ -13,10 +13,10 @@
     "suggest.autoTrigger": "trigger",
     "diagnostic.signOffset": 9999999,
     // You can prefix by a braille whitespace, '⠀' (u+2800) if wanted
-    "diagnostic.warningSign": "⮚",
-    "diagnostic.errorSign": "⮞",
-    "diagnostic.infoSign": "▷",
-    "diagnostic.hintSign": "◁",
+    "diagnostic.warningSign": "▷",
+    "diagnostic.errorSign": "▶︎",
+    "diagnostic.infoSign": "◆",
+    "diagnostic.hintSign": "◇",
     "suggest.timeout": 500,
     "suggest.completionItemKindLabels": {
         "keyword": "kw",
