@@ -22,7 +22,7 @@
 # Shell
     gsettings set  org.gnome.desktop.interface clock-show-seconds       true
     gsettings set  org.gnome.desktop.interface enable-animations        false
-    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 8'"
+    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 7.5'"
     gsettings set  org.gnome.desktop.interface show-battery-percentage  true
 
 
@@ -34,6 +34,7 @@
 # Windows
     gsettings set  org.gnome.desktop.wm.preferences  button-layout          "'icon:minimize,maximize,close'"
     gsettings set  org.gnome.desktop.wm.preferences  mouse-button-modifier  "'<Alt>'"
+    gsettings set  org.gnome.desktop.wm.preferences  resize-with-right-button true
 
 
 # Audio
