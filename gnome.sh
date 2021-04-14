@@ -27,8 +27,8 @@
 
 
 # Text
-    gsettings set  org.gnome.settings-daemon.plugins.xsettings  antialiasing  "'grayscale'"
-    gsettings set  org.gnome.settings-daemon.plugins.xsettings  hinting  "'slight'"
+    gsettings set  org.gnome.desktop.interface font-antialiasing "'rgba'"
+    gsettings set  org.gnome.desktop.interface font-hinting "'medium'"
 
 
 # Windows
@@ -64,24 +64,33 @@
 
 
 # Shortcuts
-    gsettings set  org.gnome.desktop.wm.keybindings  begin-resize                 "['<Super>backslash']"
-    gsettings set  org.gnome.desktop.wm.keybindings  minimize                     "['<Super>bracketleft']"
     gsettings set  org.gnome.desktop.wm.keybindings  move-to-monitor-left         "['<Super>comma']"
     gsettings set  org.gnome.desktop.wm.keybindings  move-to-monitor-right        "['<Super>period']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-1          "['<Shift><Super>exclam']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-2          "['<Shift><Super>at']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-3          "['<Shift><Super>numbersign']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-4          "['<Shift><Super>dollar']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-down       "['<Shift><Super>j']"
-    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-up         "['<Shift><Super>k']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-1        "['<Super>1']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-2        "['<Super>2']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-3        "['<Super>3']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-4        "['<Super>4']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-down     "['<Super>j']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-up       "['<Super>k']"
+    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-right       "['<Shift><Super>j']"
+    gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-left         "['<Shift><Super>k']"
+    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-left     "['<Super>j']"
+    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-right       "['<Super>k']"
+
+    gsettings set  org.gnome.desktop.wm.keybindings  begin-resize                 "['<Super>backslash']"
+    gsettings set  org.gnome.desktop.wm.keybindings  minimize                     "['<Super>bracketleft']"
     gsettings set  org.gnome.desktop.wm.keybindings  toggle-fullscreen            "['<Super>f']"
     gsettings set  org.gnome.desktop.wm.keybindings  toggle-maximized             "['<Super>bracketright']"
+
+# Gnome 40 removed vertical workspaces.
+# Here for a while, can be removed eventually. Need to reset these to avoid
+# conflict with another binding which would cause binding to not work
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-down
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-up
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-up
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-down
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-1
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-2
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-3
+    gsettings reset  org.gnome.desktop.wm.keybindings  move-to-workspace-4
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-1
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-2
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-3
+    gsettings reset  org.gnome.desktop.wm.keybindings  switch-to-workspace-4
 
 # Fix alt-tab
     gsettings set  org.gnome.desktop.wm.keybindings  switch-windows               "['<Alt>Tab']"
