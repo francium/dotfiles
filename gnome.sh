@@ -68,8 +68,8 @@
     gsettings set  org.gnome.desktop.wm.keybindings  move-to-monitor-right        "['<Super>period']"
     gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-right       "['<Shift><Super>j']"
     gsettings set  org.gnome.desktop.wm.keybindings  move-to-workspace-left         "['<Shift><Super>k']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-left     "['<Super>j']"
-    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-right       "['<Super>k']"
+    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-right       "['<Super>j']"
+    gsettings set  org.gnome.desktop.wm.keybindings  switch-to-workspace-left     "['<Super>k']"
 
     gsettings set  org.gnome.desktop.wm.keybindings  begin-resize                 "['<Super>backslash']"
     gsettings set  org.gnome.desktop.wm.keybindings  minimize                     "['<Super>bracketleft']"
