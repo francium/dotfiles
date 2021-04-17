@@ -24,7 +24,7 @@ export XDG_CONFIG_HOME=~/.config
 [[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
 [[ -f ~/.bash_fzf ]] && source ~/.bash_fzf
 [[ -f ~/.bash_work ]] && source ~/.bash_work
-for module in ~/.bash_private/*; do
+[[ -d ~/.bash_private ]] && for module in ~/.bash_private/*; do
     [[ -f $module/init.sh ]] && source $module/init.sh
 done
 
