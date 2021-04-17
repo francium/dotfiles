@@ -29,6 +29,14 @@ export XDG_CONFIG_HOME=~/.config
 done
 
 
+if [ -f /etc/bash_completion ]; then
+    . /etc/bash_completion
+fi
+for file in /etc/bash_completion.d/* ; do
+    source "$file"
+done
+
+
 # Bat
 export BAT_THEME="Monokai Extended Light"
 
