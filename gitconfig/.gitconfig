@@ -40,3 +40,5 @@
     set-upstream = ! git branch -u origin/$(git branch-name)
 [init]
 	defaultBranch = master
+[pull]
+	rebase = false
