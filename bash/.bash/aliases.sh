@@ -1,6 +1,3 @@
-# vim: ft=bash
-
-
 # General
     # Avoid having to go back and delete prompt icon if copied and pasted a
     # line with it

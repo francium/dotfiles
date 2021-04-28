@@ -1,6 +1,3 @@
-# vim: ft=bash
-
-
 RED="\[$(tput setaf 1)\]"
 GREEN="\[$(tput setaf 34)\]"
 PURPLE="\[$(tput setaf 55)\]"

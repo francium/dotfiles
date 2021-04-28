@@ -1,34 +1,23 @@
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
-if [ -e /usr/share/terminfo/x/xterm-256color ] && [ "$COLORTERM" == "gnome-terminal" ]
-then
-    export TERM=xterm-256color
-fi
-##############################################################################
-
 
 # Bash history size
 export HISTSIZE=100000
 # Prevent back-to-back duplicates from being saved
 export HISTCONTROL=ignoreboth:erasedups
 
-
 export EDITOR=nvim
 export PATH=$PATH:~/.local/bin:~/bin
 export XDG_CONFIG_HOME=~/.config
 
 
-# Modules
-[[ -f ~/.bash_prompt ]] && source ~/.bash_prompt
-[[ -f ~/.bash_aliases ]] && source ~/.bash_aliases
-[[ -f ~/.bash_fzf ]] && source ~/.bash_fzf
-[[ -f ~/.bash_work ]] && source ~/.bash_work
-[[ -d ~/.bash_private ]] && for module in ~/.bash_private/*; do
-    [[ -f $module/init.sh ]] && source $module/init.sh
-done
+if [ -e /usr/share/terminfo/x/xterm-256color ] && [ "$COLORTERM" == "gnome-terminal" ]; then
+    export TERM=xterm-256color
+fi
 
 
+# Distros seem to vary, so both of these are required
 if [ -f /etc/bash_completion ]; then
     . /etc/bash_completion
 fi
@@ -37,67 +26,23 @@ fi
 done
 
 
-# Bat
-export BAT_THEME="Monokai Extended Light"
+# Modules
+[[ -f ~/.bash/aliases.sh ]] && source ~/.bash/aliases.sh
+[[ -f ~/.bash/fzf.sh ]] && source ~/.bash/fzf.sh
+[[ -f ~/.bash/go.sh ]] && source ~/.bash/go.sh
+[[ -f ~/.bash/nix.sh ]] && source ~/.bash/nix.sh
+[[ -f ~/.bash/node.sh ]] && source ~/.bash/node.sh
+[[ -f ~/.bash/prompt.sh ]] && source ~/.bash/prompt.sh
+[[ -f ~/.bash/python.sh ]] && source ~/.bash/python.sh
+[[ -f ~/.bash/ranger.sh ]] && source ~/.bash/ranger.sh
+[[ -f ~/.bash/ruby.sh ]] && source ~/.bash/ruby.sh
+[[ -f ~/.bash/z.sh ]] && source ~/.bash/z.sh
+
+[[ -d ~/.bash_private ]] && for module in ~/.bash_private/*; do
+    [[ -f $module/init.sh ]] && source $module/init.sh
+done
 
 
-# Ranger
-export TERMCMD="gnome-terminal"
-
-
-# git-subrepo
-[[ -f ~/.local/bin/git-subrepo/.rc ]] && source ~/.local/bin/git-subrepo/.rc
-
-
-# https://github.com/rupa/z
-[[ -f /usr/share/z/z.sh ]] && source /usr/share/z/z.sh
-
-
-# Nix
-[ -e /home/francium/.nix-profile/etc/profile.d/nix.sh ] \
-    && source /home/francium/.nix-profile/etc/profile.d/nix.sh
-
-
-# Go version manager, https://github.com/moovweb/gvm
-[[ -s "$HOME/.gvm/scripts/gvm" ]] && source "$HOME/.gvm/scripts/gvm"
-
-
-# NVM
-# Load manually
-function nvmi {
-    echo -n "Initialising nvm..."
-
-    source /usr/share/nvm/init-nvm.sh 2> /dev/null
-    export NVM_DIR="$HOME/.nvm"
-    [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
-    [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-    export PATH=$PATH:`npm config --global get prefix`/bin
-
-    # NPM completion
-    [[ -x "$(command -v npm)" ]] && source <(npm completion)
-
-    # clear line
-    echo -ne "\r$(tput el)"
-}
-# Args: <command to run after initialization>
-function nvmi-proxy {
-    unalias node
-    unalias npm
-    unalias nvm
-    nvmi
-
-    # All args after first are treated as command + args to execute
-    ${@:1}
-}
-alias nnn="nvmi-proxy"
-alias node="nvmi-proxy node"
-alias npm="nvmi-proxy npm"
-alias nvm="nvmi-proxy nvm"
-
-
-## Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
+# Prevent non-zero error from any previous command propagating at start up (eg
+# not have first prompt show non-zero error code for previous start up command)
+echo -n

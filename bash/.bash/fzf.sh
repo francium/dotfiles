@@ -1,6 +1,3 @@
-# vim: ft=bash
-
-
 # FZF
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
