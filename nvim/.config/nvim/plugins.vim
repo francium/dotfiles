@@ -31,7 +31,9 @@ function! LoadPlugins()
         nmap <leader>hx <Plug>(GitGutterUndoHunk)
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
-    Plug 'https://github.com/glacambre/firenvim'
+    if v:version > 800 || has('nvim-0.4.0')
+        Plug 'https://github.com/glacambre/firenvim'
+    endif
     Plug 'https://github.com/justinmk/vim-sneak'
     Plug 'https://github.com/kshenoy/vim-signature'
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
@@ -55,7 +57,9 @@ function! LoadPlugins()
     Plug 'https://github.com/bfrg/vim-cpp-modern'
 
     " Go ---------------------------------------------------------------------
-    Plug 'https://github.com/fatih/vim-go'
+    if v:version > 800 || has('nvim-0.4.0')
+        Plug 'https://github.com/fatih/vim-go'
+    endif
 
     " GLSL --------------------------------------------------------------------
     Plug 'https://github.com/tikhomirov/vim-glsl'
