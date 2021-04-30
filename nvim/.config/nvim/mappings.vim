@@ -171,7 +171,7 @@ com! -range FormatJSONRange <line1>,<line2>:!python -m json.tool
 " New file in same direct at current file
 function! NewHereFn(filename)
     let path = expand('%:p:h') . "/" . a:filename
-    execute "new " . path
+    execute "edit " . path
     write
     if exists(':NERDTreeRefreshRoot')
         NERDTreeRefreshRoot
