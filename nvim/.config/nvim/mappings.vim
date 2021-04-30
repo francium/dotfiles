@@ -168,6 +168,17 @@ nmap <leader>.. :tabm +1<CR>
 com! FormatJSON :%!python -m json.tool
 com! -range FormatJSONRange <line1>,<line2>:!python -m json.tool
 
+" New file in same direct at current file
+function! NewHereFn(filename)
+    let path = expand('%:p:h') . "/" . a:filename
+    execute "new " . path
+    write
+    if exists(':NERDTreeRefreshRoot')
+        NERDTreeRefreshRoot
+    endif
+endfunction
+com! -nargs=1 NewHere call NewHereFn(<f-args>)
+
 
 " Misc -------------------------------------------------------------------------
 
