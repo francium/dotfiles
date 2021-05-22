@@ -47,6 +47,10 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
 
+    Plug 'prettier/vim-prettier', {
+        \ 'do': 'yarn install',
+        \ 'for': ['javascript', 'typescript'] }
+
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
 

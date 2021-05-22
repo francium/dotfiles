@@ -54,7 +54,7 @@
     // JavaScript/TypeScript
     // "tsserver.trace.server": "verbose",
     // Relative imports
-    "typescript.preferences.importModuleSpecifier": "relative",
+    // "typescript.preferences.importModuleSpecifier": "relative",
     "typescript.preferences.quoteStyle": "single",
     "typescript.updateImportsOnFileMove.enable": false,
 
