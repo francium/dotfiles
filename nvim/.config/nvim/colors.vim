@@ -8,6 +8,7 @@ function! LoadColors()
     " Plug 'https://github.com/srcery-colors/srcery-vim'
     " Plug 'dracula/vim', { 'as': 'dracula' }
     Plug 'https://github.com/arzg/vim-colors-xcode'
+    Plug 'https://github.com/tomasiser/vim-code-dark'
 endfunction
 
 function! PostLoadColors()
