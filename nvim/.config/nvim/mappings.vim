@@ -199,3 +199,6 @@ map <F4> :call ToggleBackgroundDarkness()<CR>
 " Sync syntax highlighting
 nmap <leader><f12> :syntax sync fromstart<cr>
 autocmd BufEnter * syntax sync fromstart
+
+" Copy paths
+com! CopyRelDir :let @+=expand("%:h")
