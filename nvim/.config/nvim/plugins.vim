@@ -53,6 +53,8 @@ function! LoadPlugins()
     Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
         \ 'for': ['javascript', 'typescript'] }
+        let g:prettier#autoformat = 1
+        nmap <leader>ap :Prettier<CR>
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
