@@ -20,6 +20,12 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
     source ~/.config/nvim/pluginconfigs/vim-http.vim
 
+    Plug 'https://github.com/google/vim-maktaba'
+    Plug 'https://github.com/google/vim-codefmt'
+        augroup autoformat_settings
+            autocmd FileType bzl AutoFormatBuffer buildifier
+        augroup END
+
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/airblade/vim-gitgutter'
