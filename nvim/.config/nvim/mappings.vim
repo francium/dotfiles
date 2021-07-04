@@ -201,4 +201,5 @@ nmap <leader><f12> :syntax sync fromstart<cr>
 autocmd BufEnter * syntax sync fromstart
 
 " Copy paths
-com! CopyRelDir :let @+=expand("%:h")
+com! CopyRelDirPath :let @+=expand("%:h")
+com! CopyFilePath :let @+=expand("%")
