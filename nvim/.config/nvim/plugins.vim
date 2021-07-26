@@ -19,22 +19,12 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/winresizer.vim
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
     source ~/.config/nvim/pluginconfigs/vim-http.vim
-
-    Plug 'https://github.com/google/vim-maktaba'
-    Plug 'https://github.com/google/vim-codefmt'
-        augroup autoformat_settings
-            autocmd FileType bzl AutoFormatBuffer buildifier
-        augroup END
+    source ~/.config/nvim/pluginconfigs/vim-gitgutter.vim
+    source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
+    source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
-    Plug 'https://github.com/airblade/vim-gitgutter'
-        let g:gitgutter_map_keys = 0 " Disable default key mappings
-        nmap <leader>hn <Plug>(GitGutterNextHunk)
-        nmap <leader>hp <Plug>(GitGutterPrevHunk)
-        nmap <leader>hs <Plug>(GitGutterPreviewHunk)
-        nmap <leader>hS <Plug>(GitGutterStageHunk)
-        nmap <leader>hX <Plug>(GitGutterUndoHunk)
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
     if v:version > 800 || has('nvim-0.4.0')
@@ -45,8 +35,6 @@ function! LoadPlugins()
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
         let g:better_whitespace_guicolor='#330000'
     Plug 'https://github.com/thirtythreeforty/lessspace.vim'
-    Plug 'https://github.com/tpope/vim-fugitive'
-        nmap <leader>gs :vertical Git<cr>
     Plug 'https://github.com/tpope/vim-repeat'
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
@@ -70,8 +58,6 @@ function! LoadPlugins()
 
     " Python -------------------------------------------------------------------
     Plug 'https://github.com/Vimjas/vim-python-pep8-indent', {'for': 'python'}
-    " Syntax
-    " Plug 'https://github.com/numirias/semshi', {'for': 'python'}
 
     " Rust ---------------------------------------------------------------------
     Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
@@ -94,18 +80,6 @@ function! LoadPlugins()
     " Typescript ---------------------------------------------------------------
     Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
     Plug 'https://github.com/Quramy/vim-js-pretty-template', {'for': ['typescript']}
-    " autocmd! FileType typescript JsPreTmpl html
-    " autocmd! FileType typescript syn clear foldBraces
-
-    " Disabled -----------------------------------------------------------------
-    " Plug 'https://github.com/ncm2/float-preview.nvim'
-    " Plug 'https://github.com/ludovicchabant/vim-gutentags'
-    " appears that ctags can't handle long names, causing formatting errors
-    " Plug 'https://github.com/liuchengxu/vista.vim'
-    " let g:vista_executive_for = {
-    " \ 'typescript': 'lcn',
-    " \ }
-    " nmap <C-m> :Vista!!<CR>
 
     call plug#end()
 endfunction
