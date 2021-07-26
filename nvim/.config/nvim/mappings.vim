@@ -8,11 +8,6 @@ nmap <leader><f2> :tabedit $MYVIMRC<CR>
 " Make backtick another <leader> key
 nmap ` <leader>
 
-func! Eatchar(pat)
-    let c =  nr2char(getchar(0))
-    return (c=~ a:pat) ? '' : c
-endfunc
-
 " jj -> esc
 imap jj <ESC>
 
@@ -24,9 +19,9 @@ nnoremap <leader>wa :wall<CR>
 nmap <silent> <esc> :nohlsearch<Bar>:echo<CR>
 
 " Search current word under cursor without jumping
-" TODO: If there is no match, the cursor will jump back instead of staying on
-" current line
-nnoremap * *``
+" Source: https://stackoverflow.com/a/49944815
+nnoremap <silent> * :let @/= '\<' . expand('<cword>') . '\>' <bar> set hls <cr>
+
 " nmap * viw"zy:let @/=@z<CR>n``
 " Search selection
 vmap * y/<c-r>"<CR>``
@@ -37,14 +32,12 @@ map <leader>y "+y:echo "Copied to clipboard"<CR>
 imap <leader>p <C-R>+":echo "Pasted from clipboard"<CR>
 map <leader>p "+p:echo "Copied to clipboard"<CR>
 
-" iabbr <silent> if if ()<left><c-r>=Eatchar('\s')<cr>
-" iabbr <silent> while while ()<left><c-r>=Eatchar('\s')<cr>
-" iabbr <silent> for for ()<left><c-r>=Eatchar('\s')<cr>
-
 " Sort words
 " DrAl, spatz from StackOverflow
 vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
+" Fold
+nnoremap <space><space> za
 
 " Editing and Movement ---------------------------------------------------------
 
@@ -97,14 +90,22 @@ nmap <leader>cp :cprev<CR>
 
 " TERMINAL ---------------------------------------------------------------------
 
-" More sensible terminal opening commands
-ca term :split term://bash
-ca vterm :vsplit term://bash
+" By defualt, :terminal replaces current buffer, we can alias new command for
+" something more flexible. These will expand upon typing the alias, the
+" command to run needs to be specified after the `://`
+"
+" These are disabled because they auto expand and can be annoying when they
+" expand accidentally when not actually wanted
+"
+" ca tt :tabedit term://
+" ca ts :split term://
+" ca tv :vsplit term:/
 
-noremap <leader>tt :split term://bash<CR>
+noremap <leader>tt :tabedit term://bash<CR>
+noremap <leader>ts :split term://bash<CR>
 noremap <leader>tv :vsplit term://bash<CR>
 
-" Terminal splitting
+" Terminal split Movement
 tnoremap <C-h> <C-\><C-n><C-w>h
 tnoremap <C-j> <C-\><C-n><C-w>j
 tnoremap <C-k> <C-\><C-n><C-w>k
@@ -114,7 +115,6 @@ tnoremap <C-l> <C-\><C-n><C-w>l
 " causing fzf to go into normal mode instead of closing)
 autocmd BufEnter term://.*:bash silent! tnoremap <ESC> <C-\><C-n>
 autocmd BufLeave term://.*:bash silent! tunmap <ESC>
-
 
 " SPLITTING --------------------------------------------------------------------
 
