@@ -47,15 +47,8 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
 
-    Plug 'prettier/vim-prettier', {
-        \ 'do': 'yarn install',
-        \ 'for': ['javascript', 'typescript'] }
-
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
-
-    " HTML ---------------------------------------------------------------------
-    Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}
 
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
@@ -76,18 +69,29 @@ function! LoadPlugins()
     " Syntax
     " Plug 'https://github.com/numirias/semshi', {'for': 'python'}
 
-    " Typescript ---------------------------------------------------------------
-    Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
-    Plug 'https://github.com/Quramy/vim-js-pretty-template', {'for': ['typescript']}
-    " autocmd! FileType typescript JsPreTmpl html
-    " autocmd! FileType typescript syn clear foldBraces
-
     " Rust ---------------------------------------------------------------------
     Plug 'https://github.com/rust-lang/rust.vim', {'for': 'rust'}
 
     " Zig ----------------------------------------------------------------------
     Plug 'https://github.com/ziglang/zig.vim', {'for': 'zig'}
         let g:zig_fmt_autosave = 0
+
+    " Web ----------------------------------------------------------------------
+    Plug 'https://github.com/evanleck/vim-svelte'
+    Plug 'prettier/vim-prettier', {
+        \ 'do': 'yarn install',
+        \ 'for': ['javascript', 'typescript', 'typescriptreact', 'svelte'] }
+        let g:prettier#autoformat = 1
+        " let g:prettier#autoformat_config_present = 1
+
+    " HTML ---------------------------------------------------------------------
+    Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}
+
+    " Typescript ---------------------------------------------------------------
+    Plug 'https://github.com/HerringtonDarkholme/yats.vim', {'for': 'typescript'}
+    Plug 'https://github.com/Quramy/vim-js-pretty-template', {'for': ['typescript']}
+    " autocmd! FileType typescript JsPreTmpl html
+    " autocmd! FileType typescript syn clear foldBraces
 
     " Disabled -----------------------------------------------------------------
     " Plug 'https://github.com/ncm2/float-preview.nvim'
