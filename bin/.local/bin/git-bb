@@ -1,0 +1,7 @@
+#!/bin/bash
+
+git for-each-ref \
+    --color=always \
+    --sort=committerdate refs/heads/ \
+    --format='%(authorname)$$$%(color:yellow)%(committerdate:relative)%(color:reset)$$$%(color:red bold)%(HEAD)%(color:reset) %(color:green)%(refname:short)%(color:reset)$$$%(objectname:short)$$$%(color:yellow)%(contents:subject)%(color:reset)' \
+    | column -t -s'$$$'
