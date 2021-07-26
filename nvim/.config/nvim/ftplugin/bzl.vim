@@ -1,3 +1,5 @@
 set sw=4 ts=4
 
-call EnableHyphenedKeywords()
+" Include hyphenated words in completion
+setlocal iskeyword+=-
+setlocal iskeyword+=.

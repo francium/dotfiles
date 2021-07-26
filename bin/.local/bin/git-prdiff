@@ -1,0 +1,19 @@
+#!/bin/bash
+
+function print_usage() {
+    echo "Usage: $(basename $0) <destination ref> <head ref>"
+}
+
+dest_ref=$1
+head_ref=$2
+
+if [ -z $dest_ref ]; then
+    print_usage
+    exit 1
+fi
+if [ -z $head_ref ]; then
+    print_usage
+    exit 1
+fi
+
+git diff $dest_ref...$head_ref

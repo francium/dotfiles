@@ -25,7 +25,15 @@ function! PostLoadColors()
         color $colo
     else
         if $d
-            colo gruvbox8_hard
+            " colo gruvbox8_hard
+
+            colo xcodedarkhc
+            hi Normal guibg=#000000
+            hi EndOfBuffer guibg=#000000
+            hi Search guifg=#000000 guibg=#FFC42E
+            hi Folded guifg=#9398A4
+            hi DiffAdd guifg=#b1faeb guibg=#1e2a28 gui=NONE cterm=NONE
+            hi DiffDelete guifg=#ff8a7a guibg=#2f2625 gui=NONE cterm=NONE
         else
             colo one
         endif
