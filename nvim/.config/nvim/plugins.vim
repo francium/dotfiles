@@ -34,7 +34,7 @@ function! LoadPlugins()
         nmap <leader>hp <Plug>(GitGutterPrevHunk)
         nmap <leader>hs <Plug>(GitGutterPreviewHunk)
         nmap <leader>hS <Plug>(GitGutterStageHunk)
-        nmap <leader>hx <Plug>(GitGutterUndoHunk)
+        nmap <leader>hX <Plug>(GitGutterUndoHunk)
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
     if v:version > 800 || has('nvim-0.4.0')
@@ -43,6 +43,7 @@ function! LoadPlugins()
     Plug 'https://github.com/justinmk/vim-sneak'
     Plug 'https://github.com/kshenoy/vim-signature'
     Plug 'https://github.com/ntpeters/vim-better-whitespace'
+        let g:better_whitespace_guicolor='#330000'
     Plug 'https://github.com/thirtythreeforty/lessspace.vim'
     Plug 'https://github.com/tpope/vim-fugitive'
         nmap <leader>gs :vertical Git<cr>
