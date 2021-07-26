@@ -11,6 +11,7 @@ install:
 		mpv \
 		ranger \
 		tmux \
+		vivid \
 		zathura
 
 
@@ -27,6 +28,7 @@ uninstall:
 		mpv \
 		ranger \
 		tmux \
+		vivid \
 		zathura
 
 
