@@ -47,3 +47,7 @@ done
 # Prevent non-zero error from any previous command propagating at start up (eg
 # not have first prompt show non-zero error code for previous start up command)
 echo -n
+
+
+# Set dark theme env var
+export d=1
