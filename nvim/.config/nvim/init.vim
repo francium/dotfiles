@@ -116,10 +116,11 @@ function! BaseConfig()
     autocmd BufEnter * set mouse=
 
     " Terminal
-    " Start in insert mode
-    autocmd BufWinEnter,WinEnter term://* startinsert
-    " Disable spelling and line numbers
-    autocmd TermOpen term://* set nospell | set nonu
+        " Start in insert mode
+        autocmd BufWinEnter,WinEnter term://* startinsert
+
+        autocmd TermOpen * setlocal nospell
+        autocmd TermOpen * setlocal  nonumber norelativenumber
 
     " Add suffixes for related files so `gf` works for files without extensions
     augroup suffixes
