@@ -3,30 +3,27 @@ colors:
   # https://github.com/ayu-theme/ayu-colors
   background_color: 'fafafa'
   black: '000'
-  apricot: 'ed9366'
-  green: '318866'
   sienna: 'ed666a'
-  blue: '66aadc'
-  pink: 'f07171'
+  pink: 'ef768e'
+  magenta: 'd9a2ff'
   lime: '86b300'
 
   light_green: '9ae845'
 
   gray: '666666'
-  lightgray: 'aaa'
+  lightgray: 'ddd'
 
 core:
   regular_file: {}
 
   directory:
-    foreground: blue
+    foreground: pink
 
   executable_file:
-    foreground: sienna
     font-style: bold
 
   symlink:
-    foreground: pink
+    foreground: magenta
 
   broken_symlink:
     foreground: black
@@ -37,11 +34,11 @@ core:
 
   fifo:
     foreground: black
-    background: blue
+    background: pink
 
   socket:
     foreground: black
-    background: pink
+    background: magenta
 
   character_device:
     foreground: black
@@ -65,47 +62,44 @@ core:
 
 text:
   special:
-    foreground: black
-    background: apricot
-
-  todo:
-    font-style: bold
+    font-style: regular
 
   licenses:
-    foreground: gray
+    font-style: regular
 
   configuration:
-    foreground: apricot
+    font-style: regular
 
   other:
-    foreground: apricot
+    font-style: regular
+
+  todo:
+    font-style: regular
 
 markup:
-  foreground: apricot
+  font-style: regular
 
 programming:
   source:
-    foreground: green
+    font-style: regular
 
   tooling:
-    foreground: light_green
+    font-style: regular
 
     continuous-integration:
-      foreground: green
+      font-style: regular
 
 media:
-  foreground: pink
+  font-style: regular
 
 office:
-  foreground: sienna
+  font-style: regular
 
 archives:
-  foreground: lime
-  font-style: underline
+  font-style: regular
 
 executable:
-  foreground: sienna
   font-style: bold
 
 unimportant:
-  foreground: lightgray
+  font-style: regular
