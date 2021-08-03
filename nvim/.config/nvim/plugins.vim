@@ -23,6 +23,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
+    Plug 'https://github.com/hkupty/iron.nvim'
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/andymass/vim-matchup'
