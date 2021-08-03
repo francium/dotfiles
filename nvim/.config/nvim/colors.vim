@@ -34,6 +34,16 @@ function! PostLoadColors()
             hi Folded guifg=#9398A4
             hi DiffAdd guifg=#b1faeb guibg=#1e2a28 gui=NONE cterm=NONE
             hi DiffDelete guifg=#ff8a7a guibg=#2f2625 gui=NONE cterm=NONE
+            hi Directory guifg=#ef768e
+            hi IdentifierDef guifg=#ef768e
+            hi LibraryFunc guifg=#ffb7a1 guibg=NONE gui=NONE cterm=NONE
+            hi LibraryType guifg=#ffb7a1 guibg=NONE gui=NONE cterm=NONE
+            hi LocalType guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
+            hi LocalFunc guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
+            hi LocalIdent guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
+            hi Special guifg=#d67054 guibg=NONE gui=NONE cterm=NONE
+            hi markdownDelimiter guifg=#ffa96b
+            hi Underlined guifg=#ffa96b
         else
             colo one
         endif
