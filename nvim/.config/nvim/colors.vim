@@ -40,6 +40,9 @@ function! PostLoadColors()
     endif
 
     call ConfigureVimOneColors()
+
+    " Highlight conflict markers
+    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 endfunction
 
 function! ConfigureVimOneColors()
