@@ -47,7 +47,8 @@ function! LoadPlugins()
 
     " Go ---------------------------------------------------------------------
     if v:version > 800 || has('nvim-0.4.0')
-        Plug 'https://github.com/fatih/vim-go'
+        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+            let g:go_doc_popup_window = 1
     endif
 
     " GLSL --------------------------------------------------------------------
