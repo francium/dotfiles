@@ -23,6 +23,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
+    Plug 'https://github.com/hkupty/iron.nvim'
     Plug 'https://github.com/RRethy/vim-illuminate'
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/andymass/vim-matchup'
@@ -47,7 +48,8 @@ function! LoadPlugins()
 
     " Go ---------------------------------------------------------------------
     if v:version > 800 || has('nvim-0.4.0')
-        Plug 'https://github.com/fatih/vim-go'
+        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+            let g:go_doc_popup_window = 1
     endif
 
     " GLSL --------------------------------------------------------------------

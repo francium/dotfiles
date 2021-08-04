@@ -5,9 +5,6 @@ nmap <leader><f2> :tabedit $MYVIMRC<CR>
 
 " Basic -----------------------------------------------------------------------
 
-" Make backtick another <leader> key
-nmap ` <leader>
-
 " jj -> esc
 imap jj <ESC>
 
