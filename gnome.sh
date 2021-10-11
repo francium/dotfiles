@@ -114,8 +114,8 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/  name     "'Terminal'"
 
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  binding  "'<Super>e'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'nautilus'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Files'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  command  "'nautilus'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  name     "'Files'"
 
 
 # Nautilus
