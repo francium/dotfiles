@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=sshfs francium@nero.fr.local:/media/ deepspace-sshfs/
+Terminal=false
+Name=Mount Deepspace (SSHFS)
+Type=Application
+Icon=network-wired
