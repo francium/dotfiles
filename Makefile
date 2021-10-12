@@ -3,6 +3,7 @@ install:
 		bash \
 		bin \
 		code \
+		dot-desktop \
 		gitconfig \
 		inputrc \
 		nautilus \
@@ -20,6 +21,7 @@ uninstall:
 		bash \
 		bin \
 		code \
+		dot-desktop \
 		gitconfig \
 		inputrc \
 		nautilus \
