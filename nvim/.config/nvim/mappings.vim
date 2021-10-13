@@ -25,6 +25,7 @@ vmap * y/<c-r>"<CR>``
 
 
 " clipboard shortcuts (copy, paste)
+" For wayland, ensure wl-clipboard is installed
 map <leader>y "+y:echo "Copied to clipboard"<CR>
 imap <leader>p <C-R>+":echo "Pasted from clipboard"<CR>
 map <leader>p "+p:echo "Copied to clipboard"<CR>
