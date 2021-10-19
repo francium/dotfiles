@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=/bin/sh -c '$HOME/.local/bin/night-light-tray-app.py'
+Terminal=false
+Name=Night Light Tray App
+Type=Application
+Icon=night-light-symbolic
