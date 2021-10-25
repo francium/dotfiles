@@ -7,6 +7,9 @@
     alias l='ls -hlX --color=auto'
     alias ll='ls -ahlX --color=auto'
 
+    # Usage: `gtk-light <gtk-application>`
+    alias gtk-light='GTK_THEME=Adwaita:light'
+
     function cd { command cd "${@:1}" && ls; }
     alias ..='cd ..'
 
