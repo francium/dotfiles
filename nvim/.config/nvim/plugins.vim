@@ -70,6 +70,7 @@ function! LoadPlugins()
 
     " Web ----------------------------------------------------------------------
     Plug 'https://github.com/evanleck/vim-svelte'
+    Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
     Plug 'prettier/vim-prettier', {
         \ 'do': 'yarn install',
         \ 'for': ['javascript', 'typescript', 'typescriptreact', 'svelte'] }
