@@ -109,8 +109,8 @@ function! BaseConfig()
     set backupcopy=yes
 
     " Splitting
-    " set splitbelow
-    " set splitright
+    set splitbelow
+    set splitright
 
     " Disable mouse clicking (scrolling not affected)
     autocmd BufEnter * set mouse=
