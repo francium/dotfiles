@@ -201,3 +201,4 @@ autocmd BufEnter * syntax sync fromstart
 " Copy paths
 com! CopyRelDirPath :let @+=expand("%:h")
 com! CopyFilePath :let @+=expand("%")
+com! CopyFileName :let @+=expand("%:t")
