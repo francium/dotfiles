@@ -104,14 +104,3 @@ function rename_win {
     echo $1
     xdotool search --name "$old_name" set_window --name "$1"
 }
-
-
-function venv {
-    if [ $# -gt 0 ]; then
-        echo "Activating virtual environment in $1"
-        . $1/bin/activate
-    else
-        echo "Activating virtual environment in env"
-        . venv/bin/activate
-    fi
-}
