@@ -27,9 +27,18 @@ gf() {
     fzf --height 40% -m --ansi --nth 2..,.. | awk '{print $2}'
 }
 
+# Git branch
 gb() {
   is_in_git_repo &&
     git branch --sort=committerdate -vv --color=always | grep -v '/HEAD\s' |
+    fzf --height 40% --ansi --multi --tac | sed 's/^..//' | awk '{print $1}' |
+    sed 's#^remotes/[^/]*/##'
+}
+
+# Git all branches
+gbr() {
+  is_in_git_repo &&
+    git branch --sort=committerdate -vv --color=always --all | grep -v '/HEAD\s' |
     fzf --height 40% --ansi --multi --tac | sed 's/^..//' | awk '{print $1}' |
     sed 's#^remotes/[^/]*/##'
 }
