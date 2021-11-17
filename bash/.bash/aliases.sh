@@ -56,6 +56,8 @@
     }
 
     alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
+    alias youtube-dl-720p="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
+    alias youtube-dl-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
     alias youtube-dl-playlist-indexed-mp3="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\" https://www.youtube.com/playlist?list=PLi8Dls8cfYJlUa6r3wA4_FneD4UtnHhU6"
 
 
