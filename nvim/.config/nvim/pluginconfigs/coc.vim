@@ -90,6 +90,10 @@ else
     nnoremap <silent> g= :call CocAction('format')<CR>
     vnoremap <silent> g= <Plug>(coc-format-selected)
 
+    " Organize imports
+    command! -nargs=0  OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
+    nmap <leader>o :OrganizeImports<cr>
+
     function! _cocrestart()
         echo "Restarting COC"
         CocRestart
