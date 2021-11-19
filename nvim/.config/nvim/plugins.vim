@@ -47,6 +47,9 @@ function! LoadPlugins()
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
 
+    " Dhall
+    Plug 'https://github.com/vmchale/dhall-vim'
+
     " Go ---------------------------------------------------------------------
     if v:version > 800 || has('nvim-0.4.0')
         Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
@@ -58,6 +61,9 @@ function! LoadPlugins()
 
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
+
+    " Purescript
+    Plug 'https://github.com/purescript-contrib/purescript-vim'
 
     " Python -------------------------------------------------------------------
     Plug 'https://github.com/Vimjas/vim-python-pep8-indent', {'for': 'python'}
