@@ -1,6 +1,7 @@
 install:
 	stow \
 		bash \
+		bat \
 		bin \
 		code \
 		dot-desktop \
@@ -19,6 +20,7 @@ install:
 uninstall:
 	stow -D \
 		bash \
+		bat \
 		bin \
 		code \
 		dot-desktop \
