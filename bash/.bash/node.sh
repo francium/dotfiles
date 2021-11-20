@@ -34,3 +34,5 @@ alias nnn="nvmi-proxy"
 alias node="nvmi-proxy node"
 alias npm="nvmi-proxy npm"
 alias nvm="nvmi-proxy nvm"
+
+alias nbin='PATH=$PATH:`npm bin`'
