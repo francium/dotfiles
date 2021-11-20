@@ -1,6 +1,6 @@
 # General
     # f# like |> pipelining, example `echo "~/.bashrc" |: vim _`
-    alias :='xargs -i_ --'
+    alias ::='xargs -i_ --'
 
     alias ls='ls -hlx --color=auto'
     alias l='ls -hlX --color=auto'
