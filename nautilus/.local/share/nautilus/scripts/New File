@@ -1,0 +1,4 @@
+#!/bin/bash
+
+path=$(pwd)/$1/new-file-$(date -Iseconds).txt
+touch "$path"
