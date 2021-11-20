@@ -1,6 +1,7 @@
 # General
     # f# like |> pipelining, example `echo "~/.bashrc" |: vim _`
-    alias ::='xargs -i_ --'
+    # sed here is removing the last newline of the output
+    alias ::='sed -z "$ s/\n$//" | xargs -i_ --'
 
     alias ls='ls -hlx --color=auto'
     alias l='ls -hlX --color=auto'
