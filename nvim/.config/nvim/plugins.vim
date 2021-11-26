@@ -1,5 +1,6 @@
 source ~/.config/nvim/colors.vim
 
+source ~/.config/nvim/pluginconfigs/virt-column.vim
 
 function! LoadPlugins()
     call plug#begin()
@@ -22,6 +23,8 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-gitgutter.vim
     source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
+
+    call __Install_VirtColumn()
 
     Plug 'https://github.com/hkupty/iron.nvim'
     Plug 'https://github.com/RRethy/vim-illuminate'
@@ -94,5 +97,11 @@ function! LoadPlugins()
     call plug#end()
 endfunction
 
+function! PostLoadPlugins()
+    call PostLoadColors()
+
+    call __Configure_VirtColumn()
+endfunction
+
 call LoadPlugins()
-call PostLoadColors()
+call PostLoadPlugins()
