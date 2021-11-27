@@ -10,6 +10,7 @@
     # Usage: `gtk-light <gtk-application>`
     alias gtk-light='GTK_THEME=Adwaita:light'
 
+    function CD { command mkdir -p $1; command cd $1; }
     function cd { command cd "${@:1}" && ls; }
     alias ..='cd ..'
 
@@ -60,7 +61,16 @@
     alias youtube-dl-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
     alias youtube-dl-playlist-indexed-mp3="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\" https://www.youtube.com/playlist?list=PLi8Dls8cfYJlUa6r3wA4_FneD4UtnHhU6"
 
-    alias passfzf='pass -c $(fd -tf --color=never | sed "s/\.gpg$//" | fzf)'
+    function passfzf() {
+        FZF_CANCEL=130
+
+        command cd ~/.password-store # command to avoid `cd` alias
+        SELECTION=$(fd -tf --color=never | sed "s/\.gpg$//" | fzf)
+        if [[ $? == FZF_CANCEL ]]; then
+            return
+        fi
+        pass -c $SELECTION
+    }
 
 
 # Tmux
