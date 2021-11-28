@@ -4,5 +4,12 @@
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
-# Open wiki
-nvim "+cd ~/wiki" ~/wiki/index.md
+pushd .
+
+cd ~/wiki
+nvim index.md
+git add .
+git commit --allow-empty-message
+git push origin HEAD
+
+popd
