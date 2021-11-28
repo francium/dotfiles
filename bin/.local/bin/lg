@@ -13,11 +13,8 @@ if [ ! -e $filename ]; then
 fi
 nvim $filename
 
-# -N lets git know we intend to add unstaged files and allows -p to work with untracked
-# files
-git add -N .
-git add -p
-git commit -vv --allow-empty-message
+git add .
+git commit --allow-empty-message -m ""
 if [ $? == 0 ]; then
     git pull origin master
     git push origin master

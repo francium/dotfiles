@@ -4,12 +4,15 @@
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
-pushd .
+pushd . > /dev/null
 
 cd ~/wiki
 nvim index.md
 git add .
-git commit --allow-empty-message
-git push origin HEAD
+git commit --allow-empty-message -m ""
+if [ $? == 0 ]; then
+    git pull origin master
+    git push origin master
+fi
 
-popd
+popd > /dev/null
