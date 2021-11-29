@@ -19,25 +19,25 @@
     addd  = add
     b  = branch --sort=committerdate
     ; bb = for-each-ref --color=always --sort=committerdate refs/heads/ --format='%(color:yellow)%(committerdate:relative)%(color:reset) $$$ %(authorname) $$$ %(color:white)%(objectname:short)%(color:reset) %(color:red bold)%(HEAD)%(color:reset) %(color:green)%(refname:short)%(color:reset) > %(contents:subject)'
+    bname = rev-parse --abbrev-ref HEAD
+    cloner = clone --recursive -j 4
+    cm = commit
+    cm-empty = commit --allow-empty-message
+    cmempty = commit --allow-empty --allow-empty-message -m ''
+    co = checkout
     d  = diff
     ds = diff --staged
-    co = checkout
-    coremote = checkout -t
-    ph = push origin HEAD
-    pf = push origin HEAD --force-with-lease
-    s  = status -ss
-    ss = status
-    cm = commit
-    cmempty = commit --allow-empty --allow-empty-message -m ''
     # Show a more linear history, without including all commits in merges
     l = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold blue)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s' --first-parent
     lg = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold blue)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s'
-    cloner = clone --recursive -j 4
-    subinit = submodule update --init --recursive
+    pf = push origin HEAD --force-with-lease
+    ph = push origin HEAD
     prune-remote = remote prune origin
-    cm-empty = commit --allow-empty-message
-    branch-name = rev-parse --abbrev-ref HEAD
+    s  = status -ss
     set-upstream = ! git branch -u origin/$(git branch-name)
+    review = show --stat -p
+    ss = status
+    subinit = submodule update --init --recursive
 [init]
 	defaultBranch = master
 [pull]
