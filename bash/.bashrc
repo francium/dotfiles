@@ -29,12 +29,14 @@ done
 # Modules
 [[ -f ~/.bash/aliases.sh ]] && source ~/.bash/aliases.sh
 [[ -f ~/.bash/fzf.sh ]] && source ~/.bash/fzf.sh
+[[ -f ~/.bash/homebrew.sh ]] && source ~/.bash/homebrew.sh
 [[ -f ~/.bash/go.sh ]] && source ~/.bash/go.sh
 [[ -f ~/.bash/nix.sh ]] && source ~/.bash/nix.sh
 [[ -f ~/.bash/node.sh ]] && source ~/.bash/node.sh
 [[ -f ~/.bash/prompt.sh ]] && source ~/.bash/prompt.sh
 [[ -f ~/.bash/ls_colors.sh ]] && source ~/.bash/ls_colors.sh
 [[ -f ~/.bash/python.sh ]] && source ~/.bash/python.sh
+[[ -f ~/.bash/rust.sh ]] && source ~/.bash/rust.sh
 [[ -f ~/.bash/ranger.sh ]] && source ~/.bash/ranger.sh
 [[ -f ~/.bash/ruby.sh ]] && source ~/.bash/ruby.sh
 [[ -f ~/.bash/z.sh ]] && source ~/.bash/z.sh
