@@ -8,7 +8,7 @@ export HISTSIZE=100000
 export HISTCONTROL=ignoreboth:erasedups
 
 export EDITOR=nvim
-export PATH=$PATH:~/.local/bin:~/bin
+export PATH=$PATH:~/.local/bin:~/.local/ibin:~/bin
 export XDG_CONFIG_HOME=~/.config
 
 
