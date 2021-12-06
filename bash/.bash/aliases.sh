@@ -3,9 +3,16 @@
     # sed here is removing the last newline of the output
     alias ::='sed -z "$ s/\n$//" | xargs -i_ --'
 
-    alias ls='ls -hlx --color=auto'
-    alias l='ls -hlX --color=auto'
-    alias ll='ls -ahlX --color=auto'
+    LS_OPTS='-hlx'
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+    alias ls='ls $LS_COMMON_OPTS --color=auto'
+    alias l='ls $LS_COMMON_OPTS --color=auto'
+    alias ll='ls $LS_COMMON_OPTS --color=auto'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias ls='ls $LS_COMMON_OPTS -G'
+    alias l='ls $LS_COMMON_OPTS -G'
+    alias ll='ls $LS_COMMON_OPTS -G'
+fi
 
     # Usage: `gtk-light <gtk-application>`
     alias gtk-light='GTK_THEME=Adwaita:light'
@@ -36,9 +43,18 @@
     function col {
         eval "awk '{ print \$$1 }'"
     }
+
+
+if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias sel='tr --delete "\n" | xclip -selection c'
     alias seln='xclip -selection c'
     alias pst='xclip -selection c -o'
+elif [[ "$OSTYPE" == "darwin"* ]]; then
+    alias sel='tr --delete "\n" | pbcopy'
+    alias seln='pbcopy'
+    alias pst='pbpaste'
+fi
+
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
     function make-m3u-playlist {
