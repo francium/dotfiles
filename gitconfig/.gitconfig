@@ -34,7 +34,7 @@
     ph = push origin HEAD
     prune-remote = remote prune origin
     s  = status -ss
-    set-upstream = ! git branch -u origin/$(git branch-name)
+    set-upstream = ! git branch -u origin/$(git bname)
     review = show --stat -p
     ss = status
     subinit = submodule update --init --recursive
