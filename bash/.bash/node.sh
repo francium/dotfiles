@@ -22,3 +22,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
         alias npm=$ALIAS
     fi
 fi
+
+
+alias nbin="export PATH=./node_modules/.bin:$PATH"
