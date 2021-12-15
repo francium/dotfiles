@@ -1,5 +1,11 @@
 #!/bin/bash
 
+if [[ $1 == "-n" ]]; then
+    NO_EDIT=1
+else
+    NO_EDIT=0
+fi
+
 pushd . > /dev/null
 
 if [ ! -e ~/wiki/logs ]; then
@@ -11,13 +17,19 @@ filename=logs/`date +%Y-%m-%d`.md
 if [ ! -e $filename ]; then
     echo -e "# `date '+%A, %B %d %Y'`\n\n\n" > $filename
 fi
-nvim $filename
 
-git add .
-git commit --allow-empty-message -m "" -e
-if [ $? == 0 ]; then
-    git pull origin master
-    git push origin master
+if [[ $NO_EDIT == 1 ]]; then
+    echo "Created $filename"
+else
+    nvim $filename
+
+    git add .
+    git commit --allow-empty-message -m "" -e
+    if [ $? == 0 ]; then
+        git pull origin master
+        git push origin master
+    fi
 fi
+
 
 popd > /dev/null
