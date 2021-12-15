@@ -1,5 +1,6 @@
 RED="\[$(tput setaf 1)\]"
 GREEN="\[$(tput setaf 34)\]"
+ORANGE="\[$(tput setaf 208)\]"
 PURPLE="\[$(tput setaf 55)\]"
 PINK="\[$(tput setaf 198)\]"
 RESET="\[$(tput sgr0)\]"
@@ -111,7 +112,7 @@ function _prompt {
     # symbols
     # ⋙   ↳ ⤷
     INDICATOR=">>>"
-    PS1="$BOLD$RED\`exit_code\`$PRIMARY[\t][\u@\h \W]$RED\`parse_git_branch\`$RESET$BOLD$venv $PRIMARY`is_tmux`\n$PRIMARY$INDICATOR $RESET"
+    PS1="$BOLD$ORANGE\`exit_code\`$PRIMARY[\t][\u@\h \W]$RED\`parse_git_branch\`$RESET$BOLD$venv $PRIMARY`is_tmux`\n$PRIMARY$INDICATOR $RESET"
 
     # window title
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
