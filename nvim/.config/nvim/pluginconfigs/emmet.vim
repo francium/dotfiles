@@ -3,5 +3,5 @@ function! Plugin_InitEmmet()
     autocmd FileType html,css EmmetInstall
 endfunction
 
-Plug 'https://github.com/mattn/emmet-vim', {'for': ['html', 'css', 'eruby', 'svelte']}
+Plug 'https://github.com/mattn/emmet-vim', {'for': ['html', 'css', 'eruby', 'svelte', 'typescriptreact', 'javascriptreact']}
 autocmd! User emmet-vim call Plugin_InitEmmet()
