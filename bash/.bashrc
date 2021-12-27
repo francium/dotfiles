@@ -3,7 +3,7 @@
 
 
 # Bash history size
-export HISTSIZE=100000
+export HISTSIZE=1000000
 # Prevent back-to-back duplicates from being saved
 export HISTCONTROL=ignoreboth:erasedups
 
