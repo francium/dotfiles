@@ -145,8 +145,8 @@ function! BaseConfig_AutoReloadFileOnChange()
     autocmd FocusGained,BufEnter,CursorHold,CursorHoldI * if mode() != 'c' | silent! checktime | endif
     " Notification after file change
     " https://vi.stackexchange.com/questions/13091/autocmd-event-for-autoread
-    autocmd FileChangedShellPost *
-    \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
+    " autocmd FileChangedShellPost *
+    " \ echohl WarningMsg | echo "File changed on disk. Buffer reloaded." | echohl None
 endfunction
 
 
