@@ -25,6 +25,7 @@ fi
     alias :q='exit'
     alias :wq='exit'
     alias grep='grep --color=always'
+    alias vgrep='grep --color=always -v'
     alias rm='rm  -i'
     # -v prints out each directory created
     alias mkdir='mkdir -pv'
