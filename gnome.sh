@@ -22,7 +22,7 @@
 # Shell
     gsettings set  org.gnome.desktop.interface clock-show-seconds       true
     gsettings set  org.gnome.desktop.interface enable-animations        false
-    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 7.5'"
+    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 9.0'"
     gsettings set  org.gnome.desktop.interface show-battery-percentage  true
 
 
