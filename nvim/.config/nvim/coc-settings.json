@@ -76,7 +76,7 @@
         }
     },
 
-    // Purescript
+    // Purescript (npm i -g purescript-language-server)
     "languageserver": {
         "purescript": {
             "command": "purescript-language-server",
@@ -91,6 +91,12 @@
                     // etc
                 }
             }
+        },
+        "haskell": {
+            "command": "haskell-language-server-wrapper",
+            "args": ["--lsp"],
+            "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
+            "filetypes": ["haskell", "lhaskell"]
         }
     },
 
