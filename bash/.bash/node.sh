@@ -6,7 +6,6 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
         eval "$(fnm env)"
     else
         MSG="echo install fnm from https://github.com/Schniz/fnm"
-        alias nvm=$MSG
         alias fnm=$MSG
         alias node=$MSG
         alias npm=$MSG
@@ -16,7 +15,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
         eval "$(fnm env)"
     else
         MSG="echo brew install fnm"
-        alias nvm=$MSG
         alias fnm=$MSG
         alias node=$MSG
         alias npm=$MSG
@@ -24,4 +22,6 @@ elif [[ "$OSTYPE" == "darwin"* ]]; then
 fi
 
 
+alias nvm="echo Use fnm"
+alias fnm-reload='eval "$(fnm env)"'
 alias nbin="export PATH=./node_modules/.bin:$PATH"
