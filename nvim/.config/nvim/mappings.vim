@@ -177,6 +177,12 @@ function! NewHereFn(filename)
 endfunction
 com! -nargs=1 NewHere call NewHereFn(<f-args>)
 
+function! MkdirSave()
+    :!mkdir -p %:h
+    :w
+endfunction
+
+com! MkdirSave :call MkdirSave()
 
 " Misc -------------------------------------------------------------------------
 
