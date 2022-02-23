@@ -29,7 +29,9 @@ fi
     alias rm='rm  -i'
     # -v prints out each directory created
     alias mkdir='mkdir -pv'
+if [[ "$OSTYPE" != "darwin"* ]]; then
     alias open='xdg-open'
+fi
     alias dotfiles='cd ~/dotfiles'
 
 
