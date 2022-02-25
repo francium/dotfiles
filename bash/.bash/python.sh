@@ -32,13 +32,13 @@ function mkvenv {
             return
         fi
         echo "Creating virtual environment in $1"
-        python -m venv $1
+        python3 -m venv $1
     else
         echo "Creating virtual environment in ./venv"
         if [ -d venv ]; then
             echo "Directory venv already exists"
             return
         fi
-        python -m venv venv
+        python3 -m venv venv
     fi
 }
