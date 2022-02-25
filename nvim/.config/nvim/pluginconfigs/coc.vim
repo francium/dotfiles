@@ -87,8 +87,7 @@ else
     nnoremap <silent> <space>p  :<C-u>CocListResume<CR>
 
     " Format buffer
-    nnoremap <silent> g= :call CocAction('format')<CR>
-    vnoremap <silent> g= <Plug>(coc-format-selected)
+    nnoremap <silent> <leader>ap :call CocAction('format')<CR>
 
     " Organize imports
     command! -nargs=0  OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')

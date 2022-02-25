@@ -47,6 +47,10 @@ fi
         eval "awk '{ print \$$1 }'"
     }
 
+    function skip {
+        tail -n +$(($1 + 1))
+    }
+
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias sel='tr --delete "\n" | xclip -selection c'
