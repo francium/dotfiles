@@ -3,7 +3,6 @@ install:
 		bash \
 		bat \
 		bin \
-		code \
 		dot-desktop \
 		gitconfig \
 		inputrc \
@@ -22,7 +21,6 @@ uninstall:
 		bash \
 		bat \
 		bin \
-		code \
 		dot-desktop \
 		gitconfig \
 		inputrc \
