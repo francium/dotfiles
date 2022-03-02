@@ -6,6 +6,7 @@
 export HISTSIZE=1000000
 # Prevent back-to-back duplicates from being saved
 export HISTCONTROL=ignoreboth:erasedups
+# shopt -s histappend
 
 export EDITOR=nvim
 export PATH=$PATH:~/.local/bin:~/.local/ibin:~/bin

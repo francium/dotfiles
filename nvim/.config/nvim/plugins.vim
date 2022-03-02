@@ -81,11 +81,6 @@ function! LoadPlugins()
     " Web ----------------------------------------------------------------------
     Plug 'https://github.com/evanleck/vim-svelte'
     Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
-    Plug 'prettier/vim-prettier', {
-        \ 'do': 'yarn install',
-        \ 'for': ['javascript', 'typescript', 'typescriptreact', 'svelte'] }
-        let g:prettier#autoformat = 1
-        nmap <leader>ap :Prettier<CR>
 
     " HTML ---------------------------------------------------------------------
     Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}

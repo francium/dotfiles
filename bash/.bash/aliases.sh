@@ -29,7 +29,9 @@ fi
     alias rm='rm  -i'
     # -v prints out each directory created
     alias mkdir='mkdir -pv'
+if [[ "$OSTYPE" != "darwin"* ]]; then
     alias open='xdg-open'
+fi
     alias dotfiles='cd ~/dotfiles'
 
 
@@ -43,6 +45,10 @@ fi
 # Utils
     function col {
         eval "awk '{ print \$$1 }'"
+    }
+
+    function skip {
+        tail -n +$(($1 + 1))
     }
 
 
