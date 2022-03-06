@@ -1,5 +1,11 @@
 ## Set vi mode, instead of emacs
-# set editing-mode vi
+set editing-mode vi
+
+# Shows a i-beam or block depending on which mode we're in
+# From https://stackoverflow.com/questions/44534678
+set show-mode-in-prompt on
+set vi-cmd-mode-string "\1\e[2 q\2"
+set vi-ins-mode-string "\1\e[6 q\2"
 
 ## Add indicator to editing mode
 # set show-mode-in-prompt on
