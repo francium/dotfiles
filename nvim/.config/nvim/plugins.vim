@@ -43,6 +43,7 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
     Plug 'https://github.com/tpope/vim-abolish'
+    Plug 'https://github.com/tpope/vim-unimpaired'
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}

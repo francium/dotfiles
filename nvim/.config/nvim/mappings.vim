@@ -37,6 +37,11 @@ vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 " Fold
 nnoremap <space><space> za
 
+function! CloseAllOtherBuffers()
+    :%bd|e#
+endfunction
+com! CloseAllOtherBuffers :call CloseAllOtherBuffers()
+
 " Editing and Movement ---------------------------------------------------------
 
 " Replace the word under the cursor
