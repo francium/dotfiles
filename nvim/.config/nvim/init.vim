@@ -28,6 +28,9 @@ function! BaseConfig()
         syntax enable
     endif
 
+    " Default is 4000, which is too slow. Some plugins use this (coc, etc.)
+    set updatetime=100
+
     " File specific settings
     filetype plugin indent on
 
