@@ -55,6 +55,7 @@ function! BaseConfig()
 
     " Don't softwrap lines
     set nowrap
+    set showbreak=↪>
 
     " Disable swapfiles
     set noswapfile
