@@ -42,6 +42,20 @@ function! CloseAllOtherBuffers()
 endfunction
 com! CloseAllOtherBuffers :call CloseAllOtherBuffers()
 
+function! CloseAll()
+    call CloseAllOtherBuffers()
+
+    tabnew scratch
+    noswapfile hide enew
+    setlocal buftype=nofile
+    setlocal bufhidden=hide
+    setlocal nobuflisted
+
+    tabnext
+    bd
+endfunction
+com! CloseAll :call CloseAll()
+
 " Editing and Movement ---------------------------------------------------------
 
 " Replace the word under the cursor
