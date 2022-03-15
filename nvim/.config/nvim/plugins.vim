@@ -46,6 +46,8 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-surround'
     Plug 'https://github.com/tpope/vim-abolish'
     Plug 'https://github.com/tpope/vim-unimpaired'
+    Plug 'https://github.com/AndrewRadev/bufferize.vim'
+        " Allows redirection of a :command into a buffer
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
