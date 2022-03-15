@@ -28,6 +28,8 @@ function! LoadPlugins()
 
     Plug 'https://github.com/hkupty/iron.nvim'
     Plug 'https://github.com/RRethy/vim-illuminate'
+        " Automatically highlighting other uses of the word under the cursor
+        let g:Illuminate_ftblacklist = ['nerdtree', 'qf']
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
