@@ -20,7 +20,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/winresizer.vim
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
     source ~/.config/nvim/pluginconfigs/vim-http.vim
-    source ~/.config/nvim/pluginconfigs/vim-gitgutter.vim
+    source ~/.config/nvim/pluginconfigs/vim-signify.vim
     source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
