@@ -123,6 +123,9 @@ function! BaseConfig()
     " Disable mouse clicking (scrolling not affected)
     autocmd BufEnter * set mouse=
 
+    " Force quickfix window to open at bottom instead of below a vertical split
+    autocmd FileType qf wincmd J
+
     " Terminal
         " Start in insert mode
         autocmd BufWinEnter,WinEnter term://* startinsert
