@@ -184,6 +184,8 @@ endfunction
 
 com! MkdirSave :call MkdirSave()
 
+nmap <leader>` :wall <bar> silent !touch .watchfile<CR>
+
 " Misc -------------------------------------------------------------------------
 
 " Toggle darkness
