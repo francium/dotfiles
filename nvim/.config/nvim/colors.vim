@@ -49,9 +49,6 @@ function ConfigureColorscheme()
         hi CocFadeOut guifg=NONE guibg=#f4f4f4 cterm=NONE gui=NONE
         hi Folded guifg=NONE guibg=#f3f3f3
     endif
-
-    " Highlight conflict markers
-    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 endfunction
 
 function ConfigureLightlineColors()

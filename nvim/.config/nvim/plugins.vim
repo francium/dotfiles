@@ -48,6 +48,8 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-unimpaired'
     Plug 'https://github.com/AndrewRadev/bufferize.vim'
         " Allows redirection of a :command into a buffer
+    Plug 'https://github.com/rhysd/conflict-marker.vim'
+        " Git conflict highlighting and conflict resolution
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
