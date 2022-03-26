@@ -1,8 +1,8 @@
 setlocal ts=2 sw=2 foldmethod=syntax foldlevel=99
 
-if !$coc
-    set suffixesadd=.js,.ts,.jsx
-endif
+setlocal iskeyword+=$
+
+set suffixesadd=.js,.ts,.jsx
 
 " Snips -----------------------------------------------------------------------
 " if
