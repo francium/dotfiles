@@ -56,6 +56,9 @@ function! CloseAll()
 endfunction
 com! CloseAll :call CloseAll()
 
+com! SaveSession mksession!
+com! RestoreSession so Session.vim
+
 " Editing and Movement ---------------------------------------------------------
 
 " Replace the word under the cursor
@@ -95,15 +98,15 @@ inoremap {{o {<CR>}<Esc>ko
 inoremap {{{i {{}}<Esc>hi
 inoremap {{{o {{<CR>}}<Esc>ko
 
-" "move lines around
-" nnoremap <leader>k :m-2<cr>==
-" nnoremap <leader>j :m+<cr>==
-" xnoremap <leader>k :m-2<cr>gv=gv
-" xnoremap <leader>j :m'>+<cr>gv=gv
-
-" Next/previous quickfix item
-nmap <leader>cn :cnext<CR>
-nmap <leader>cp :cprev<CR>
+" Toggle quickfix
+nmap <leader>q :call ToggleQuickFix()<CR>
+function! ToggleQuickFix()
+    if empty(filter(getwininfo(), 'v:val.quickfix'))
+        copen
+    else
+        cclose
+    endif
+endfunction
 
 " TERMINAL ---------------------------------------------------------------------
 
@@ -143,13 +146,6 @@ autocmd BufLeave term://.*:bash silent! tunmap <ESC>
 
 " Close other split
 nnoremap <C-x> <C-W>w:q<CR>
-
-" Quickly close focused split or window
-nnoremap <leader>q :q
-
-nmap <leader>b :split<CR>
-nmap <leader>v :vsplit <CR>
-
 
 " TABS -------------------------------------------------------------------------
 
