@@ -13,8 +13,12 @@ endif
 " -----------------------------------------------------------------------------
 
 
+" To ensure utility functions are available right from the start, avoiding any
+" ordering issues with other configs/ftplugins
+source ~/.config/nvim/util.vim
+
+
 function! SourceModules()
-    source ~/.config/nvim/util.vim
     source ~/.config/nvim/plugins.vim
     source ~/.config/nvim/mappings.vim
     if filereadable(expand('~/.vim_private/init.vim'))
