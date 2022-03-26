@@ -32,7 +32,7 @@ fi
 if [[ "$OSTYPE" != "darwin"* ]]; then
     alias open='xdg-open'
 fi
-    alias dotfiles='cd ~/dotfiles'
+    alias d.='cd ~/dotfiles'
 
 
 # System
@@ -92,7 +92,12 @@ fi
         if [[ $? == FZF_CANCEL ]]; then
             return
         fi
-        pass -c $SELECTION
+
+        if [ $1 == "-v" ]; then
+            pass $SELECTION
+        else
+            pass -c $SELECTION
+        fi
     }
 
 
