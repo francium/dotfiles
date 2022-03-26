@@ -204,14 +204,11 @@ com! MkdirSave :call MkdirSave()
 " Toggle darkness
 function! ToggleBackgroundDarkness()
     if &background ==# "light"
-        set background=dark
-        colorscheme one
-        call ConfigureVimOneColors()
+        let $d=1
     else
-        set background=light
-        colorscheme one
-        call ConfigureVimOneColors()
+        let $d=0
     endif
+    call PostLoadColors()
 endfunction
 map <F4> :call ToggleBackgroundDarkness()<CR>
 

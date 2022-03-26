@@ -12,59 +12,55 @@ function! LoadColors()
 endfunction
 
 function! PostLoadColors()
-    " Must be set before bg
-    let g:gruvbox_transp_bg = 1
-
     if !empty($d)
         set bg=dark
     else
         set bg=light
     endif
 
+    call ConfigureColorscheme()
+    call ConfigureLightlineColors()
+
+endfunction
+
+function ConfigureColorscheme()
     if !empty($colo)
         color $colo
     else
+        let g:xcodedarkhc_green_comments = 1
+        let g:xcodedarkhc_dim_punctuation = 1
         if $d
-            let g:xcodedarkhc_green_comments = 1
-            let g:xcodedarkhc_dim_punctuation = 1
             let g:xcodedarkhc_match_paren_style = 0
             colo xcodedarkhc
-            hi Normal guibg=#000000
-            hi EndOfBuffer guibg=#000000
-            hi Search guifg=#000000 guibg=#FFC42E
-            hi Folded guifg=#9398A4
-            hi DiffAdd guifg=#b1faeb guibg=#1e2a28 gui=NONE cterm=NONE
-            hi DiffDelete guifg=#ff8a7a guibg=#2f2625 gui=NONE cterm=NONE
-            hi Directory guifg=#ef768e
-            hi IdentifierDef guifg=#ef768e
-            hi LibraryFunc guifg=#ffb7a1 guibg=NONE gui=NONE cterm=NONE
-            hi LibraryType guifg=#ffb7a1 guibg=NONE gui=NONE cterm=NONE
-            hi LocalType guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
-            hi LocalFunc guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
-            hi LocalIdent guifg=#d654a4 guibg=NONE gui=NONE cterm=NONE
-            hi Special guifg=#d67054 guibg=NONE gui=NONE cterm=NONE
-            hi markdownDelimiter guifg=#ffa96b
-            hi Underlined guifg=#ffa96b
+
         else
-            let g:xcodelighthc_green_comments = 1
-            let g:xcodelighthc_dim_punctuation = 1
             let g:xcodelighthc_match_paren_style = 1
             colo xcodelighthc
+
         endif
     endif
 
-    " call ConfigureVimOneColors()
+    hi IncSearch guifg=#1f1f24 guibg=#FEA837
+    hi Search guifg=#1f1f24 guibg=#fef937
+    if $d
+        hi CocFadeOut guifg=NONE guibg=#311c1b cterm=NONE gui=NONE
+        hi Folded guifg=NONE guibg=#303030
+    else
+        hi CocFadeOut guifg=NONE guibg=#f4f4f4 cterm=NONE gui=NONE
+        hi Folded guifg=NONE guibg=#f3f3f3
+    endif
 
     " Highlight conflict markers
-    match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
+    " match ErrorMsg '^\(<\|=\|>\)\{7\}\([^=].\+\)\?$'
 endfunction
 
-" function! ConfigureVimOneColors()
-"     if &background ==# "dark"
-"         " call one#highlight('Normal', '', '111111', '')
-"         " call one#highlight('Comment', '888888', '', '')
-"     else
-"         " call one#highlight('Comment', '668BB0', '', '')
-"         call one#highlight('CursorLine', '', 'e8e8e8', '')
-"     endif
-" endfunction
+function ConfigureLightlineColors()
+    if $d
+        let g:lightline.colorscheme = 'deus'
+    else
+        let g:lightline.colorscheme = 'PaperColor'
+    endif
+    call lightline#update()
+    call lightline#disable()
+    call lightline#enable()
+endfunction
