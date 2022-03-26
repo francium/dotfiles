@@ -150,11 +150,7 @@ nnoremap <C-x> <C-W>w:q<CR>
 " TABS -------------------------------------------------------------------------
 
 " Tab split
-" TODO: Might be gitten overridden by something
 nnoremap <leader>T :tab split<CR>
-
-" TODO: Close split and reopen in a new tab
-" copy current buffer number then `:tab b{buffer num}`
 
 " Tab switching
 au TabLeave * let g:lasttab = tabpagenr()
