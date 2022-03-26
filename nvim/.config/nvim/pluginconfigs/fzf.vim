@@ -56,13 +56,16 @@ if has('nvim')
     " Size and position
     let width = float2nr(&columns * a:width)
     let height = float2nr(&lines * a:height)
-    let row = float2nr((&lines - height) / 2)
+    let row = -1
     let col = float2nr((&columns - width) / 2)
 
     " Border
-    let top = '╭' . repeat('─', width - 2) . '╮'
+    " let top = '╭' . repeat('─', width - 2) . '╮'
     let mid = '│' . repeat(' ', width - 2) . '│'
     let bot = '╰' . repeat('─', width - 2) . '╯'
+    let top = '│' . repeat(' ', width - 2) . '│'
+    " let mid = ' ' . repeat(' ', width - 2) . ' '
+    " let bot = ' ' . repeat(' ', width - 2) . ' '
     let border = [top] + repeat([mid], height - 2) + [bot]
 
     " Draw frame
@@ -74,7 +77,7 @@ if has('nvim')
     autocmd BufWipeout <buffer> execute 'bwipeout' s:frame
   endfunction
 
-  let g:fzf_layout = { 'window': 'call FloatingFZF(0.9, 0.9, "Comment")' }
+  let g:fzf_layout = { 'window': 'call FloatingFZF(0.95, 0.95, "Comment")' }
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
