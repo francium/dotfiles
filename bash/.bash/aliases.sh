@@ -3,9 +3,8 @@
     # sed here is removing the last newline of the output
     alias ::='sed -z "$ s/\n$//" | xargs -i_ --'
 
-    export LS_COMMON_OPTS='-hXp'
+    export LS_COMMON_OPTS='-hX'
         # -h human readable
-        # -p show slashes
         # -X sort by file type
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias ls='ls $LS_COMMON_OPTS --color=auto'
