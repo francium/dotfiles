@@ -9,8 +9,6 @@ else
     Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
     set cmdheight=1
-    " You will have bad experience for diagnostic messages when it's default 4000.
-    set updatetime=300
     " don't give |ins-completion-menu| messages.
     set shortmess+=c
     set signcolumn=yes
@@ -63,7 +61,7 @@ else
     " Remap for do codeAction of current line
     nmap <leader>ac  <Plug>(coc-codeaction)
     " Fix autofix problem of current line
-    nmap <leader>qf  <Plug>(coc-fix-current)
+    nmap <leader>af  <Plug>(coc-fix-current)
 
     " Add status line support, for integration with other plugin, checkout `:h coc-status`
     set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}

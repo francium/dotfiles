@@ -7,7 +7,11 @@
     // Use quickfix instead of default list view
     "coc.preferences.useQuickfixForLocations": true,
 
+    // Tends to be a bit too slow in larger projects and causes some sluggishness
     "codeLens.enable": false,
+    "codeLens.position": "eol",
+    "codeLens.separator": "",
+
     // Can't enable this without losing coc completion in omni complete, but
     // without it get coc warning spam while in insert mode
     "suggest.autoTrigger": "trigger",

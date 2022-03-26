@@ -20,7 +20,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/winresizer.vim
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
     source ~/.config/nvim/pluginconfigs/vim-http.vim
-    source ~/.config/nvim/pluginconfigs/vim-gitgutter.vim
+    source ~/.config/nvim/pluginconfigs/vim-signify.vim
     source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
@@ -28,6 +28,8 @@ function! LoadPlugins()
 
     Plug 'https://github.com/hkupty/iron.nvim'
     Plug 'https://github.com/RRethy/vim-illuminate'
+        " Automatically highlighting other uses of the word under the cursor
+        let g:Illuminate_ftblacklist = ['nerdtree', 'qf']
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
@@ -43,6 +45,11 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-sensible'
     Plug 'https://github.com/tpope/vim-surround'
     Plug 'https://github.com/tpope/vim-abolish'
+    Plug 'https://github.com/tpope/vim-unimpaired'
+    Plug 'https://github.com/AndrewRadev/bufferize.vim'
+        " Allows redirection of a :command into a buffer
+    Plug 'https://github.com/rhysd/conflict-marker.vim'
+        " Git conflict highlighting and conflict resolution
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}

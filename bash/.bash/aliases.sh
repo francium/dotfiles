@@ -3,15 +3,18 @@
     # sed here is removing the last newline of the output
     alias ::='sed -z "$ s/\n$//" | xargs -i_ --'
 
-    LS_OPTS='-hlx'
+    export LS_COMMON_OPTS='-hXp'
+        # -h human readable
+        # -p show slashes
+        # -X sort by file type
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias ls='ls $LS_COMMON_OPTS --color=auto'
     alias l='ls $LS_COMMON_OPTS --color=auto'
-    alias ll='ls $LS_COMMON_OPTS --color=auto'
+    alias ll='ls $LS_COMMON_OPTS --color=auto -l'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls $LS_COMMON_OPTS -G'
     alias l='ls $LS_COMMON_OPTS -G'
-    alias ll='ls $LS_COMMON_OPTS -G'
+    alias ll='ls $LS_COMMON_OPTS -G -l'
 fi
 
     # Usage: `gtk-light <gtk-application>`

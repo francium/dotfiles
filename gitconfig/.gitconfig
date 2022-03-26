@@ -14,18 +14,19 @@
 [interactive]
     singleKey = true
 [alias]
-    a  = add
-    ad  = add
-    addd  = add
-    b  = branch --sort=committerdate
+    a = add
+    ad = add
+    addd = add
+    b = branch --sort=committerdate
     ; bb = for-each-ref --color=always --sort=committerdate refs/heads/ --format='%(color:yellow)%(committerdate:relative)%(color:reset) $$$ %(authorname) $$$ %(color:white)%(objectname:short)%(color:reset) %(color:red bold)%(HEAD)%(color:reset) %(color:green)%(refname:short)%(color:reset) > %(contents:subject)'
     bname = rev-parse --abbrev-ref HEAD
     cloner = clone --recursive -j 4
     cm = commit
     cm-empty = commit --allow-empty-message
     cmempty = commit --allow-empty --allow-empty-message -m ''
+    cman = commit --amend --no-edit
     co = checkout
-    d  = diff
+    d = diff
     ds = diff --staged
     # Show a more linear history, without including all commits in merges
     l = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold blue)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s' --first-parent
@@ -33,7 +34,7 @@
     pf = push origin HEAD --force-with-lease
     ph = push origin HEAD
     prune-remote = remote prune origin
-    s  = status -ss
+    s = status -ss
     set-upstream = ! git branch -u origin/$(git bname)
     review = show --stat -p
     ss = status

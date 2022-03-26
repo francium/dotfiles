@@ -4,7 +4,6 @@ Plug 'https://github.com/itchyny/lightline.vim'
 set noshowmode
 
 let g:lightline = {
-\   'colorscheme': 'deus',
 \   'active': {
 \       'left': [
 \           [ 'mode' ],
@@ -19,6 +18,7 @@ let g:lightline = {
 \       ]
 \   },
 \   'component_function': {
+\       'filename': 'LightlineFilepath',
 \       'readonly': 'LightlineReadonly',
 \       'modified': 'LightlineModified',
 \       'langclient': 'LightlineLangClient',
@@ -39,7 +39,29 @@ let g:lightline = {
 \       "\<C-s>": 'SB',
 \       't': 'T',
 \   },
+\   'tabline': {
+\       'left': [ [ 'tabs' ] ],
+\       'right': [ [ ] ]
+\   },
+\   'tab_component_function': {
+\     'filename': 'LightlineTabFilepath'
+\   },
 \}
+
+function! LightlineFilepath()
+    return &ft ==# 'vimfiler' ? vimfiler#get_status_string() :
+            \  &ft ==# 'unite' ? unite#get_status_string() :
+            \ expand('%:f') !=# '' ? expand('%:f') : '[No Name]'
+endfunction
+
+" Slightly modified original, returns pwd relative file path with `expand(...:f)`
+" See https://github.com/itchyny/lightline.vim/blob/master/autoload/lightline/tab.vim#L11
+function! LightlineTabFilepath(n) abort
+  let buflist = tabpagebuflist(a:n)
+  let winnr = tabpagewinnr(a:n)
+  let _ = expand('#'.buflist[winnr - 1].':f')
+  return _ !=# '' ? _ : '[No Name]'
+endfunction
 
 function! LightlineLangClient()
   if $langclient

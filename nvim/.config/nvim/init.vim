@@ -13,8 +13,12 @@ endif
 " -----------------------------------------------------------------------------
 
 
+" To ensure utility functions are available right from the start, avoiding any
+" ordering issues with other configs/ftplugins
+source ~/.config/nvim/util.vim
+
+
 function! SourceModules()
-    source ~/.config/nvim/util.vim
     source ~/.config/nvim/plugins.vim
     source ~/.config/nvim/mappings.vim
     if filereadable(expand('~/.vim_private/init.vim'))
@@ -27,6 +31,9 @@ function! BaseConfig()
     if !exists('g:syntax_on')
         syntax enable
     endif
+
+    " Default is 4000, which is too slow. Some plugins use this (coc, etc.)
+    set updatetime=100
 
     " File specific settings
     filetype plugin indent on
@@ -55,6 +62,7 @@ function! BaseConfig()
 
     " Don't softwrap lines
     set nowrap
+    set showbreak=↪>
 
     " Disable swapfiles
     set noswapfile
@@ -114,6 +122,9 @@ function! BaseConfig()
 
     " Disable mouse clicking (scrolling not affected)
     autocmd BufEnter * set mouse=
+
+    " Force quickfix window to open at bottom instead of below a vertical split
+    autocmd FileType qf wincmd J
 
     " Terminal
         " Start in insert mode
