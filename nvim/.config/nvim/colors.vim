@@ -33,6 +33,8 @@ function ConfigureColorscheme()
         endif
     endif
 
+    hi clear ColorColumn
+        " virt-column is being used instead
     hi IncSearch guifg=#1f1f24 guibg=#FEA837
     hi Search guifg=#1f1f24 guibg=#fef937
     if $d
