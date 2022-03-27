@@ -38,9 +38,11 @@ function ConfigureColorscheme()
     if $d
         hi CocFadeOut guifg=NONE guibg=#311c1b cterm=NONE gui=NONE
         hi Folded guifg=NONE guibg=#303030
+        hi Directory guifg=#FF5298 gui=bold
     else
         hi CocFadeOut guifg=NONE guibg=#f4f4f4 cterm=NONE gui=NONE
         hi Folded guifg=NONE guibg=#f3f3f3
+        hi Directory guifg=#0058a1 gui=bold
     endif
 endfunction
 
