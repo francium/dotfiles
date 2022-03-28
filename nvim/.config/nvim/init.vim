@@ -101,10 +101,6 @@ function! BaseConfig()
     " Fix folding issues (things folding automatically)
     set foldlevelstart=99
 
-    " Indenting and tabbing
-    set sw=4
-    set ts=4
-
     " Fix deoplete being too eager and selecting first option automatically
     " set completeopt+=noinsert
     set completeopt =longest,menu

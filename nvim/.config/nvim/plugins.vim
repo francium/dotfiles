@@ -46,10 +46,15 @@ function! LoadPlugins()
     Plug 'https://github.com/tpope/vim-surround'
     Plug 'https://github.com/tpope/vim-abolish'
     Plug 'https://github.com/tpope/vim-unimpaired'
+        " Various useful `[`/`]` mappings
     Plug 'https://github.com/AndrewRadev/bufferize.vim'
         " Allows redirection of a :command into a buffer
     Plug 'https://github.com/rhysd/conflict-marker.vim'
         " Git conflict highlighting and conflict resolution
+        let g:conflict_marker_enable_mappings = 0
+            " Has conflicting mapping with vim-unimpaired, `[x`
+        nnoremap [gc :ConflictMarkerPrevHunk<CR>
+        nnoremap ]gc :ConflictMarkerNextHunk<CR>
 
     " ANTLR 3/4 ----------------------------------------------------------------
     Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
