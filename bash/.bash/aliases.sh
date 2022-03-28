@@ -66,6 +66,15 @@ fi
 
     alias wget-dir='wget -r --no-parent'
     alias simpleserver='env python3 -m http.server'
+    function nite {
+        pkill gammastep
+        gammastep -P -O $1 &
+    }
+
+    alias yt-mp3="youtube-dl -x --audio-format mp3"
+    alias yt-720p="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
+    alias yt-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
+    alias yt-playlist-indexed-mp3="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\" https://www.youtube.com/playlist?list=PLi8Dls8cfYJlUa6r3wA4_FneD4UtnHhU6"
     function make-m3u-playlist {
         PATTERN=$1
         if [ -z $PATTERN ]; then
@@ -75,16 +84,8 @@ fi
 
         ls -1 | grep --color=never -E $PATTERN > "00 - playlist.m3u"
     }
-    alias mpv-audio='mpv --no-video'
-    function nite {
-        pkill gammastep
-        gammastep -P -O $1 &
-    }
 
-    alias youtube-dl-mp3="youtube-dl -x --audio-format mp3"
-    alias youtube-dl-720p="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
-    alias youtube-dl-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
-    alias youtube-dl-playlist-indexed-mp3="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\" https://www.youtube.com/playlist?list=PLi8Dls8cfYJlUa6r3wA4_FneD4UtnHhU6"
+    alias mpv-audio='mpv --no-video'
 
     function passfzf() {
         FZF_CANCEL=130
