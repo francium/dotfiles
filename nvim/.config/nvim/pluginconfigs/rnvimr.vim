@@ -25,7 +25,7 @@ let g:rnvimr_enable_picker = 1
 let g:rnvimr_enable_bw = 1
 
 " Change the border's color
-let g:rnvimr_border_attr = {'fg': 4, 'bg': -1}
+let g:rnvimr_border_attr = {'fg': 211, 'bg': -1}
 
 " Customize the initial layout
 let g:rnvimr_layout = {

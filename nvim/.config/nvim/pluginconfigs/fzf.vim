@@ -77,7 +77,8 @@ if has('nvim')
     autocmd BufWipeout <buffer> execute 'bwipeout' s:frame
   endfunction
 
-  let g:fzf_layout = { 'window': 'call FloatingFZF(0.95, 0.95, "Comment")' }
+  " last arg to FloatingFZF is the highlight group to use for the border
+  let g:fzf_layout = { 'window': 'call FloatingFZF(0.95, 0.95, "Directory")' }
 endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
