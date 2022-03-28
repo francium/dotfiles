@@ -1,9 +1,7 @@
 # vim: ft=yaml
 
 colors:
-  # Theme colors
-  pink: "f92672"
-  hot_pink: "de2694"
+  pink: "ED839D"
   green: "21d443"
   black: "000000"
   red: "ff4a44"
