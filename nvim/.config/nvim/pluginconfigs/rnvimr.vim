@@ -1,19 +1,22 @@
 Plug 'https://github.com/kevinhwang91/rnvimr'
 
-nnoremap <leader><tab> :RnvimrToggle<CR>
+function RnvimrOpenPWD()
+    let dir=system("pwd")
+
+    " As long as we enable the option to replace Netrw, `:e` on a directory
+    " will be enough
+    execute "e " . dir
+endfunction
+
+" Open in project root
+nnoremap <leader><tab> :call RnvimrOpenPWD()<CR>
 
 " Close when in terminal (ranger is open)
 tnoremap <leader><tab> <c-\><c-n>:RnvimrToggle<CR>
 
 " Open and focus current file
-function RnvimrOpenPWD()
-    let dir=system("pwd")
-    execute "e " . dir
-endfunction
-nnoremap <leader><tab> :call RnvimrOpenPWD()<CR>
-
-" Open project root
-nnoremap <leader>gg :e %:p:h<CR>
+" This is the default behavior of the command
+nnoremap <leader>gg :RnvimrToggle<CR>
 
 " Make Ranger replace Netrw and be the file explorer
 let g:rnvimr_enable_ex = 1
