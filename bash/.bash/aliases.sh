@@ -104,14 +104,8 @@ fi
     }
 
 
-# Tmux
-    alias t='tmux'
-
-
 # Vim
     alias n='nvim'
-    # Reopen last file edited with vim
-    alias :e='nvim $( history | sed -n "s/^ *[0-9][0-9]* *vim *\(.*\)/\1/p" | tail -1 )'
 
 
 # Rename shell
