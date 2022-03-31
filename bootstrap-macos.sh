@@ -1,11 +1,24 @@
 #!/bin/bash
 
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+if ! command -v brew > /dev/null; then
+    echo "Installing brew..."
+    BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
+    /bin/bash -c "$(curl -fsSL $BREW_URL)"
+    echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' > ~/.zprofile
+fi
 
-echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' > ~/.zprofile
-
-brew install git neovim pass fzf fd stow tmux
+brew install \
+    git \
+    neovim \
+    pass \
+    fzf \
+    fd \
+    stow \
+    tmux \
+    ripgrep \
+    ranger \
+    vivid
+brew install --cask easy-move-plus-resize
 
 mkdir -p ~/.gnupg
 echo "pinentry-program /opt/homebrew/bin/pinentry-mac" > ~/.gnupg/gpg-agent.conf
-
