@@ -16,6 +16,7 @@ command! -bang -nargs=* Rgi call fzf#vim#grep("rg --column --line-number --no-he
 
 nmap <leader>ff :FZF<CR>
 nmap <leader>fd :FZF %:p:h<CR>
+nmap <leader>fw :Windows<CR>
 nmap <leader>fc :Commands<CR>
 nmap <leader>fb :Buffers<CR>
 nmap <leader>fh :History<CR>
