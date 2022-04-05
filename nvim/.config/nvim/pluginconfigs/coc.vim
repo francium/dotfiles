@@ -53,6 +53,7 @@ else
         call CocAction('doHover')
     endif
     endfunction
+    nnoremap <silent> <c-w>k <Plug>(coc-float-jump)
 
     " Remap for do codeAction of selected region, ex: `<leader>aap` for current paragraph
     xmap <leader>a <Plug>(coc-codeaction-selected)
