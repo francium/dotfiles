@@ -1,5 +1,9 @@
 #!/bin/bash
 
+# Theme
+    # gsettings set org.gnome.desktop.interface gtk-theme Adwaita
+    # gsettings set org.gnome.desktop.interface gtk-theme Adwaita-dark
+
 
 # Background
 # Solid
