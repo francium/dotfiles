@@ -7,6 +7,12 @@ function! LoadPlugins()
 
     call g:LoadColors()
 
+    Plug 'https://github.com/antoinemadec/FixCursorHold.nvim'
+        " - Fixes neovim CursorHold and CursorHoldI autocmd events performance
+        "   bug (https://github.com/neovim/neovim/issues/12587)
+        " - Decouples updatetime from CursorHold and CursorHoldI (works for
+        "   Vim and Neovim)
+
     source ~/.config/nvim/pluginconfigs/coc.vim
     source ~/.config/nvim/pluginconfigs/deoplete.vim
     source ~/.config/nvim/pluginconfigs/emmet.vim
