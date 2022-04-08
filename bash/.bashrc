@@ -43,6 +43,11 @@ done
 [[ -f ~/.bash/ruby.sh ]] && source ~/.bash/ruby.sh
 [[ -f ~/.bash/z.sh ]] && source ~/.bash/z.sh
 
+
+# Set dark theme env var, do before running private bash configs
+export d=1
+
+
 [[ -d ~/.bash_private ]] && for module in ~/.bash_private/*; do
     [[ -f $module/init.sh ]] && source $module/init.sh
 done
@@ -52,6 +57,4 @@ done
 # not have first prompt show non-zero error code for previous start up command)
 echo -n
 
-
-# Set dark theme env var
-export d=1
+[[ -s "/home/work-dc/.gvm/scripts/gvm" ]] && source "/home/work-dc/.gvm/scripts/gvm"
