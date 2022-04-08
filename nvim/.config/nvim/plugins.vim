@@ -7,14 +7,12 @@ function! LoadPlugins()
 
     call g:LoadColors()
 
-    source ~/.config/nvim/pluginconfigs/ale.vim
     source ~/.config/nvim/pluginconfigs/coc.vim
     source ~/.config/nvim/pluginconfigs/deoplete.vim
     source ~/.config/nvim/pluginconfigs/emmet.vim
     source ~/.config/nvim/pluginconfigs/fzf.vim
     source ~/.config/nvim/pluginconfigs/languageclient-neovim.vim
     source ~/.config/nvim/pluginconfigs/lightline.vim
-    source ~/.config/nvim/pluginconfigs/rnvimr.vim
     source ~/.config/nvim/pluginconfigs/nerdcommenter.vim
     source ~/.config/nvim/pluginconfigs/vim-tmux-navigator.vim
     source ~/.config/nvim/pluginconfigs/winresizer.vim
