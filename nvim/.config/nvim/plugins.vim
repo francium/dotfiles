@@ -26,7 +26,10 @@ function! LoadPlugins()
 
     call __Install_VirtColumn()
 
-    Plug 'https://github.com/hkupty/iron.nvim'
+    " Plug 'https://github.com/hkupty/iron.nvim'
+        " Interactive REPLs
+        " TODO: Conflicts with c mappings, need to setup custom maps to avoid
+        " causing delays when using c mappings
     Plug 'https://github.com/RRethy/vim-illuminate'
         " Automatically highlighting other uses of the word under the cursor
         let g:Illuminate_ftblacklist = ['nerdtree', 'qf']
