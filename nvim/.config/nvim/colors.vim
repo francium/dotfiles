@@ -35,14 +35,30 @@ function ConfigureColorscheme()
 
     hi clear ColorColumn
         " virt-column is being used instead
+        hi SpellBad cterm=underlineline gui=underline guisp=Red
+        hi SpellCap cterm=underline gui=underline guisp=Blue
+        hi SpellRare cterm=underline gui=underline guisp=Magenta
+        hi SpellLocal cterm=underline gui=underline guisp=DarkCyan
     hi IncSearch guifg=#1f1f24 guibg=#FEA837
     hi Search guifg=#1f1f24 guibg=#fef937
     if $d
-        hi CocFadeOut guifg=NONE guibg=#5f3a48 cterm=NONE gui=NONE
+        hi CocDeprecatedHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
+        hi CocHintHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
+        hi CocInfoHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
+        hi CocWarningHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
+        hi CocErrorHighlight cterm=undercurl gui=undercurl guisp=#FF0000
+        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#888888
+
         hi Folded guifg=NONE guibg=#303030
         hi Directory guifg=#FF5298 gui=bold
     else
-        hi CocFadeOut guifg=NONE guibg=#f7dfe9 cterm=NONE gui=NONE
+        hi CocDeprecatedHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
+        hi CocHintHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
+        hi CocInfoHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
+        hi CocWarningHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
+        hi CocErrorHighlight cterm=undercurl gui=undercurl guisp=#FF0000
+        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#888888
+
         hi Folded guifg=NONE guibg=#f3f3f3
         hi Directory guifg=#0058a1 gui=bold
     endif
