@@ -4,6 +4,16 @@ Plug 'https://github.com/jistr/vim-nerdtree-tabs'
 " Don't focus nerd tree
 autocmd VimEnter * wincmd p
 
+augroup nerdtree_custom_mappings
+    function NerdtreeCustomMappings()
+        nnoremap <buffer> -- :vertical resize -4<CR>
+        nnoremap <buffer> == :vertical resize +4<CR>
+        nnoremap <buffer> __ :vertical resize -2<CR>
+        nnoremap <buffer> ++ :vertical resize +2<CR>
+    endfunction
+    autocmd FileType nerdtree call NerdtreeCustomMappings()
+augroup END
+
 " Show hidden files
 let NERDTreeShowHidden=1
 
