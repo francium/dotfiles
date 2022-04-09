@@ -47,7 +47,7 @@ function ConfigureColorscheme()
         hi CocInfoHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
         hi CocWarningHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
         hi CocErrorHighlight cterm=undercurl gui=undercurl guisp=#FF0000
-        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#888888
+        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#E9AD0C
 
         hi Folded guifg=NONE guibg=#303030
         hi Directory guifg=#FF5298 gui=bold
@@ -57,7 +57,7 @@ function ConfigureColorscheme()
         hi CocInfoHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
         hi CocWarningHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
         hi CocErrorHighlight cterm=undercurl gui=undercurl guisp=#FF0000
-        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#888888
+        hi CocFadeOut cterm=undercurl gui=undercurl guisp=#E9AD0C
 
         hi Folded guifg=NONE guibg=#f3f3f3
         hi Directory guifg=#0058a1 gui=bold
