@@ -17,6 +17,9 @@ augroup END
 " Show hidden files
 let NERDTreeShowHidden=1
 
+" Hide help header
+let NERDTreeMinimalUI=1
+
 " Map Ctrl+n to toggle (Using nerdtree tabs instead)
 " map <C-n> :NERDTreeToggle<CR>
 
