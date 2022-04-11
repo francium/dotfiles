@@ -35,10 +35,13 @@ function ConfigureColorscheme()
 
     hi clear ColorColumn
         " virt-column is being used instead
-        hi SpellBad cterm=underlineline gui=underline guisp=Red
-        hi SpellCap cterm=underline gui=underline guisp=Blue
-        hi SpellRare cterm=underline gui=underline guisp=Magenta
-        hi SpellLocal cterm=underline gui=underline guisp=DarkCyan
+
+    " Using a double underline ensure underscores in text aren't ambiguous
+    hi SpellBad cterm=underlineline gui=underlineline guisp=Red
+    hi SpellCap cterm=underlineline gui=underlineline guisp=Blue
+    hi SpellRare cterm=underlineline gui=underlineline guisp=Magenta
+    hi SpellLocal cterm=underlineline gui=underlineline guisp=DarkCyan
+
     hi IncSearch guifg=#1f1f24 guibg=#FEA837
     hi Search guifg=#1f1f24 guibg=#fef937
     if $d
