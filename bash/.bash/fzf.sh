@@ -1,4 +1,9 @@
 # FZF
+export FZF_DEFAULT_OPTS='
+ --layout=reverse
+ --color=fg+:#ffffff,bg+:#FF0087,pointer:#ffffff
+ --color=hl:#FF0087,hl+:#ffffff
+'
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"

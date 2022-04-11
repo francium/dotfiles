@@ -2,8 +2,6 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
 let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .cache --exclude .git --exclude node_modules --exclude venv --exclude .venv --exclude __pycache__ --exclude .spago'
-" Prompt at top of screen
-let $FZF_DEFAULT_OPTS='--layout=reverse'
 
 " Disable preview window
 let g:fzf_preview_window=''
