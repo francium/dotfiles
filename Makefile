@@ -1,5 +1,6 @@
 install:
 	stow \
+		alacritty \
 		bash \
 		bat \
 		bin \
@@ -18,6 +19,7 @@ install:
 
 uninstall:
 	stow -D \
+		alacritty \
 		bash \
 		bat \
 		bin \
