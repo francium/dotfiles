@@ -1,6 +1,7 @@
 source ~/.config/nvim/colors.vim
 
 source ~/.config/nvim/pluginconfigs/virt-column.vim
+source ~/.config/nvim/pluginconfigs/indent-blankline.vim
 
 function! LoadPlugins()
     call plug#begin()
@@ -12,6 +13,8 @@ function! LoadPlugins()
         "   bug (https://github.com/neovim/neovim/issues/12587)
         " - Decouples updatetime from CursorHold and CursorHoldI (works for
         "   Vim and Neovim)
+
+    Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 
     source ~/.config/nvim/pluginconfigs/coc.vim
     source ~/.config/nvim/pluginconfigs/deoplete.vim
@@ -30,6 +33,7 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
     call __Install_VirtColumn()
+    call __Install_IndentBlankline()
 
     " Plug 'https://github.com/hkupty/iron.nvim'
         " Interactive REPLs
@@ -113,9 +117,13 @@ function! LoadPlugins()
 endfunction
 
 function! PostLoadPlugins()
+    call illuminate#toggle_illumination(0)
+        " Enable it when needed with `:IlluminationToggle`
+
     call PostLoadColors()
 
     call __Configure_VirtColumn()
+    call __Configure_IndentBlankline()
 endfunction
 
 call LoadPlugins()
