@@ -39,6 +39,7 @@
     review = show --stat -p
     ss = status
     subinit = submodule update --init --recursive
+    wt = worktree
 [init]
 	defaultBranch = master
 [pull]
