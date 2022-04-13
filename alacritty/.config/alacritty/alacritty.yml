@@ -1,0 +1,110 @@
+# Taken from primarily https://github.com/tmcdonell/config-alacritty/blob/master/alacritty.yml
+
+env:
+  TERM: xterm-256color
+
+window:
+  padding:
+    x: 4
+    y: 4
+
+  decorations: Full
+
+live_config_reload: true
+
+cursor:
+  # Cursor style
+  #
+  # Values for 'style':
+  #   - ▇ Block
+  #   - _ Underline
+  #   - | Beam
+  style: Block
+
+  unfocused_hollow: true
+
+# Colors
+colors:
+
+  # Default colors
+  primary:
+    background: '0xFCFCFC'
+    foreground: '0x171421'
+  # Colors the cursor will use if `custom_cursor_colors` is true
+  # cursor:
+  #   text: '0xffffff'
+  #   cursor: '0x4d4d4c'
+  # Normal colors
+  normal:
+    black:   '0x171421'
+    red:     '0xC01C28'
+    green:   '0x26A269'
+    yellow:  '0xA2734C'
+    blue:    '0x12488B'
+    magenta: '0xA347BA'
+    cyan:    '0x2AA1B3'
+    white:   '0xD0CFCC'
+  # Bright colors
+  bright:
+    black:   '0x5E5C64'
+    red:     '0xF66151'
+    green:   '0x33DA7A'
+    yellow:  '0xE9AD0C'
+    blue:    '0x2A7BDE'
+    magenta: '0xC061CB'
+    cyan:    '0x33C7DE'
+    white:   '0xFFFFFF'
+
+custom_cursor_colors: false
+
+draw_bold_text_with_bright_colors: false
+
+scrolling:
+  # maximum number of lines in the scrollback buffer. Specifying '0' will
+  # disable scrolling.
+  history: 100000
+
+# Font configuration (changes require restart)
+font:
+  normal:
+    family: "Source Code Pro"
+    style: Semibold
+
+  bold:
+    family: "Source Code Pro"
+    style: Bold
+
+  italic:
+    family: "Source Code Pro"
+    style: "Semibold Italic"
+
+  size: 9.0
+
+  # Offset is the extra space around each character. offset.y can be thought of
+  # as modifying the linespacing, and offset.x as modifying the letter spacing.
+  offset:
+    x: 0
+    y: 0
+
+  # Glyph offset determines the locations of the glyphs within their cells with
+  # the default being at the bottom. Increase the x offset to move the glyph to
+  # the right, increase the y offset to move the glyph upward.
+  glyph_offset:
+    x: 0
+    y: 0
+
+  # Thin stroke font rendering (macOS only)
+  #
+  # Thin strokes are suitable for retina displays, but for non-retina you
+  # probably want this set to false.
+  #
+  # macOS >= 10.14.x:
+  #
+  # If the font quality on non-retina display looks bad then set
+  # `use_thin_strokes` to `true` and enable font smoothing by running the
+  # following command:
+  #   `defaults write -g CGFontRenderingFontSmoothingDisabled -bool NO`
+  #
+  # This is a global setting and will require a log out or restart to take
+  # effect.
+  use_thin_strokes: false
