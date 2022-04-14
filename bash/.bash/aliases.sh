@@ -36,6 +36,10 @@ fi
     alias d.='cd ~/dotfiles'
 
 
+    alias gti=git
+    alias ggit=git
+
+
 # System
     alias cpulimit='sudo set-powersave && sudo set-freq 1600'
     alias cpufull='sudo set-performance && sudo set-freq 2800'
