@@ -56,5 +56,3 @@ done
 # Prevent non-zero error from any previous command propagating at start up (eg
 # not have first prompt show non-zero error code for previous start up command)
 echo -n
-
-[[ -s "/home/work-dc/.gvm/scripts/gvm" ]] && source "/home/work-dc/.gvm/scripts/gvm"
