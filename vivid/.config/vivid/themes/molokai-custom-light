@@ -1,0 +1,109 @@
+# vim: ft=yaml
+
+colors:
+  blue: "0063AC"
+  green: "26A269"
+  black: "000000"
+  red: "ff4a44"
+  darkgray: "333333"
+
+core:
+  normal_text: {}
+  regular_file: {}
+  reset_to_normal: {}
+
+  directory:
+    foreground: blue
+    font-style: bold
+
+  symlink:
+    foreground: green
+
+  multi_hard_link: {}
+
+  fifo:
+    foreground: black
+    background: green
+
+  socket:
+    foreground: black
+    background: green
+
+  door:
+    foreground: black
+    background: green
+
+  block_device:
+    foreground: green
+    background: darkgray
+
+  character_device:
+    foreground: green
+    background: darkgray
+
+  broken_symlink:
+    foreground: black
+    background: red
+
+  missing_symlink_target:
+    foreground: black
+    background: red
+
+  setuid: {}
+
+  setgid: {}
+
+  file_with_capability: {}
+
+  sticky_other_writable: {}
+
+  other_writable: {}
+
+  sticky: {}
+
+  executable_file:
+    font-style: bold
+
+text:
+  special:
+    font-style: regular
+
+  todo:
+    font-style: regular
+
+  licenses:
+    font-style: regular
+
+  configuration:
+    font-style: regular
+
+  other:
+    font-style: regular
+
+markup:
+  font-style: regular
+
+programming:
+  source:
+    font-style: regular
+
+  tooling:
+    font-style: regular
+
+    continuous-integration:
+      font-style: regular
+
+media:
+  font-style: regular
+
+office:
+  font-style: regular
+
+archives:
+  font-style: regular
+
+executable:
+  font-style: bold
+
+unimportant:
+  font-style: regular

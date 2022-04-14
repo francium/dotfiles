@@ -1,8 +1,8 @@
 # vim: ft=yaml
 
 colors:
-  pink: "ED839D"
-  green: "21d443"
+  blue: "0063AC"
+  green: "26A269"
   black: "000000"
   red: "ff4a44"
   darkgray: "333333"
@@ -13,7 +13,7 @@ core:
   reset_to_normal: {}
 
   directory:
-    foreground: pink
+    foreground: blue
     font-style: bold
 
   symlink:
