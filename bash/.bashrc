@@ -66,6 +66,8 @@ echo -n
 __tic _T_END
 
 _T_TOTAL=$(($_T_END- $_T_START))
-if (($_T_TOTAL > 50)); then
-    echo "Warning: Bashrc took ${_T_TOTAL}ms to initialize"
+if [ -z $SILENCE_SLOW_INIT_TIME_WARNING ]; then
+    if (($_T_TOTAL > 50)); then
+        echo "Warning: Bashrc took ${_T_TOTAL}ms to initialize"
+    fi
 fi
