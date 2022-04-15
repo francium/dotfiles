@@ -126,3 +126,6 @@
 
 # Mac-like folder expansion (make sure 'sushi' is installed)
     gsettings set  org.gnome.nautilus.list-view  use-tree-view  true
+
+# Disable recursive search, search current directory only
+    gsettings set org.gnome.nautilus.preferences recursive-search "'never'"
