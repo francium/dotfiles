@@ -1,3 +1,9 @@
+function __tic() {
+    eval "(( $1 = ${EPOCHREALTIME/./} / 1000 ))"
+}
+
+__tic _T_START
+
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
 
@@ -56,3 +62,10 @@ done
 # Prevent non-zero error from any previous command propagating at start up (eg
 # not have first prompt show non-zero error code for previous start up command)
 echo -n
+
+__tic _T_END
+
+_T_TOTAL=$(($_T_END- $_T_START))
+if (($_T_TOTAL > 35)); then
+    echo "Warning: Bashrc took ${_T_TOTAL}ms to initialize"
+fi

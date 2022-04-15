@@ -18,9 +18,21 @@ fi
     # Usage: `gtk-light <gtk-application>`
     alias gtk-light='GTK_THEME=Adwaita:light'
 
-    function CD { command mkdir -p $1; command cd $1; }
-    function cd { command cd "${@:1}" && ls; }
+    function CD {
+        command mkdir -p "$1" && \
+        command cd "$1" && \
+        pwd
+    }
+    function cd {
+        command cd "${@:1}" && ls
+    }
+
     alias ..='cd ..'
+    alias ...='cd ../..'
+    alias ....='cd ../../..'
+    alias .....='cd ../../../..'
+    alias ......='cd ../../../../..'
+    alias .......='cd ../../../../../..'
 
     alias reload='source ~/.bashrc'
     alias :q='exit'

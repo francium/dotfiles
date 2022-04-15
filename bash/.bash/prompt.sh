@@ -8,18 +8,6 @@ BOLD="\[$(tput bold)\]"
 PRIMARY=$PURPLE
 PRIMARY=$PINK
 
-function update_term_color {
-    TERM_COLOR_FILE=~/.term_color
-    if [ -e $TERM_COLOR_FILE ]; then
-        export TERM_COLOR=`cat $TERM_COLOR_FILE`
-        if [ $TERM_COLOR == 'dark' ]; then
-            PRIMARY=$GREEN
-        else
-            PRIMARY=$PURPLE
-        fi
-    fi
-}
-
 function git_branch {
     if [ -d .git ]; then
         git branch | grep \* | cut -d'*' -d' ' -f 2 | awk '{print "["$1"]"}'
@@ -90,15 +78,6 @@ function is_tmux {
     fi
 }
 
-function reprompt {
-    if [ $(tput cols) -ge 80 ]
-    then
-        PS1="$PS1$PRIMARY\\$ $RESET"
-    else
-        PS1="$PS1$PRIMARY\n\\$ $RESET"
-    fi
-}
-
 function exit_code {
     if [ $CODE != 0 ]
     then
@@ -109,8 +88,6 @@ function exit_code {
 function _prompt {
     CODE="$?"
     virtual_env
-    # symbols
-    # ⋙   ↳ ⤷
     INDICATOR=">>>"
     PS1="$BOLD$ORANGE\`exit_code\`$PRIMARY[\t][\u@\h \W]$RED\`parse_git_branch\`$RESET$BOLD$venv $PRIMARY`is_tmux`\n$PRIMARY$INDICATOR $RESET"
 
@@ -119,7 +96,3 @@ function _prompt {
 }
 
 PROMPT_COMMAND=_prompt
-
-update_term_color
-
-reprompt

@@ -1,10 +1,13 @@
 ## Pyenv
 
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-if command -v pyenv 1>/dev/null 2>&1; then
-    eval "$(pyenv init -)"
-fi
+# Pyenv is a bit slow to load, can be loaded on demand instead
+function d-load-pyenv {
+        export PYENV_ROOT="$HOME/.pyenv"
+        export PATH="$PYENV_ROOT/bin:$PATH"
+        if command -v pyenv 1>/dev/null 2>&1; then
+        eval "$(pyenv init -)"
+        fi
+}
 
 ## Aliases
 
