@@ -68,6 +68,10 @@ fi
         tail -n +$(($1 + 1))
     }
 
+    function take {
+        head -n $1
+    }
+
 
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias sel='tr --delete "\n" | xclip -selection c'

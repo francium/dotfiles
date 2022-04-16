@@ -1,7 +1,7 @@
 # vim: ft=yaml
 
 colors:
-  blue: "0063AC"
+  blue: "658DC0"
   green: "26A269"
   black: "000000"
   red: "ff4a44"
