@@ -28,9 +28,6 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/winresizer.vim
     source ~/.config/nvim/pluginconfigs/vim-devicons.vim
     source ~/.config/nvim/pluginconfigs/vim-http.vim
-    source ~/.config/nvim/pluginconfigs/vim-signify.vim
-    source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
-    source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
     call __Install_VirtColumn()
     call __Install_IndentBlankline()
@@ -61,6 +58,14 @@ function! LoadPlugins()
         " Various useful `[`/`]` mappings
     Plug 'https://github.com/AndrewRadev/bufferize.vim'
         " Allows redirection of a :command into a buffer
+
+    " Git ----------------------------------------------------------------------
+    source ~/.config/nvim/pluginconfigs/vim-signify.vim
+    source ~/.config/nvim/pluginconfigs/vim-fugitive.vim
+    Plug 'https://github.com/rhysd/git-messenger.vim'
+        " Popup git blame for a line
+    Plug 'https://github.com/rhysd/committia.vim'
+        " More pleasant git commit editing
     Plug 'https://github.com/rhysd/conflict-marker.vim'
         " Git conflict highlighting and conflict resolution
         let g:conflict_marker_enable_mappings = 0
@@ -69,13 +74,16 @@ function! LoadPlugins()
         nnoremap ]gc :ConflictMarkerNextHunk<CR>
 
     " ANTLR 3/4 ----------------------------------------------------------------
-    Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
+    " Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
+
+    " Bazel --------------------------------------------------------------------
+    " source ~/.config/nvim/pluginconfigs/vim-codefmt.vim
 
     " C/C++ --------------------------------------------------------------------
     Plug 'https://github.com/bfrg/vim-cpp-modern'
 
     " Dhall
-    Plug 'https://github.com/vmchale/dhall-vim'
+    " Plug 'https://github.com/vmchale/dhall-vim'
 
     " Go ---------------------------------------------------------------------
     if v:version > 800 || has('nvim-0.4.0')
