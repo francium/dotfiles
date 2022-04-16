@@ -42,7 +42,6 @@ done
 [[ -f ~/.bash/nix.sh ]] && source ~/.bash/nix.sh
 [[ -f ~/.bash/node.sh ]] && source ~/.bash/node.sh
 [[ -f ~/.bash/prompt.sh ]] && source ~/.bash/prompt.sh
-[[ -f ~/.bash/ls_colors.sh ]] && source ~/.bash/ls_colors.sh
 [[ -f ~/.bash/python.sh ]] && source ~/.bash/python.sh
 [[ -f ~/.bash/rust.sh ]] && source ~/.bash/rust.sh
 [[ -f ~/.bash/ranger.sh ]] && source ~/.bash/ranger.sh
@@ -57,6 +56,10 @@ export d=1
 [[ -d ~/.bash_private ]] && for module in ~/.bash_private/*; do
     [[ -f $module/init.sh ]] && source $module/init.sh
 done
+
+
+# Do colors after to allow private configs to override environment variable
+[[ -f ~/.bash/ls_colors.sh ]] && source ~/.bash/ls_colors.sh
 
 
 # Prevent non-zero error from any previous command propagating at start up (eg
