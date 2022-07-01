@@ -24,7 +24,7 @@ else
     nvim $filename
 
     git add .
-    git commit --allow-empty-message -m "" -e
+    git commit --allow-empty-message -m ""
     if [ $? == 0 ]; then
         git pull origin master
         git push origin master
