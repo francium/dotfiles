@@ -111,11 +111,11 @@ fi
 
         command cd ~/.password-store # command to avoid `cd` alias
         SELECTION=$(fd -tf --color=never | sed "s/\.gpg$//" | fzf)
-        if [[ $? == FZF_CANCEL ]]; then
+        if [[ "$?" == "$FZF_CANCEL" ]]; then
             return
         fi
 
-        if [ $1 == "-v" ]; then
+        if [ "$1" == "-v" ]; then
             pass $SELECTION
         else
             pass -c $SELECTION
