@@ -54,6 +54,7 @@ function ConfigureColorscheme()
 
         hi Folded guifg=NONE guibg=#303030
         hi Directory guifg=#FF5298 gui=bold
+        hi ExtraWhitespace guifg=#FFF8F8
     else
         hi CocDeprecatedHighlight cterm=undercurl gui=undercurl guisp=#E9AD0C
         hi CocHintHighlight cterm=undercurl gui=undercurl guisp=#2A7BDE
@@ -64,6 +65,7 @@ function ConfigureColorscheme()
 
         hi Folded guifg=NONE guibg=#f3f3f3
         hi Directory guifg=#0058a1 gui=bold
+        hi ExtraWhitespace guifg=#500000
     endif
 endfunction
 
