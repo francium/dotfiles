@@ -72,6 +72,8 @@ function! LoadPlugins()
             " Has conflicting mapping with vim-unimpaired, `[x`
         nnoremap [gc :ConflictMarkerPrevHunk<CR>
         nnoremap ]gc :ConflictMarkerNextHunk<CR>
+    Plug 'https://github.com/masukomi/vim-markdown-folding'
+        " autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
     " ANTLR 3/4 ----------------------------------------------------------------
     " Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
