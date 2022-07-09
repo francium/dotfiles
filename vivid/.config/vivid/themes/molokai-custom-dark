@@ -13,7 +13,7 @@ core:
   reset_to_normal: {}
 
   directory:
-    foreground: blue
+    foreground: red
     font-style: bold
 
   symlink:
@@ -43,7 +43,7 @@ core:
 
   broken_symlink:
     foreground: black
-    background: red
+    background: blue
 
   missing_symlink_target:
     foreground: black
