@@ -1,8 +1,8 @@
-function __tic() {
-    eval "(( $1 = ${EPOCHREALTIME/./} / 1000 ))"
-}
-
-__tic _T_START
+# function __tic() {
+#     eval "(( $1 = ${EPOCHREALTIME/./} / 1000 ))"
+# }
+#
+# __tic _T_START
 
 # If not running interactively, don't do anything
 [[ $- != *i* ]] && return
@@ -66,11 +66,11 @@ done
 # not have first prompt show non-zero error code for previous start up command)
 echo -n
 
-__tic _T_END
+# __tic _T_END
 
-_T_TOTAL=$(($_T_END- $_T_START))
-if [ -z $SILENCE_SLOW_INIT_TIME_WARNING ]; then
-    if (($_T_TOTAL > 50)); then
-        echo "Warning: Bashrc took ${_T_TOTAL}ms to initialize"
-    fi
-fi
+# _T_TOTAL=$(($_T_END- $_T_START))
+# if [ -z $SILENCE_SLOW_INIT_TIME_WARNING ]; then
+#     if (($_T_TOTAL > 50)); then
+#         echo "Warning: Bashrc took ${_T_TOTAL}ms to initialize"
+#     fi
+# fi
