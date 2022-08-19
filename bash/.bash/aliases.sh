@@ -93,7 +93,7 @@ fi
     alias yt-mp3="youtube-dl -x --audio-format mp3"
     alias yt-720p="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
     alias yt-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
-    alias yt-playlist-indexed-mp3="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\" https://www.youtube.com/playlist?list=PLi8Dls8cfYJlUa6r3wA4_FneD4UtnHhU6"
+    alias yt-mp3-playlist-indexed="youtube-dl -x --audio-format mp3 -o \"%(playlist_index)s - %(title)s.%(ext)s\""
     function make-m3u-playlist {
         PATTERN=$1
         if [ -z $PATTERN ]; then
