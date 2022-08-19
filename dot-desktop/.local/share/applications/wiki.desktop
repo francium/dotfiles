@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=gnome-terminal -- sh -e -c "/home/$(whoami)/.local/ibin/wiki"
+Terminal=false
+Name=Wiki
+Type=Application
+Icon=book
