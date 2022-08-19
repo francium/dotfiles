@@ -37,10 +37,15 @@ function ConfigureColorscheme()
         " virt-column is being used instead
 
     " Using a double underline ensure underscores in text aren't ambiguous
-    hi SpellBad cterm=underlineline gui=underlineline guisp=Red
-    hi SpellCap cterm=underlineline gui=underlineline guisp=Blue
-    hi SpellRare cterm=underlineline gui=underlineline guisp=Magenta
-    hi SpellLocal cterm=underlineline gui=underlineline guisp=DarkCyan
+    hi SpellBad cterm=underdouble gui=underdouble guisp=Red
+    hi SpellCap cterm=underdouble gui=underdouble guisp=Blue
+    hi SpellRare cterm=underdouble gui=underdouble guisp=Magenta
+    hi SpellLocal cterm=underdouble gui=underdouble guisp=DarkCyan
+
+    " coc added a custom popup menu for completions,
+    " https://github.com/neoclide/coc.nvim/issues/4031
+    hi CocSearch guifg=White guibg=#156ADF
+    hi CocMenuSel guifg=White guibg=#156ADF
 
     hi IncSearch guifg=#1f1f24 guibg=#FEA837
     hi Search guifg=#1f1f24 guibg=#fef937
