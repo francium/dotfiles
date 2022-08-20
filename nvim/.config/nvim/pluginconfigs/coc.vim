@@ -43,6 +43,8 @@ else
 
     " Use trigger completion
     inoremap <silent><expr> <c-j> coc#refresh()
+    inoremap <silent><expr> <CR> coc#pum#visible() ? coc#pum#confirm()
+                              \: "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"
 
     " Use K to show documentation in preview window
     nnoremap <silent> K :call <SID>show_documentation()<CR>
