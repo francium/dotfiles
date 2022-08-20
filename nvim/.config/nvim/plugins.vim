@@ -73,6 +73,7 @@ function! LoadPlugins()
         nnoremap [gc :ConflictMarkerPrevHunk<CR>
         nnoremap ]gc :ConflictMarkerNextHunk<CR>
     Plug 'https://github.com/masukomi/vim-markdown-folding'
+        let g:markdown_fold_override_foldtext = 0
         " autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
     " ANTLR 3/4 ----------------------------------------------------------------

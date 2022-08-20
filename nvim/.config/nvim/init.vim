@@ -161,8 +161,8 @@ endfunction
 " `foo { ... }`
 " Source: https://coderwall.com/p/usd_cw/a-pretty-vim-foldtext-function
 function! BaseConfig_FoldText()
-    set foldtext=FoldText()
-    function! FoldText()
+    set foldtext=PrettyFoldedText()
+    function! PrettyFoldedText()
         let l:lpadding = &fdc
         redir => l:signs
         execute 'silent sign place buffer='.bufnr('%')
