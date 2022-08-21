@@ -1,0 +1,65 @@
+#!/bin/env python3
+
+
+"""
+Sorted a indented list based on the top level lines.
+
+For example,
+```
+- This is a list
+- Some other line
+  - Indented line
+- Another line
+  - Another indented line
+  - Second indented line
+    - Double indented line
+```
+
+will be sorted as,
+```
+- Another line
+  - Another indented line
+  - Second indented line
+    - Double indented line
+- Some other line
+  - Indented line
+- This is a list
+```
+
+Reads input from stdin.
+"""
+
+
+from pprint import pprint as pp
+import sys
+
+
+in_buf = []
+for line in sys.stdin:
+    in_buf.append(line)
+
+if len(in_buf) == 0:
+    print("", end="")
+
+forest = []
+tree = []
+for line in in_buf:
+    if line[0] == "-" or line[0] == "\n":
+        tree = []
+        forest.append(tree)
+    tree.append(line)
+
+def first(l):
+    assert(type(l) == list)
+    assert(type(l) == list)
+    return l[0]
+
+sorted_forest = sorted(forest, key=first)
+out_buf = []
+for tree in sorted_forest:
+    for line in tree:
+        out_buf.append(line)
+
+assert(len(out_buf) == len(in_buf))
+for line in out_buf:
+    print(line, end="")

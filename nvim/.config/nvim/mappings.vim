@@ -177,6 +177,12 @@ nmap <leader>.. :tabm +1<CR>
 com! FormatJSON :%!python -m json.tool
 com! -range FormatJSONRange <line1>,<line2>:!python -m json.tool
 
+
+" Markdown/YAML formatting
+com! SortListForest :%!sort-list-forest
+com! -range SortListForestRange <line1>,<line2>:!sort-list-forest
+
+
 " New file in same direct at current file
 function! NewHereFn(filename)
     let path = expand('%:p:h') . "/" . a:filename
