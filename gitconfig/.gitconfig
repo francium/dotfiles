@@ -30,6 +30,7 @@
     ds = diff --staged
     # Show a more linear history, without including all commits in merges
     l = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold 132)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s' --first-parent
+    mom = ! git fetch && git merge origin/master
     lg = log --graph --pretty=format:'%C(bold)%Cred%h%Creset %C(bold)%Cgreen(%ci) %C(bold 132)%an%Creset%C(bold)%C(yellow)%d%Creset%n    %s'
     pf = push origin HEAD --force-with-lease
     ph = push origin HEAD
