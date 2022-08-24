@@ -1,4 +1,5 @@
 # FZF
+export FZF_TMUX_HEIGHT=66%
 export FZF_DEFAULT_OPTS='
  --layout=reverse
  --color=fg+:#ffffff,bg+:#FF0087,pointer:#ffffff
@@ -66,10 +67,29 @@ gr() {
     fzf --height 40% --tac | awk '{print $1}'
 }
 
-bind '"\er": redraw-current-line'
-bind '"\C-g\C-f": "$(gf)\e\C-e\er"'
-bind '"\C-g\C-g": "$(gb)\e\C-e\er"'
-bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
-bind '"\C-g\C-h": "$(gh)\e\C-e\er"'
-bind '"\C-g\C-r": "$(gr)\e\C-e\er"'
+# bind '"\er": redraw-current-line'
+# bind '"\C-g\C-f": "$(gf)\e\C-e\er"'
+# bind '"\C-g\C-g": "$(gb)\e\C-e\er"'
+# bind '"\C-g\C-t": "$(gt)\e\C-e\er"'
+# bind '"\C-g\C-h": "$(gh)\e\C-e\er"'
+# bind '"\C-g\C-r": "$(gr)\e\C-e\er"'
 #########################################################################################
+
+
+# List all commands using `compgen -c`
+__fzf_compgen__() {
+  local output opts
+  opts="--height ${FZF_TMUX_HEIGHT:-40%} --bind=ctrl-z:ignore $FZF_DEFAULT_OPTS -n2..,.. --tiebreak=index --bind=ctrl-r:toggle-sort $FZF_CTRL_R_OPTS +m"
+  output=$(
+    compgen -c | FZF_DEFAULT_OPTS="$opts" $(__fzfcmd) --query "$READLINE_LINE"
+  ) || return
+  READLINE_LINE=${output#*$'\t'}
+  if [[ -z "$READLINE_POINT" ]]; then
+    echo "$READLINE_LINE"
+  else
+    READLINE_POINT=0x7fffffff
+  fi
+}
+bind -m emacs-standard -x '"\ef": __fzf_compgen__'
+bind -m vi-command -x '"\ef": __fzf_compgen__'
+bind -m vi-insert -x '"\ef": __fzf_compgen__'
