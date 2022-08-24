@@ -40,6 +40,7 @@ done
 [[ -f ~/.bash/go.sh ]] && source ~/.bash/go.sh
 [[ -f ~/.bash/haskell.sh ]] && source ~/.bash/haskell.sh
 [[ -f ~/.bash/nix.sh ]] && source ~/.bash/nix.sh
+[[ -f ~/.bash/nnn.sh ]] && source ~/.bash/nnn.sh
 [[ -f ~/.bash/node.sh ]] && source ~/.bash/node.sh
 [[ -f ~/.bash/prompt.sh ]] && source ~/.bash/prompt.sh
 [[ -f ~/.bash/python.sh ]] && source ~/.bash/python.sh
