@@ -224,3 +224,6 @@ autocmd BufEnter * syntax sync fromstart
 com! CopyRelDirPath :let @+=expand("%:h")
 com! CopyFilePath :let @+=expand("%")
 com! CopyFileName :let @+=expand("%:t")
+
+
+com! Log :let _logfilepath=system("lg -v") | execute "edit " . _logfilepath
