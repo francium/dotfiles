@@ -78,6 +78,9 @@ function! LoadPlugins()
         let g:markdown_fold_override_foldtext = 0
         " autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
+    " Multi-language
+    " NOTE: Checkout https://github.com/sheerun/vim-polyglot
+
     " ANTLR 3/4 ----------------------------------------------------------------
     " Plug 'https://github.com/dylon/vim-antlr', {'for': ['antlr']}
 
