@@ -36,9 +36,11 @@ function! LoadPlugins()
         " Interactive REPLs
         " TODO: Conflicts with c mappings, need to setup custom maps to avoid
         " causing delays when using c mappings
-    Plug 'https://github.com/RRethy/vim-illuminate'
-        " Automatically highlighting other uses of the word under the cursor
-        let g:Illuminate_ftblacklist = ['nerdtree', 'qf']
+    " Plug 'https://github.com/RRethy/vim-illuminate'
+    "     " Automatically highlighting other uses of the word under the cursor
+    "     let g:Illuminate_ftblacklist = ['nerdtree', 'qf']
+    "     NOTE: Disabled because they changed to lua and this needs to be
+    "     configured and this plugin wasn't used too much
     Plug 'https://github.com/Shougo/denite.nvim'
     Plug 'https://github.com/andymass/vim-matchup'
     Plug 'https://github.com/editorconfig/editorconfig-vim'
@@ -128,9 +130,6 @@ function! LoadPlugins()
 endfunction
 
 function! PostLoadPlugins()
-    call illuminate#toggle_illumination(0)
-        " Enable it when needed with `:IlluminationToggle`
-
     call PostLoadColors()
 
     call __Configure_VirtColumn()
