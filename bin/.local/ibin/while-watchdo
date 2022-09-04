@@ -1,0 +1,9 @@
+#!/bin/bash
+
+cmd="$@"
+
+while watchdo .watchfile; do
+    clear
+    echo "> $cmd"
+    eval $cmd
+done
