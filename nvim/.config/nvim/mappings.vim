@@ -30,7 +30,7 @@ map <leader>y "+y:echo "Copied to clipboard"<CR>
 imap <leader>p <C-R>+":echo "Pasted from clipboard"<CR>
 map <leader>p "+p:echo "Copied to clipboard"<CR>
 
-" Sort words
+" Sort a line of words
 " DrAl, spatz from StackOverflow
 vnoremap <F6> d:execute 'normal i' . join(sort(split(getreg('"'))), ' ')<CR>
 
