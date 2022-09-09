@@ -1,0 +1,18 @@
+; vim: set ft=scheme:
+
+; Enable GNU readline in the REPL
+(use-modules (ice-9 readline))
+(activate-readline)
+
+; Adds colour to the prompt and the result of evaluated s-expressions.
+; While it has no functional impact, it does make the REPL nicer to look at.
+;
+; You will need to download this module from https://gitlab.com/NalaGinrut/guile-colorized
+;
+; I just copied the contents of the colorized.scm file and dropped it in the
+; installed ~/.local/share/guile/3.0/ice-9/colorized.scm directory.
+;
+; Alternatively clone the repository and make GNU Guile aware of the new path.
+; E.g `(add-to-load-path "/absolute/path/to/guile-colorized-clone")`
+; (use-modules (ice-9 colorized))
+; (activate-colorized)

@@ -6,6 +6,7 @@ install:
 		bin \
 		dot-desktop \
 		gitconfig \
+		guile \
 		inputrc \
 		nautilus \
 		npm \
@@ -25,6 +26,7 @@ uninstall:
 		bin \
 		dot-desktop \
 		gitconfig \
+		guile \
 		inputrc \
 		nautilus \
 		npm \
