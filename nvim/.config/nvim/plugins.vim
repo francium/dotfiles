@@ -60,6 +60,24 @@ function! LoadPlugins()
         " Various useful `[`/`]` mappings
     Plug 'https://github.com/AndrewRadev/bufferize.vim'
         " Allows redirection of a :command into a buffer
+    Plug 'https://github.com/luochen1990/rainbow' ", {'for': ['scheme', 'lisp', 'clojure']}
+        let g:rainbow_active = 1
+        let g:rainbow_conf = {
+        \    'guifgs': ['#ffffff', '#ff851b', '#7fdbff', '#ff4a36'],
+        \    'operators': '_,_',
+        \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
+        \    'separately': {
+        \        '*': 0,
+        \        'lisp': {},
+        \        'scheme': {},
+        \    }
+        \}
+    Plug 'https://github.com/SirVer/ultisnips'
+        let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips/"
+        let g:UltiSnipsExpandTrigger="<leader>ss"
+        let g:UltiSnipsListSnippets="<leader>sf"
+        let g:UltiSnipsJumpForwardTrigger="<c-n>"
+        let g:UltiSnipsJumpBackwardTrigge="<c-p>"
 
     " Git ----------------------------------------------------------------------
     source ~/.config/nvim/pluginconfigs/vim-signify.vim
@@ -104,6 +122,9 @@ function! LoadPlugins()
 
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
+
+    " Lisp ---------------------------------------------------------------------
+    Plug 'https://github.com/eraserhd/parinfer-rust', {'do': 'cargo build --release'}
 
     " Purescript
     Plug 'https://github.com/purescript-contrib/purescript-vim'
