@@ -124,7 +124,19 @@ function! LoadPlugins()
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
 
     " Lisp ---------------------------------------------------------------------
-    Plug 'https://github.com/eraserhd/parinfer-rust', {'do': 'cargo build --release'}
+    Plug 'https://github.com/eraserhd/parinfer-rust', {
+        \'for': ['scheme'],
+        \'do': 'cargo build --release',
+        \}
+    Plug 'https://github.com/Olical/conjure'
+        com! ConjureGuileRepl :ConjureConnect .guile-repl.socket
+        let g:conjure#filetype#scheme = "conjure.client.guile.socket"
+            " Will be using Guile instead of MIT Scheme
+        let g:conjure#client#guile#socket#pipename = "guile-repl.socket"
+            " If a REPL is already started, this will attempt to connect to it.
+            " `.guile-repl.socket` is the default socket file name.
+            " See https://github.com/Olical/conjure/wiki/Quick-start:-Guile-(socket)
+    Plug 'https://github.com/bakpakin/fennel.vim'
 
     " Purescript
     Plug 'https://github.com/purescript-contrib/purescript-vim'

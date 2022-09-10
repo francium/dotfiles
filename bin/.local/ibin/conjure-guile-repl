@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+SOCKET=$(git rev-parse --show-toplevel 2> /dev/null || pwd)/.guile-repl.socket
+
+echo "$(tput bold)$SOCKET$(tput sgr0)"
+
+if [ -f $SOCKET ]; then rm $SOCKET; fi
+guile --listen=$SOCKET
+
+function cleanup() {
+    rm $SOCKET
+}
+trap cleanup EXIT
