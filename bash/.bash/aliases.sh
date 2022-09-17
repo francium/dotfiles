@@ -18,7 +18,7 @@ fi
     # Usage: `gtk-light <gtk-application>`
     alias gtk-light='GTK_THEME=Adwaita:light'
 
-    function CD {
+    function mkcd {
         command mkdir -p "$1" && \
         command cd "$1" && \
         pwd
