@@ -213,6 +213,7 @@ function! ToggleBackgroundDarkness()
         let $d=0
     endif
     call PostLoadColors()
+    call PostColorChangePlugins()
 endfunction
 map <F4> :call ToggleBackgroundDarkness()<CR>
 

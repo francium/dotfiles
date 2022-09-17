@@ -13,7 +13,6 @@ function! PostLoadColors()
 
     call ConfigureColorscheme()
     call ConfigureLightlineColors()
-
 endfunction
 
 function ConfigureColorscheme()

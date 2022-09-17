@@ -63,7 +63,6 @@ function! LoadPlugins()
     Plug 'https://github.com/luochen1990/rainbow' ", {'for': ['scheme', 'lisp', 'clojure']}
         let g:rainbow_active = 1
         let g:rainbow_conf = {
-        \    'guifgs': ['#ffffff', '#ff851b', '#7fdbff', '#ff4a36'],
         \    'operators': '_,_',
         \    'parentheses': ['start=/(/ end=/)/ fold', 'start=/\[/ end=/\]/ fold', 'start=/{/ end=/}/ fold'],
         \    'separately': {
@@ -76,8 +75,8 @@ function! LoadPlugins()
         let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips/"
         let g:UltiSnipsExpandTrigger="<leader>ss"
         let g:UltiSnipsListSnippets="<leader>sf"
-        let g:UltiSnipsJumpForwardTrigger="<c-n>"
-        let g:UltiSnipsJumpBackwardTrigge="<c-p>"
+        let g:UltiSnipsJumpForwardTrigger="<leader>sn"
+        let g:UltiSnipsJumpBackwardTrigge="<leader>sp"
 
     " Git ----------------------------------------------------------------------
     source ~/.config/nvim/pluginconfigs/vim-signify.vim
@@ -123,20 +122,29 @@ function! LoadPlugins()
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
 
-    " Lisp ---------------------------------------------------------------------
+     " Lisp ---------------------------------------------------------------------
+    Plug 'https://github.com/bakpakin/fennel.vim'
     Plug 'https://github.com/eraserhd/parinfer-rust', {
         \'for': ['scheme'],
         \'do': 'cargo build --release',
         \}
+    Plug 'https://github.com/jpalardy/vim-slime'
+        let g:slime_target = "tmux"
+        let g:slime_paste_file = tempname()
     Plug 'https://github.com/Olical/conjure'
-        com! ConjureGuileRepl :ConjureConnect .guile-repl.socket
+        com!ConjureGuileRepl :ConjureConnect .guile-repl.socket
         let g:conjure#filetype#scheme = "conjure.client.guile.socket"
             " Will be using Guile instead of MIT Scheme
-        let g:conjure#client#guile#socket#pipename = "guile-repl.socket"
+        let g:conjure#client#guile#socket#pipename = ".guile-repl.socket"
             " If a REPL is already started, this will attempt to connect to it.
             " `.guile-repl.socket` is the default socket file name.
             " See https://github.com/Olical/conjure/wiki/Quick-start:-Guile-(socket)
-    Plug 'https://github.com/bakpakin/fennel.vim'
+        augroup ConjureRemoveSponsor
+            autocmd BufWinEnter conjure-log-* silent s/; Sponsored by @.*//e
+        augroup END
+
+    " Nim
+    Plug 'https://github.com/zah/nim.vim'
 
     " Purescript
     Plug 'https://github.com/purescript-contrib/purescript-vim'
@@ -165,12 +173,30 @@ function! LoadPlugins()
     call plug#end()
 endfunction
 
+function! PostColorChangePlugins()
+    " Rainbow
+    if $d
+        let g:rainbow_conf.guifgs = ['#ffffff', '#ff851b', '#7fdbff', '#ff4a36']
+    else
+        let g:rainbow_conf.guifgs = ['#0074d9', '#ff4136', '#f012b3', '#2ecc40', '#ff851b']
+    endif
+    " When loading, we may still be inside the Plug block, so plugin may
+    " not be loaded yet
+    try
+        RainbowToggle
+        RainbowToggle
+    catch
+    endtry
+endfunction
+
 function! PostLoadPlugins()
     call PostLoadColors()
 
     call __Configure_VirtColumn()
     call __Configure_IndentBlankline()
+    call __Configure_NvimTree()
 endfunction
 
 call LoadPlugins()
 call PostLoadPlugins()
+call PostColorChangePlugins()
