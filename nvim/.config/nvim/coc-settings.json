@@ -66,8 +66,9 @@
     "typescript.preferences.quoteStyle": "single",
     "typescript.updateImportsOnFileMove.enable": false,
 
-    // C/C++/Obj-C
+
     "languageserver": {
+        // C/C++/Obj-C
         "ccls": {
             "command": "ccls",
             "filetypes": ["c", "cpp", "objc", "objcpp"],
@@ -77,11 +78,9 @@
                     "directory": "/tmp/ccls"
                 }
             }
-        }
-    },
+        },
 
-    // Purescript (npm i -g purescript-language-server)
-    "languageserver": {
+        // Purescript (npm i -g purescript-language-server)
         "purescript": {
             "command": "purescript-language-server",
             "args": ["--stdio"],
@@ -96,11 +95,22 @@
                 }
             }
         },
+
         "haskell": {
             "command": "haskell-language-server-wrapper",
             "args": ["--lsp"],
             "rootPatterns": ["*.cabal", "stack.yaml", "cabal.project", "package.yaml", "hie.yaml"],
             "filetypes": ["haskell", "lhaskell"]
+        },
+
+        "nimlsp": {
+            "command": "nimlsp",
+            "filetypes": ["nim"],
+            "initializationOptions": {
+                "cache": {
+                    "directory": "/tmp/nimlsp"
+                }
+            }
         }
     },
 
