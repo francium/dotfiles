@@ -15,7 +15,7 @@ export HISTCONTROL=ignoreboth:erasedups
 # shopt -s histappend
 
 export EDITOR=nvim
-export PATH=$PATH:~/.local/bin:~/.local/ibin:~/bin
+export PATH=$PATH:~/.local/bin:~/.local/ibin:~/.local/ibin_private:~/bin
 export XDG_CONFIG_HOME=~/.config
 
 
