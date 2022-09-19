@@ -1,7 +1,7 @@
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 
-let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .cache --exclude .git --exclude node_modules --exclude venv --exclude .venv --exclude __pycache__ --exclude .spago'
+let $FZF_DEFAULT_COMMAND='fd --type f --hidden --exclude .cache --exclude .git --exclude node_modules --exclude venv --exclude .venv --exclude __pycache__ --exclude .spago --exclude yarn.lock'
 
 " Disable preview window
 let g:fzf_preview_window=''
