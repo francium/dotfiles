@@ -27,6 +27,7 @@ lua << EOF
                     git = false,
                 },
             },
+            special_files = {},
         },
         filters = {
             dotfiles = false,
