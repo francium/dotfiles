@@ -13,6 +13,7 @@ install:
 		nvim \
 		mpv \
 		ranger \
+		ripgrep \
 		tmux \
 		vivid \
 		zathura
@@ -33,6 +34,7 @@ uninstall:
 		nvim \
 		mpv \
 		ranger \
+		ripgrep \
 		tmux \
 		vivid \
 		zathura
