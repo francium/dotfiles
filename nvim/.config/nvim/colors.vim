@@ -40,6 +40,7 @@ function ConfigureColorscheme()
     hi SpellCap cterm=underdouble gui=underdouble guisp=Blue
     hi SpellRare cterm=underdouble gui=underdouble guisp=Magenta
     hi SpellLocal cterm=underdouble gui=underdouble guisp=DarkCyan
+    hi VertSplit guifg=#52555c guibg=NONE
 
     " coc added a custom popup menu for completions,
     " https://github.com/neoclide/coc.nvim/issues/4031
