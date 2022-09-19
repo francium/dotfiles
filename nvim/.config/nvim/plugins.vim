@@ -122,6 +122,9 @@ function! LoadPlugins()
     " Haskell ------------------------------------------------------------------
     Plug 'https://github.com/neovimhaskell/haskell-vim', {'for': 'haskell'}
 
+    " Just
+    Plug 'https://github.com/NoahTheDuke/vim-just'
+
      " Lisp ---------------------------------------------------------------------
     Plug 'https://github.com/bakpakin/fennel.vim'
     Plug 'https://github.com/eraserhd/parinfer-rust', {
