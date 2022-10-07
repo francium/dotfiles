@@ -50,9 +50,9 @@
         "default": "dfult"
     },
 
-    "coc.preferences.formatOnSaveFiletypes": [
-        "purescript",
-    ],
+    // "coc.preferences.formatOnSaveFiletypes": [
+    //     "purescript",
+    // ],
 
     // Let coc download language server and use it
     "python.jediEnabled": false,
@@ -115,5 +115,5 @@
     },
 
     "rust-analyzer.inlayHints.refreshOnInsertMode": true,
-    "rust-analyzer.trace.server": "verbose",
+    "rust-analyzer.trace.server": "verbose"
 }
