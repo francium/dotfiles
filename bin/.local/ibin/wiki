@@ -4,10 +4,15 @@
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
+FILE=index.md
+if [ ! -z "$1" ]; then
+    FILE="$1"
+fi
+
 pushd . > /dev/null
 
 cd ~/wiki
-nvim index.md
+nvim $FILE
 git add .
 git commit --allow-empty-message -m ""
 if [ $? == 0 ]; then
