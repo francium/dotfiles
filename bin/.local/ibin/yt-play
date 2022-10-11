@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+mpv --ytdl-format=bestvideo[vcodec!=?vp9]+bestaudio $@
