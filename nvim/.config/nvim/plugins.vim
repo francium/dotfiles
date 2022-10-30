@@ -26,7 +26,8 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/nvim-tree.vim
     source ~/.config/nvim/pluginconfigs/vim-tmux-navigator.vim
     source ~/.config/nvim/pluginconfigs/winresizer.vim
-    source ~/.config/nvim/pluginconfigs/vim-devicons.vim
+    " source ~/.config/nvim/pluginconfigs/vim-devicons.vim
+      " Not using right now
     source ~/.config/nvim/pluginconfigs/vim-http.vim
 
     call __Install_VirtColumn()
