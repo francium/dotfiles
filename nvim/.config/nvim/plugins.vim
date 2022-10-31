@@ -96,6 +96,23 @@ function! LoadPlugins()
         let g:markdown_fold_override_foldtext = 0
         " autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
+    " Markdown
+    Plug 'https://github.com/preservim/vim-markdown'
+        let g:vim_markdown_fenced_languages = [
+        \    'c++=cpp',
+        \    'viml=vim',
+        \    'bash=sh',
+        \    'ini=dosini',
+        \    'xsh=python'
+        \]
+        g:vim_markdown_no_default_key_mappings = 1
+        " let g:vim_markdown_conceal = 0
+        " let g:tex_conceal = ""
+        let g:vim_markdown_math = 1
+        let g:vim_markdown_auto_insert_bullets = 0
+        let g:vim_markdown_new_list_item_indent = 0
+        let g:vim_markdown_strikethrough = 1
+
     " Multi-language
     " NOTE: Checkout https://github.com/sheerun/vim-polyglot
 
