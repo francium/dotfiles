@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=gnome-terminal -- sh -e -c "/home/$(whoami)/.local/ibin/wiki todo/index.md"
+Exec=gnome-terminal -- bash -i -c "d=1 /home/$(whoami)/.local/ibin/wiki todo/index.md"
 Terminal=false
 Name=Todo
 Type=Application
