@@ -13,6 +13,7 @@ Clone this repository into your `$HOME` directory and `cd` into the clone repo.
 
 
 ## Install
+
 ```
     git clone --recursive -j 4 <repo URL>
     cd dotfiles
@@ -27,6 +28,7 @@ session) to install plugins.
 
 
 ## Updating
+
 ```
     make update
 
@@ -39,6 +41,7 @@ session) to update plugins.
 
 
 ## Uninstallation
+
 ```
     make uninstall
 ```
@@ -46,6 +49,7 @@ Note GNOME configuration's aren't reset
 
 
 ## Per machine gitconfig
+
 Create a `~/.gitconfig_private` to allow a per-machine config
 ```
 [user]
@@ -55,34 +59,49 @@ Create a `~/.gitconfig_private` to allow a per-machine config
 
 
 ## Private bash modules
+
 Each directory under `~/.bash_private/` that has a `init.sh` script will be
 sourced
 
 
 ## Vim
+
 Need to install extra packages for some things
 - `npm i -g neovim` (possibly for syntax highlighting in some cases)
 
 
 ## Private vim modules
+
 If `~/.vim_private/init.vim` exists, it will be sourced
 
 
 ## Installing Coc Plugins
+
 See https://github.com/neoclide/coc.nvim/wiki/Language-servers for additional
 plugins
 
+
 ### Use coc-marketplace to quick fix and list extensions
+
 `:CocInstall coc-marketplace`
 
-- List extensions: `CocList marketplace`
+List extensions: `CocList marketplace`
+
 
 ### Rust
+
 `:CocInstall coc-rust-analyzer`
 
+
 ### C/C++/Obj-C
-Install the Clang language server
-```
+
+Install the Clang language server,
+```sh
 # Arch Linux
 pacman -S ccls
 ```
+
+
+### Python
+
+`:CocInstall coc-pyright`
