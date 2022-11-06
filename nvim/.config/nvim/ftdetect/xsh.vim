@@ -1,1 +1,1 @@
-set ft=python
+au BufNewFile,BufRead *.xsh set filetype=python
