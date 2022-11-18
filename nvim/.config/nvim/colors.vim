@@ -2,6 +2,7 @@ function! LoadColors()
     Plug 'https://github.com/rakr/vim-one'
     Plug 'https://github.com/lifepillar/vim-gruvbox8'
     Plug 'https://github.com/arzg/vim-colors-xcode'
+    Plug 'https://github.com/tobi-wan-kenobi/zengarden'
 endfunction
 
 function! PostLoadColors()
