@@ -105,9 +105,17 @@
 
 
 # Custom shortcuts
+# Important: Read this to configure shortcuts properly.
+# - Add an entry to the `CUSTOM_KEYBINDING` array, otherwise the shortcut won't
+#   show in the settings
+# - Add the 3 entries for `binding`, `command` and `name`, and make sure the
+#   `customN` value is incremented as necessary
+
     CUSTOM_KEYBINDING="["\
 "'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/',"\
-"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/'"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/',"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/',"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/'"\
 "]"
     gsettings set  org.gnome.settings-daemon.plugins.media-keys  custom-keybindings $CUSTOM_KEYBINDING
 
@@ -120,6 +128,14 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  binding  "'<Super>e'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  command  "'nautilus'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  name     "'Files'"
+
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  binding  "'<Super>w'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'gnome-terminal -- bash -i -c \"d=1 ${HOME}/.local/ibin/wiki\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  name     "'Wiki'"
+
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  binding  "'<Super><shift>w'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"d=1 ${HOME}/.local/ibin/lg\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Log'"
 
 
 # Nautilus

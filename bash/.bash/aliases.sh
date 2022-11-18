@@ -30,9 +30,6 @@ fi
     alias ..='cd ..'
     alias ...='cd ../..'
     alias ....='cd ../../..'
-    alias .....='cd ../../../..'
-    alias ......='cd ../../../../..'
-    alias .......='cd ../../../../../..'
 
     alias reload='source ~/.bashrc'
     alias :q='exit'
@@ -47,9 +44,10 @@ if [[ "$OSTYPE" != "darwin"* ]]; then
 fi
     alias d.='cd ~/dotfiles'
 
-
     alias gti=git
     alias ggit=git
+
+    alias man80='MANWIDTH=80 man'
 
 
 # System

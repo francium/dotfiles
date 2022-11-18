@@ -26,7 +26,8 @@ function! LoadPlugins()
     source ~/.config/nvim/pluginconfigs/nvim-tree.vim
     source ~/.config/nvim/pluginconfigs/vim-tmux-navigator.vim
     source ~/.config/nvim/pluginconfigs/winresizer.vim
-    source ~/.config/nvim/pluginconfigs/vim-devicons.vim
+    " source ~/.config/nvim/pluginconfigs/vim-devicons.vim
+      " Not using right now
     source ~/.config/nvim/pluginconfigs/vim-http.vim
 
     call __Install_VirtColumn()
@@ -95,6 +96,25 @@ function! LoadPlugins()
         let g:markdown_fold_override_foldtext = 0
         " autocmd FileType markdown set foldexpr=NestedMarkdownFolds()
 
+    " Markdown
+    Plug 'https://github.com/preservim/vim-markdown'
+        let g:vim_markdown_fenced_languages = [
+        \    'c++=cpp',
+        \    'viml=vim',
+        \    'bash=sh',
+        \    'ini=dosini',
+        \    'xsh=python'
+        \]
+        g:vim_markdown_no_default_key_mappings = 1
+        " let g:vim_markdown_conceal = 0
+        " let g:tex_conceal = ""
+        let g:vim_markdown_math = 1
+        let g:vim_markdown_auto_insert_bullets = 0
+        let g:vim_markdown_new_list_item_indent = 0
+        let g:vim_markdown_strikethrough = 1
+        let g:vim_markdown_math = 0
+            " Can't use `$` in markdown with latex math enabled
+
     " Multi-language
     " NOTE: Checkout https://github.com/sheerun/vim-polyglot
 
@@ -134,17 +154,18 @@ function! LoadPlugins()
     Plug 'https://github.com/jpalardy/vim-slime'
         let g:slime_target = "tmux"
         let g:slime_paste_file = tempname()
-    Plug 'https://github.com/Olical/conjure'
-        com!ConjureGuileRepl :ConjureConnect .guile-repl.socket
-        let g:conjure#filetype#scheme = "conjure.client.guile.socket"
-            " Will be using Guile instead of MIT Scheme
-        let g:conjure#client#guile#socket#pipename = ".guile-repl.socket"
-            " If a REPL is already started, this will attempt to connect to it.
-            " `.guile-repl.socket` is the default socket file name.
-            " See https://github.com/Olical/conjure/wiki/Quick-start:-Guile-(socket)
-        augroup ConjureRemoveSponsor
-            autocmd BufWinEnter conjure-log-* silent s/; Sponsored by @.*//e
-        augroup END
+    " Disable for now, enable when needed
+    " Plug 'https://github.com/Olical/conjure'
+    "     com!ConjureGuileRepl :ConjureConnect .guile-repl.socket
+    "     let g:conjure#filetype#scheme = "conjure.client.guile.socket"
+    "         " Will be using Guile instead of MIT Scheme
+    "     let g:conjure#client#guile#socket#pipename = ".guile-repl.socket"
+    "         " If a REPL is already started, this will attempt to connect to it.
+    "         " `.guile-repl.socket` is the default socket file name.
+    "         " See https://github.com/Olical/conjure/wiki/Quick-start:-Guile-(socket)
+    "     augroup ConjureRemoveSponsor
+    "         autocmd BufWinEnter conjure-log-* silent s/; Sponsored by @.*//e
+    "     augroup END
 
     " Nim
     Plug 'https://github.com/zah/nim.vim'

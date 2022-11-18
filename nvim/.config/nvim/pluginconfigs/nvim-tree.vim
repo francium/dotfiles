@@ -1,4 +1,4 @@
-" Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
+Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
 function __Configure_NvimTree()
@@ -22,17 +22,23 @@ lua << EOF
             group_empty = false,
             icons = {
                 show = {
-                    folder = false,
                     file = false,
-                    git = false,
+                    folder = false,
+                    folder_arrow = false,
+                    git = false
+                },
+                symlink_arrow = " -> ",
+                glyphs = {
+                    symlink = ""
                 },
             },
-            special_files = {},
+            special_files = {}
         },
         filters = {
             dotfiles = false,
         },
         git = {
+            enable = false,
             ignore = false,
         },
     })

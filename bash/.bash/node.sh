@@ -1,7 +1,7 @@
-function fnm-init() {
-    # If the `--shell` flag isn't specified, `fnm env` is very slow
-    eval "$(fnm env --shell=bash)"
-}
+# function fnm-init() {
+#     # If the `--shell` flag isn't specified, `fnm env` is very slow
+#     eval "$(fnm env --shell=bash)"
+# }
 
 # The function contains the cached output of `eval "$(npm completion)"` because
 # running the command directly is very slow
@@ -77,32 +77,32 @@ function npm-init-completion() {
     ###-end-npm-completion-###
 }
 
-if [[ "$OSTYPE" == "linux-gnu"* ]]; then
-    FNM_PATH=~/.fnm
-    if [[ -d $FNM_PATH ]]; then
-        export PATH=$FNM_PATH:$PATH
-        fnm-init
-    else
-        MSG="echo install fnm from https://github.com/Schniz/fnm"
-        alias fnm=$MSG
-        alias node=$MSG
-        alias npm=$MSG
-    fi
-elif [[ "$OSTYPE" == "darwin"* ]]; then
-    if command -v fnm > /dev/null; then
-        fnm-init
-    else
-        MSG="echo brew install fnm"
-        alias fnm=$MSG
-        alias node=$MSG
-        alias npm=$MSG
-    fi
-fi
-
-alias nvm="echo Use fnm"
-alias fnm-reload='fnm-init'
-alias nbin="export PATH=./node_modules/.bin:$PATH"
-
+# if [[ "$OSTYPE" == "linux-gnu"* ]]; then
+#     FNM_PATH=~/.fnm
+#     if [[ -d $FNM_PATH ]]; then
+#         export PATH=$FNM_PATH:$PATH
+#         fnm-init
+#     else
+#         MSG="echo install fnm from https://github.com/Schniz/fnm"
+#         alias fnm=$MSG
+#         alias node=$MSG
+#         alias npm=$MSG
+#     fi
+# elif [[ "$OSTYPE" == "darwin"* ]]; then
+#     if command -v fnm > /dev/null; then
+#         fnm-init
+#     else
+#         MSG="echo brew install fnm"
+#         alias fnm=$MSG
+#         alias node=$MSG
+#         alias npm=$MSG
+#     fi
+# fi
+#
+# alias nvm="echo Use fnm"
+# alias fnm-reload='fnm-init'
+# alias nbin="export PATH=./node_modules/.bin:$PATH"
+#
 if command -v npm > /dev/null; then
     npm-init-completion
 fi
