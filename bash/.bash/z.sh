@@ -2,7 +2,7 @@
 [[ -f /usr/share/z/z.sh ]] && source /usr/share/z/z.sh
 
 # Slow down aging and keep results around longer
-export _Z_MAX_SCORE=25000
+export _Z_MAX_SCORE=250000
 
 # fzf + z (https://github.com/junegunn/fzf/wiki/examples#integration-with-z)
 unalias z 2> /dev/null
