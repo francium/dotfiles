@@ -1,6 +1,7 @@
 source ~/.config/nvim/colors.vim
 
 source ~/.config/nvim/pluginconfigs/virt-column.vim
+source ~/.config/nvim/pluginconfigs/headlines.vim
 source ~/.config/nvim/pluginconfigs/indent-blankline.vim
 
 function! LoadPlugins()
@@ -32,6 +33,7 @@ function! LoadPlugins()
 
     call __Install_VirtColumn()
     call __Install_IndentBlankline()
+    call __Install_Headlines()
 
     " Plug 'https://github.com/hkupty/iron.nvim'
         " Interactive REPLs
@@ -103,12 +105,12 @@ function! LoadPlugins()
         \    'viml=vim',
         \    'bash=sh',
         \    'ini=dosini',
-        \    'xsh=python'
+        \    'xsh=python',
+        \    'ts=typescript',
         \]
         g:vim_markdown_no_default_key_mappings = 1
         " let g:vim_markdown_conceal = 0
         " let g:tex_conceal = ""
-        let g:vim_markdown_math = 1
         let g:vim_markdown_auto_insert_bullets = 0
         let g:vim_markdown_new_list_item_indent = 0
         let g:vim_markdown_strikethrough = 1
@@ -219,6 +221,7 @@ function! PostLoadPlugins()
     call __Configure_VirtColumn()
     call __Configure_IndentBlankline()
     call __Configure_NvimTree()
+    call __Configure_Headlines()
 endfunction
 
 call LoadPlugins()
