@@ -4,10 +4,10 @@ endfunction
 
 function! __Configure_Headlines()
     if $d
-        highlight Headline guibg=#383838
-        highlight CodeBlock guibg=#080808
+        highlight Headline guibg=#3f3f3f
+        highlight CodeBlock guibg=#2f2f2f
     else
-        highlight Headline guibg=#f8f8f8
+        highlight Headline guibg=#e4e4e4
         highlight CodeBlock guibg=#efefef
     endif
 
