@@ -115,7 +115,9 @@
 "'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom0/',"\
 "'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/',"\
 "'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/',"\
-"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/'"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/',"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/',"\
+"'/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/'"\
 "]"
     gsettings set  org.gnome.settings-daemon.plugins.media-keys  custom-keybindings $CUSTOM_KEYBINDING
 
@@ -136,6 +138,14 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  binding  "'<Super><shift>w'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"d=1 ${HOME}/.local/ibin/lg\"'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Log'"
+
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  binding  "'<Super><shift>equal'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  command  "'bash ${HOME}/.local/ibin/night-light-temp-inc.sh'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  name     "'Night light increment'"
+
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  binding  "'<Super><shift>minus'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  command  "'bash ${HOME}/.local/ibin/night-light-temp-dec.sh'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  name     "'Night light decrement'"
 
 
 # Nautilus
