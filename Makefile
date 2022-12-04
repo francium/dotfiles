@@ -17,6 +17,7 @@ install:
 		ripgrep \
 		tmux \
 		vivid \
+		xournalpp \
 		zathura
 
 
@@ -39,6 +40,7 @@ uninstall:
 		ripgrep \
 		tmux \
 		vivid \
+		xournalpp \
 		zathura
 
 
