@@ -1,0 +1,4 @@
+#!/bin/bash
+
+echo $1 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
+echo $2 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
