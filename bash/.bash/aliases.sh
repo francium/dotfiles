@@ -106,10 +106,12 @@ fi
 
     function passfzf() {
         FZF_CANCEL=130
+        PREV_DIR=$(pwd)
 
-        command cd ~/.password-store # command to avoid `cd` alias
+        command cd ~/.password-store
         SELECTION=$(fd -tf --color=never | sed "s/\.gpg$//" | fzf)
         if [[ "$?" == "$FZF_CANCEL" ]]; then
+            cd $PREV_DIR
             return
         fi
 
@@ -118,6 +120,7 @@ fi
         else
             pass -c $SELECTION
         fi
+        command cd $PREV_DIR
     }
 
 
