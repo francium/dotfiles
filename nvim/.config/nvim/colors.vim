@@ -33,8 +33,10 @@ function ConfigureColorscheme()
         endif
     endif
 
-    hi clear ColorColumn
+    if $vim_virt
         " virt-column is being used instead
+        hi clear ColorColumn
+    endif
 
     " Using a double underline ensure underscores in text aren't ambiguous
     hi SpellBad cterm=underdouble gui=underdouble guisp=Red
