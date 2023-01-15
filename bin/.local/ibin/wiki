@@ -28,16 +28,29 @@ function commit_changes() {
     popd > /dev/null
 }
 
+function print_help() {
+    echo "Usage: $0 [options] [file]"
+    echo
+    echo "Options:"
+    echo "-h    print help"
+    echo "-c    commit changes without editing"
+}
+
 # Set terminal title
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
 FILE=index.md
-if [ "$1" == "-c" ]; then
-    commit_changes
-    exit 0
-elif [ ! -z "$1" ]; then
-    FILE="$1"
+if [ $# -ge 1 ]; then
+    if [ "$1" == "-h" ]; then
+        print_help
+        exit 0
+    elif [ "$1" == "-c" ]; then
+        commit_changes
+        exit 0
+    elif [ ! -z "$1" ]; then
+        FILE="$1"
+    fi
 fi
 
 open_in_editor $FILE
