@@ -45,7 +45,8 @@ function! LoadPlugins()
     "     NOTE: Disabled because they changed to lua and this needs to be
     "     configured and this plugin wasn't used too much
     Plug 'https://github.com/Shougo/denite.nvim'
-    Plug 'https://github.com/andymass/vim-matchup'
+    " Plug 'https://github.com/andymass/vim-matchup'
+        " A bit slow, causing some performance problems
     Plug 'https://github.com/editorconfig/editorconfig-vim'
     if v:version > 800 || has('nvim-0.4.0')
         Plug 'https://github.com/glacambre/firenvim'
