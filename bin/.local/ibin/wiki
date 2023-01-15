@@ -1,23 +1,43 @@
 #!/bin/bash
+set -euo pipefail
+IFS=$'\n\t'
+
+function commit() {
+    git add .
+    git commit --allow-empty-message -m ""
+    if [ $? == 0 ]; then
+        git pull origin master
+        git push origin master
+    fi
+}
+
+function open_in_editor() {
+    FILE=$1
+
+    pushd . > /dev/null
+    cd ~/wiki
+    nvim $FILE
+    commit
+    popd > /dev/null
+}
+
+function commit_changes() {
+    pushd . > /dev/null
+    cd ~/wiki
+    commit
+    popd > /dev/null
+}
 
 # Set terminal title
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
 FILE=index.md
-if [ ! -z "$1" ]; then
+if [ "$1" == "-c" ]; then
+    commit_changes
+    exit 0
+elif [ ! -z "$1" ]; then
     FILE="$1"
 fi
 
-pushd . > /dev/null
-
-cd ~/wiki
-nvim $FILE
-git add .
-git commit --allow-empty-message -m ""
-if [ $? == 0 ]; then
-    git pull origin master
-    git push origin master
-fi
-
-popd > /dev/null
+open_in_editor $FILE
