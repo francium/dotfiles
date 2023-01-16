@@ -1,4 +1,26 @@
-#!/bin/bash
+#!/bin/env python3
 
-echo $1 | sudo tee /sys/class/power_supply/BAT0/charge_start_threshold
-echo $2 | sudo tee /sys/class/power_supply/BAT0/charge_stop_threshold
+import argparse
+import os
+import sys
+
+ap = argparse.ArgumentParser()
+ap.add_argument("start", help="Charging start threshold")
+ap.add_argument("stop", help="Charging stop threshold")
+args = ap.parse_args()
+
+start = args.start
+stop = args.stop
+
+if os.getuid() != 0:
+    print("This program must be run with sudo or elevated privileges")
+    sys.exit(1);
+
+def write(file_path, value):
+    with open(file_path, "w") as f:
+        f.write(value)
+
+print(f"Charging start threshold set to {start}")
+write("/sys/class/power_supply/BAT0/charge_start_threshold", start)
+print(f"Charging stop threshold set to {stop}")
+write("/sys/class/power_supply/BAT0/charge_stop_threshold", stop)
