@@ -12,6 +12,10 @@ args = ap.parse_args()
 start = args.start
 stop = args.stop
 
+if (start > stop):
+    print(f"Start threshold ({start}) must be equal to or lower than stop threshold ({stop})")
+    sys.exit(1)
+
 if os.getuid() != 0:
     print("This program must be run with sudo or elevated privileges")
     sys.exit(1);
