@@ -1,7 +1,6 @@
 source ~/.config/nvim/colors.vim
 
 source ~/.config/nvim/pluginconfigs/virt-column.vim
-source ~/.config/nvim/pluginconfigs/headlines.vim
 source ~/.config/nvim/pluginconfigs/indent-blankline.vim
 
 function! LoadPlugins()
@@ -33,7 +32,6 @@ function! LoadPlugins()
 
     call __Install_VirtColumn()
     call __Install_IndentBlankline()
-    call __Install_Headlines()
 
     " Plug 'https://github.com/hkupty/iron.nvim'
         " Interactive REPLs
@@ -223,7 +221,6 @@ function! PostLoadPlugins()
     call __Configure_VirtColumn()
     call __Configure_IndentBlankline()
     call __Configure_NvimTree()
-    call __Configure_Headlines()
 endfunction
 
 call LoadPlugins()
