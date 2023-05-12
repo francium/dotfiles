@@ -2,6 +2,10 @@
     # Variable config such as email and name
     path = ~/.gitconfig_private
 [user]
+    # Prevent git for using OS user (typically a problem on macOS as far as
+    # I've seen)
+    useConfigOnly = true
+
     # Should be set in `~/.gitconfig_private`
 [credential]
     helper = cache
