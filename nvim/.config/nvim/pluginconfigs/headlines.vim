@@ -14,7 +14,7 @@ function! __Configure_Headlines()
 lua << EOF
     require("headlines").setup {
         markdown = {
-            query = vim.treesitter.parse_query(
+            query = vim.treesitter.query.parse(
                 "markdown",
                 [[
                     (atx_heading [
