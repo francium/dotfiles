@@ -16,7 +16,7 @@ function open_in_editor() {
 
     pushd . > /dev/null
     cd ~/wiki
-    nvim $FILE
+    nvim $FILE -c "FZF"
     commit
     popd > /dev/null
 }
