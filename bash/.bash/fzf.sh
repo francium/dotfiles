@@ -1,9 +1,11 @@
 # FZF
 export FZF_TMUX_HEIGHT=66%
 export FZF_DEFAULT_OPTS='
- --layout=reverse
- --color=fg+:#ffffff,bg+:#FF0087,pointer:#ffffff
- --color=hl:#FF0087,hl+:#ffffff
+  --layout=reverse
+ --color=fg:#ffffff,bg:-1,hl:#ff6666
+ --color=fg+:#ffffff,bg+:#3d3d3d,hl+:#ff6666
+ --color=info:#ffffff,prompt:#ff6666,pointer:#ffffff
+ --color=marker:#ff6666,spinner:#ff6666,header:#ffffff
 '
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
