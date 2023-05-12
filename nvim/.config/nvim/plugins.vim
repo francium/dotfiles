@@ -109,7 +109,7 @@ function! LoadPlugins()
         \    'xsh=python',
         \    'ts=typescript',
         \]
-        g:vim_markdown_no_default_key_mappings = 1
+        let g:vim_markdown_no_default_key_mappings = 1
         " let g:vim_markdown_conceal = 0
         " let g:tex_conceal = ""
         let g:vim_markdown_auto_insert_bullets = 0
@@ -117,6 +117,7 @@ function! LoadPlugins()
         let g:vim_markdown_strikethrough = 1
         let g:vim_markdown_math = 0
             " Can't use `$` in markdown with latex math enabled
+        com! TocV execute("Toc") | windo wincmd L | vertical resize 30
 
     " Multi-language
     " NOTE: Checkout https://github.com/sheerun/vim-polyglot
