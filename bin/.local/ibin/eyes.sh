@@ -12,6 +12,7 @@ trap "echo; exit 130" sigint
 
 while [ true ]; do
     sleep $interval
+    date +%H:%M
     mpv \
         --no-video \
         --no-keep-open \
