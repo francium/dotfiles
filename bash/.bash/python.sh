@@ -1,3 +1,8 @@
+export PYTHONSTARTUP=~/.pyrc
+
+# Python REPL without welcome messages
+alias py="python3 -q"
+
 ## Pyenv
 
 # Pyenv is a bit slow to load, can be loaded on demand instead

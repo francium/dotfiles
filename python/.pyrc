@@ -1,0 +1,25 @@
+#!/usr/bin/python3
+
+# This is not a standard config file. It requires the PYTHONSTARTUP environment
+# variable set pointing this this file's location
+
+import platform
+import subprocess as sp
+import sys
+
+
+# Override prompts
+sys.ps1='\x01\x1b[1;49;95m\x02>>>\x01\x1b[0m\x02 '
+sys.ps2='\x01\x1b[1;49;95m\x02...\x01\x1b[0m\x02 '
+
+
+# Copy to clipboard
+def copy(data):
+    os_name = platform.system()
+    if os_name == 'Linux':
+        sp.check_call(
+            f"echo {data} | xclip -selection c", shell=True, text=True
+        )
+        print(f"Copied to clipboard: {data}")
+    else:
+        print(f"WARNING: sel does not support {os_name} yet.")

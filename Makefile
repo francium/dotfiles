@@ -13,6 +13,7 @@ install:
 		nvim \
 		mpv \
 		profile-sync-daemon \
+		python \
 		ranger \
 		ripgrep \
 		tmux \
@@ -36,6 +37,7 @@ uninstall:
 		nvim \
 		mpv \
 		profile-sync-daemon \
+		python \
 		ranger \
 		ripgrep \
 		tmux \
