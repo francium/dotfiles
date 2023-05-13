@@ -12,3 +12,5 @@ setlocal conceallevel=3
 " Hide and show the concealed characters when entering/exiting insert mode
 autocmd InsertEnter * setlocal conceallevel=0
 autocmd InsertLeave * setlocal conceallevel=3
+
+nmap <buffer> <leader>vv :TocV<cr>
