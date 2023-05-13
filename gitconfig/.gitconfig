@@ -39,6 +39,7 @@
     pf = push origin HEAD --force-with-lease
     ph = push origin HEAD
     prune-remote = remote prune origin
+    root = ! ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && cd $ROOT && echo Changed directory to $ROOT || echo No git repo found
     s = status -ss
     set-upstream = ! git branch -u origin/$(git bname)
     review = show --stat -p
