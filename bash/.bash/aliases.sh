@@ -46,6 +46,17 @@ fi
 
     alias gti=git
     alias ggit=git
+    function git-root() {
+        ROOT=$(git rev-parse --show-toplevel 2>/dev/null) && \
+        echo Changed directory to $ROOT && \
+        cd $ROOT || \
+        echo No git repo found
+    }
+    function git-cd() {
+        git clone "$1" && DIR=$(basename "$1" .git) && \
+        echo Changed directory to "$DIR" && \
+        cd "$DIR"
+    }
 
     alias man80='MANWIDTH=80 man'
 
