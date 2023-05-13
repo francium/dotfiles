@@ -81,6 +81,16 @@ function! LoadPlugins()
         let g:UltiSnipsListSnippets="<leader>sf"
         let g:UltiSnipsJumpForwardTrigger="<leader>sn"
         let g:UltiSnipsJumpBackwardTrigge="<leader>sp"
+    Plug 'https://github.com/liuchengxu/vista.vim'
+        let g:vista#renderer#enable_icon = 0
+        let g:vista_icon_indent = ["╰─▸ ", "├─▸ "]
+        let g:vista#renderer#icons = {
+        \   "function": "F",
+        \   "variable": "V",
+        \  }
+        let g:vista_fzf_preview = ['right:50%']
+        let g:vista_sidebar_width = 50
+        nmap <leader>vv :Vista coc<cr>
 
     " Git ----------------------------------------------------------------------
     source ~/.config/nvim/pluginconfigs/vim-signify.vim
