@@ -1,0 +1,18 @@
+#!/bin/bash
+set -euo pipefail
+
+REMOTE_NAME=all
+
+if (( $# == 1 )); then
+    echo "Only $# remote specified. Use \"git remote add\" instead"
+    exit 1
+elif (( $# == 0 )); then
+    echo "No remotes specified."
+    echo "Usage: $(basename $0) <remote 1> <remote 2> ..."
+    exit 1
+fi
+
+git remote add all "$1"
+for URL in "$@"; do
+    git remote set-url --add --push $REMOTE_NAME $URL
+done
