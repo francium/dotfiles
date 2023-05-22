@@ -1,6 +1,8 @@
 #!/bin/env -S deno run -A
 // Note `env -S` may not be portable, https://unix.stackexchange.com/a/477651
 
+// vim: ft=typescript
+
 import { unified } from "npm:unified";
 import remarkParse from "npm:remark-parse";
 import remarkGfm from "npm:remark-gfm";
@@ -29,6 +31,10 @@ const main = async () => {
           }
           if (right.type === "heading") {
             return 2;
+          }
+
+          if (right.type === "definition" && left.type === "definition") {
+            return 0;
           }
 
           return undefined;
