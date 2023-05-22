@@ -14,3 +14,4 @@ autocmd InsertEnter * setlocal conceallevel=0
 autocmd InsertLeave * setlocal conceallevel=3
 
 nmap <buffer> <leader>vv :TocV<cr>
+nmap <buffer> <leader>ap :w <cr> :silent !fr-md-format %<cr>
