@@ -4,29 +4,6 @@ set -euo pipefail
 # output into a single space separated line (see the
 # `format_staged_markdown_files`'s `FILES` variable and subshell command below)
 
-function ensure_pip_packages_installed() {
-    if command -v mdformat > /dev/null; then
-        return
-    fi
-
-    echo "Python packages not installed, installing..."
-    pip --require-virtualenv install \
-        mdformat \
-        mdformat-gfm \
-        git+https://github.com/francium/mdformat-francium-custom@master
-}
-
-function activate_venv() {
-    if [ ! -d venv ]; then
-        echo "No virtualenv found, creating new virtualenv..."
-        python3 -m venv venv
-    fi
-    echo "Activating virtualenv..."
-    source venv/bin/activate
-
-    ensure_pip_packages_installed
-}
-
 function format_staged_markdown_files() {
     STAGED=$(git diff --name-only --staged)
     if [ -z "$STAGED" ]; then
@@ -35,12 +12,10 @@ function format_staged_markdown_files() {
 
     echo Formatting files...
     FILES=$(echo $STAGED | grep --color=never -e ".md$")
-    mdformat $FILES
+    fr-md-format $FILES
 }
 
 function commit() {
-    activate_venv
-
     git add .
     format_staged_markdown_files
     git add .
