@@ -35,6 +35,7 @@ done
 
 # Modules
 [[ -f ~/.bash/aliases.sh ]] && source ~/.bash/aliases.sh
+[[ -f ~/.bash/deno.sh ]] && source ~/.bash/deno.sh
 [[ -f ~/.bash/fzf.sh ]] && source ~/.bash/fzf.sh
 [[ -f ~/.bash/asdf.sh ]] && source ~/.bash/asdf.sh
 [[ -f ~/.bash/homebrew.sh ]] && source ~/.bash/homebrew.sh
