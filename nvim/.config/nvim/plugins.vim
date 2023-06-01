@@ -93,6 +93,8 @@ function! LoadPlugins()
             let g:vista_sidebar_width = 50
             nmap <leader>vv :Vista coc<cr>
     endif
+    Plug 'https://github.com/thezeroalpha/vim-relatively-complete'
+        imap <c-x><c-g> <Plug>RelativelyCompleteFile
 
     " Git ----------------------------------------------------------------------
     source ~/.config/nvim/pluginconfigs/vim-signify.vim
