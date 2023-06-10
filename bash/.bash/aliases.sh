@@ -1,7 +1,7 @@
 # General
     # f# like |> pipelining, example `echo "~/.bashrc" |: vim _`
     # sed here is removing the last newline of the output
-    alias ::='sed -z "$ s/\n$//" | xargs -i_ --'
+    alias ::='sed "$ s/\n$//" | xargs -I_ --'
 
     export LS_COMMON_OPTS='-h'
         # -h human readable
@@ -87,7 +87,7 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias seln='xclip -selection c'
     alias pst='xclip -selection c -o'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
-    alias sel='tr --delete "\n" | pbcopy'
+    alias sel='tr -d "\n" | pbcopy'
     alias seln='pbcopy'
     alias pst='pbpaste'
 fi
