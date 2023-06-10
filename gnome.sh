@@ -132,20 +132,24 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  name     "'Files'"
 
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  binding  "'<Super>w'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/wiki\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/wiki --fzf\"'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  name     "'Wiki'"
 
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  binding  "'<Super><shift>w'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/lg\"'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Log'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  binding  "'<Super>t'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/todo\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Todo'"
 
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  binding  "'<Super><shift>equal'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  command  "'bash ${HOME}/.local/ibin/night-light-temp-inc.sh'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  name     "'Night light increment'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  binding  "'<Super><shift>w'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/lg\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  name     "'Log'"
 
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  binding  "'<Super><shift>minus'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  command  "'bash ${HOME}/.local/ibin/night-light-temp-dec.sh'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  name     "'Night light decrement'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  binding  "'<Super><shift>equal'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  command  "'bash ${HOME}/.local/ibin/night-light-temp-inc.sh'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom5/  name     "'Night light increment'"
+
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/  binding  "'<Super><shift>minus'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/  command  "'bash ${HOME}/.local/ibin/night-light-temp-dec.sh'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom6/  name     "'Night light decrement'"
 
 
 # Nautilus

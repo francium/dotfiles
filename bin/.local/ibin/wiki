@@ -34,7 +34,11 @@ function open_in_editor() {
 
     pushd . > /dev/null
     cd ~/wiki
-    nvim $FILE -c "FZF"
+    if [ $OPEN_FZF -eq 1 ]; then
+        nvim $FILE -c "FZF"
+    else
+        nvim $FILE
+    fi
     commit
     popd > /dev/null
 }
@@ -52,12 +56,14 @@ function print_help() {
     echo "Options:"
     echo "-h    print help"
     echo "-c    commit changes without editing"
+    echo "--fzf open fzf fuzzy file finder when editor opens"
 }
 
 # Set terminal title
 PROMPT_COMMAND=
 echo -en "\033]0;Wiki\a"
 
+OPEN_FZF=
 FILE=index.md
 if [ $# -ge 1 ]; then
     if [ "$1" == "-h" ]; then
@@ -66,6 +72,8 @@ if [ $# -ge 1 ]; then
     elif [ "$1" == "-c" ]; then
         commit_changes
         exit 0
+    elif [ "$1" == "--fzf" ]; then
+        OPEN_FZF=1
     elif [ ! -z "$1" ]; then
         FILE="$1"
     fi
