@@ -1,18 +1,20 @@
 function! __Install_Headlines()
     " Plug 'https://github.com/lukas-reineke/headlines.nvim'
         " https://github.com/lukas-reineke/headlines.nvim/pull/54
-        Plug 'https://github.com/tomtomjhj/headlines.nvim', { 'branch': 'for-end' }
+        " Plug 'https://github.com/tomtomjhj/headlines.nvim', { 'branch': 'for-end' }
+        "
+        Plug 'https://github.com/lukas-reineke/headlines.nvim', { 'branch': 'fix-markdown-quotes' }
 endfunction
 
 function! __Configure_Headlines()
     if $d
         highlight Headline guibg=#3f3f3f
         highlight CodeBlock guibg=#2f2f2f
-        highlight Quote none
+        " highlight Quote none
     else
         highlight Headline guibg=#e4e4e4
         highlight CodeBlock guibg=#efefef
-        highlight Quote none
+        " highlight Quote none
     endif
 
 lua << EOF
@@ -40,8 +42,8 @@ lua << EOF
             ),
             headline_highlights = {"Headline"},
             codeblock_highlight = "CodeBlock",
-            dash_highlight = "",
-            dash_string = "",
+            dash_highlight = "Dash",
+            dash_string = "-",
             quote_string = ">",
             fat_headlines = false,
         }
