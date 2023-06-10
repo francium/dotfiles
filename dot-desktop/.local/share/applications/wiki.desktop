@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=gnome-terminal -- bash -i -c "d=1 /home/$(whoami)/.local/ibin/wiki"
+Exec=gnome-terminal -- bash -i -c "/home/$(whoami)/.local/ibin/wiki"
 Terminal=false
 Name=Wiki
 Type=Application

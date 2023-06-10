@@ -132,11 +132,11 @@
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom1/  name     "'Files'"
 
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  binding  "'<Super>w'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'gnome-terminal -- bash -i -c \"d=1 ${HOME}/.local/ibin/wiki\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/wiki\"'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom2/  name     "'Wiki'"
 
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  binding  "'<Super><shift>w'"
-    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"d=1 ${HOME}/.local/ibin/lg\"'"
+    gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  command  "'gnome-terminal -- bash -i -c \"${HOME}/.local/ibin/lg\"'"
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom3/  name     "'Log'"
 
     gsettings set  $MEDIA_KEYS_PREFIX:/org/gnome/settings-daemon/plugins/media-keys/custom-keybindings/custom4/  binding  "'<Super><shift>equal'"
