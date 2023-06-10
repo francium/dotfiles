@@ -1,8 +1,11 @@
+WHITE="\[$(tput setaf 255)\]"
+BLACK="\[$(tput setaf 0)\]"
 RED="\[$(tput setaf 1)\]"
 GREEN="\[$(tput setaf 34)\]"
 ORANGE="\[$(tput setaf 208)\]"
 PURPLE="\[$(tput setaf 55)\]"
 PINK="\[$(tput setaf 198)\]"
+BGPINK="\[$(tput setab 198)\]"
 RESET="\[$(tput sgr0)\]"
 BOLD="\[$(tput bold)\]"
 PRIMARY=$PURPLE
@@ -17,9 +20,9 @@ function git_branch {
 function virtual_env {
     if [[ $VIRTUAL_ENV != "" ]]
     then
-        venv=" (${VIRTUAL_ENV##*/})"
+        echo -n " (${VIRTUAL_ENV##*/})"
     else
-        venv=""
+        echo -n ""
     fi
 }
 
@@ -30,7 +33,7 @@ function parse_git_branch() {
     if [ ! "${BRANCH}" == "" ]
     then
         STAT=`parse_git_dirty`
-        echo "[${BRANCH}${STAT}]"
+        echo "${BRANCH}${STAT}"
     else
         echo ""
     fi
@@ -71,25 +74,19 @@ function parse_git_dirty {
     fi
 }
 
-function is_tmux {
-    if [ $TMUX ]
-    then
-        echo †
-    fi
-}
-
 function exit_code {
-    if [ $CODE != 0 ]
+    if [ $1 != 0 ]
     then
-        echo [$CODE]
+        echo -n "$BOLD$BGPINK$WHITE $1 $RESET "
     fi
 }
 
 function _prompt {
-    CODE="$?"
-    virtual_env
+    local CODE="$?"
     INDICATOR=">>>"
-    PS1="$BOLD$ORANGE\`exit_code\`$PRIMARY[\t][\u@\h \W]$RED\`parse_git_branch\`$RESET$BOLD$venv $PRIMARY`is_tmux`\n$PRIMARY$INDICATOR $RESET"
+    INDICATOR="▶"
+    # PS1="$BOLD$ORANGE\`exit_code $CODE\`$PRIMARY[\t][\u@\h \W]$RED\`parse_git_branch\`$RESET$BOLD$venv $PRIMARY`is_tmux`\n$PRIMARY$INDICATOR $RESET"
+    PS1="$(exit_code $CODE)$BOLD$PRIMARY\t \u@\h ./\W $GREEN$(parse_git_branch)$RESET$BOLD$(virtual_env)\n$PRIMARY$INDICATOR $RESET"
 
     # window title
     echo -ne "\033]0;${USER}@${HOSTNAME}: ${PWD}\007"
