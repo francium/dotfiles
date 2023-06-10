@@ -12,7 +12,9 @@ function format_staged_markdown_files() {
 
     echo Formatting files...
     FILES=$(echo $STAGED | grep --color=never -e ".md$")
-    fr-md-format $FILES
+
+    # Still a few issues remaining before this can be enabled
+    # fr-md-format.ts $FILES
 }
 
 function commit() {
