@@ -149,10 +149,11 @@ function! LoadPlugins()
     " Plug 'https://github.com/vmchale/dhall-vim'
 
     " Go ---------------------------------------------------------------------
-    if v:version > 800 || has('nvim-0.4.0')
-        Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
-            let g:go_doc_popup_window = 1
-    endif
+    " Using coc go instead
+    " if v:version > 800 || has('nvim-0.4.0')
+    "     Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+    "         let g:go_doc_popup_window = 1
+    " endif
 
     " GLSL --------------------------------------------------------------------
     Plug 'https://github.com/tikhomirov/vim-glsl'
