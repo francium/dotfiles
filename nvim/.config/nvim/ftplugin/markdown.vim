@@ -15,3 +15,6 @@ autocmd InsertLeave * setlocal conceallevel=3
 
 nmap <buffer> <leader>vv :TocV<cr>
 nmap <buffer> <leader>ap :w <cr> :silent !fr-md-format.ts %<cr>
+
+com! Todo e todo/index.md
+com! TodoDone e todo/done.md
