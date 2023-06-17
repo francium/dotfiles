@@ -7,14 +7,25 @@ function! __Install_Headlines()
 endfunction
 
 function! __Configure_Headlines()
+    highlight link Quote markdownBlockquote
     if $d
-        highlight Headline guibg=#3f3f3f
+        highlight Headline1 guibg=#3f3f3f
+        highlight Headline2 guibg=#3b3b3b
+        highlight Headline3 guibg=#373737
+        highlight Headline4 guibg=#323232
+        highlight Headline5 guibg=#2f2f2f
+        highlight Headline6 guibg=#2a2a2a
+
         highlight CodeBlock guibg=#2f2f2f
-        " highlight Quote none
     else
-        highlight Headline guibg=#e4e4e4
+        highlight Headline1 guibg=#e4e4e4
+        highlight Headline2 guibg=#eaeaea
+        highlight Headline3 guibg=#efefef
+        highlight Headline4 guibg=#f4f4f4
+        highlight Headline5 guibg=#f8f8f8
+        highlight Headline6 guibg=#fbfbfb
+
         highlight CodeBlock guibg=#efefef
-        " highlight Quote none
     endif
 
 lua << EOF
@@ -40,7 +51,14 @@ lua << EOF
                     (block_quote (paragraph (inline (block_continuation) @quote)))
                 ]]
             ),
-            headline_highlights = {"Headline"},
+            headline_highlights = {
+                "Headline1",
+                "Headline2",
+                "Headline3",
+                "Headline4",
+                "Headline5",
+                "Headline6",
+            },
             codeblock_highlight = "CodeBlock",
             dash_highlight = "Dash",
             dash_string = "-",
