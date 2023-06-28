@@ -228,3 +228,10 @@ com! CopyFileName :let @+=expand("%:t")
 
 
 com! Log :let _logfilepath=system("lg -v") | execute "edit " . _logfilepath
+
+function! FormatMarkdown()
+    write
+    silent !fr-md-format.ts %
+    sleep 100m
+    edit
+endfunction
