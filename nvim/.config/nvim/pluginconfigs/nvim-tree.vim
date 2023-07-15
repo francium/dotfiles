@@ -1,6 +1,10 @@
 Plug 'kyazdani42/nvim-web-devicons' " optional, for file icons
 Plug 'kyazdani42/nvim-tree.lua'
 
+" Close if NvimTree window is last one open in current tab page
+" Based on https://stackoverflow.com/questions/2066590
+autocmd bufenter NvimTree_* if winnr("$") == winnr() | quit | endif
+
 function __Configure_NvimTree()
 lua << EOF
     vim.g.loaded = 1
@@ -46,4 +50,3 @@ EOF
     nmap <leader><tab> :NvimTreeToggle<CR>
     nmap <leader>gg :NvimTreeFindFile<CR>
 endfunction
-
