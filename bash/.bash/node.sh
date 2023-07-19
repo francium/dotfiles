@@ -101,8 +101,9 @@ function npm-init-completion() {
 #
 # alias nvm="echo Use fnm"
 # alias fnm-reload='fnm-init'
-# alias nbin="export PATH=./node_modules/.bin:$PATH"
 #
 if command -v npm > /dev/null; then
     npm-init-completion
 fi
+
+alias nbin="export PATH=./node_modules/.bin:$PATH"
