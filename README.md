@@ -1,4 +1,4 @@
-# Dotfiels
+# Dotfiles
 
 Note: Some configs are Linux specific.
 
