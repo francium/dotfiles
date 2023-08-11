@@ -18,6 +18,7 @@ sudo apt install --no-upgrade --yes \
     fd-find \
     fzf \
     git \
+    gnome-pass-search-provider \
     gnome-tweaks \
     gnupg \
     htop \
@@ -31,10 +32,10 @@ sudo apt install --no-upgrade --yes \
     libsqlite3-dev \
     libssl-dev \
     lm-sensors \
-    pavucontrol \
     make \
     neovim \
     pass \
+    pavucontrol \
     powertop \
     python-is-python3 \
     python3 \
@@ -45,6 +46,7 @@ sudo apt install --no-upgrade --yes \
     tk-dev \
     tmux \
     wget \
+    wl-clipboard \
     xz-utils \
     zlib1g-dev \
 
@@ -56,6 +58,7 @@ if ! command -v vivid >/dev/null; then
     TMP_VIVID=$(mktemp --directory)
     wget "https://github.com/sharkdp/vivid/releases/download/v${VIVID_VERSION}/vivid_${VIVID_VERSION}_amd64.deb"
     sudo dpkg -i vivid_${VIVID_VERSION}_amd64.deb
+    cd -
     rm -rf $TMP_VIVID
 else
     echo -e "${BOLD}${RED}vivid is already installed${RESET}"
@@ -99,4 +102,32 @@ if [[ ! -f /usr/share/z/z.sh ]]; then
     sudo mv z.sh /usr/share/z/
 else
     echo -e "${BOLD}${RED}z.sh is already installed${RESET}"
+fi
+
+echo -e "${BOLD}${RED}\n\n=== Installing AWS CLI ===${RESET}"
+if ! command -v aws > /dev/null; then
+    TMP_AWSCLI=$(mktemp --directory)
+    cd $TMP_AWSCLI
+    curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+    unzip awscliv2.zip
+    sudo ./aws/install
+    cd -
+    rm -rf $TMP_AWSCLI
+else
+    echo -e "${BOLD}${RED}AWS CLI is already installed${RESET}"
+fi
+
+echo -e "${BOLD}${RED}\n\n=== Installing AWS SAM ===${RESET}"
+if ! command -v sam > /dev/null; then
+    TMP_AWS_SAM=$(mktemp --directory)
+    cd $TMP_AWS_SAM
+    curl "https://github.com/aws/aws-sam-cli/releases/latest/download/aws-sam-cli-linux-x86_64.zip" \
+        --location \
+        -o "aws-sam-cli.zip"
+    unzip --quiet aws-sam-cli.zip
+    sudo ./install
+    cd -
+    rm -rf $TMP_AWS_SAM
+else
+    echo -e "${BOLD}${RED}AWS SAM is already installed${RESET}"
 fi
