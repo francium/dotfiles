@@ -26,8 +26,12 @@
 # Shell
     gsettings set  org.gnome.desktop.interface clock-show-seconds       true
     gsettings set  org.gnome.desktop.interface enable-animations        false
-    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 9.0'"
     gsettings set  org.gnome.desktop.interface show-battery-percentage  true
+read -p "Set font to Source Code Pro? [y/N] " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    gsettings set  org.gnome.desktop.interface monospace-font-name      "'Source Code Pro Semi-Bold 9.0'"
+fi
 
 
 # Text
@@ -60,7 +64,13 @@
 
 
 # Mouse
+read -p "Disable touchpad? [y/N] " -n 1 -r
+echo    # (optional) move to a new line
+if [[ $REPLY =~ ^[Yy]$ ]]; then
     gsettings set  org.gnome.desktop.peripherals.touchpad  send-events  "'disabled'"
+else
+    gsettings set  org.gnome.desktop.peripherals.touchpad  send-events  "'enabled'"
+fi
 
 
 # Keyboard
