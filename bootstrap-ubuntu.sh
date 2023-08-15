@@ -31,6 +31,7 @@ sudo apt install --no-upgrade --yes \
     libreadline-dev \
     libsqlite3-dev \
     libssl-dev \
+    libterm-readkey-perl \
     lm-sensors \
     make \
     neovim \
