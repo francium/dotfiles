@@ -10,7 +10,15 @@ export FZF_DEFAULT_OPTS='
 export FZF_DEFAULT_COMMAND='fd --hidden --exclude .git --exclude node_modules'
 export FZF_CTRL_T_COMMAND="$FZF_DEFAULT_COMMAND"
 export FZF_ALT_C_COMMAND="$FZF_DEFAULT_COMMAND --type d"
-[[ -f /usr/share/fzf/key-bindings.bash ]] && source /usr/share/fzf/key-bindings.bash
+
+# Different distros seem to install it to different locations
+if [[ -f /usr/share/fzf/key-bindings.bash ]]; then
+    # Arch
+    source /usr/share/fzf/key-bindings.bash
+elif [[ -f /usr/share/bash-completion/completions/fzf ]]; then
+    # Ubuntu
+    source /usr/share/doc/fzf/examples/key-bindings.bash
+fi
 
 
 # Use fzf to find a file and open it in the $EDITOR
