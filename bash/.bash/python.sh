@@ -50,3 +50,11 @@ function mkvenv {
         python3 -m venv venv
     fi
 }
+
+function venv-pipenv() {
+    venv $(pipenv --venv)
+}
+
+function venv-poetry() {
+    venv $(poetry env info -p)
+}
