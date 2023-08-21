@@ -19,6 +19,7 @@ sudo apt install --no-upgrade --yes \
     fzf \
     git \
     gnome-pass-search-provider \
+    gnome-shell-extensions \
     gnome-tweaks \
     gnupg \
     htop \
