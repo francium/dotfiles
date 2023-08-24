@@ -75,12 +75,12 @@ function! LoadPlugins()
         \        'scheme': {},
         \    }
         \}
-    Plug 'https://github.com/SirVer/ultisnips'
-        let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips/"
-        let g:UltiSnipsExpandTrigger="<leader>ss"
-        let g:UltiSnipsListSnippets="<leader>sf"
-        let g:UltiSnipsJumpForwardTrigger="<leader>sn"
-        let g:UltiSnipsJumpBackwardTrigge="<leader>sp"
+    " Plug 'https://github.com/SirVer/ultisnips'
+    "     let g:UltiSnipsSnippetsDir = "~/.config/nvim/UltiSnips/"
+    "     let g:UltiSnipsExpandTrigger="<leader>ss"
+    "     let g:UltiSnipsListSnippets="<leader>sf"
+    "     let g:UltiSnipsJumpForwardTrigger="<leader>sn"
+    "     let g:UltiSnipsJumpBackwardTrigge="<leader>sp"
     if $coc
         Plug 'https://github.com/liuchengxu/vista.vim'
             let g:vista#renderer#enable_icon = 0
