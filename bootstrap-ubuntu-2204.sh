@@ -23,6 +23,7 @@ sudo apt install --no-upgrade --yes \
     gnome-tweaks \
     gnupg \
     htop \
+    inotify-tools \
     iotop \
     libbz2-dev \
     libffi-dev \
