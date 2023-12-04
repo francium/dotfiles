@@ -1,0 +1,46 @@
+#!/bin/env python3
+
+import subprocess as sp
+import re
+from typing import Literal
+from pathlib import Path
+
+
+KEY_COLOR_SCHEME = "color-scheme"
+KEY_GTK_THEME = "gtk-theme"
+GTK_THEME_LIGHT = "Adwaita"
+GTK_THEME_DARK = "Adwaita-dark"
+COLOR_SCHEME_LIGHT = "default"
+COLOR_SCHEME_DARK = "prefer-dark"
+
+
+def run(cmd: list[str]) -> str:
+    cmd_str = " ".join(cmd)
+    r = sp.run(cmd, stdout=sp.PIPE, stderr=sp.PIPE)
+    stdout = r.stdout.decode("utf-8")
+    if r.returncode != 0:
+        raise RuntimeError(f"Command failed: {cmd}")
+    return stdout
+
+
+def get(x: str) -> str:
+    stdout = run(["gsettings", "get", "org.gnome.desktop.interface", x])
+    r = re.sub(r"^'|'$", "", stdout).strip()
+    return r
+
+
+def set(x: str, y: str) -> str:
+    return run(["gsettings", "set", "org.gnome.desktop.interface", x, f"\"{y}\""])
+
+
+with open(str(Path("~/.systemtheme").expanduser()), "w") as f:
+    if get(KEY_COLOR_SCHEME) == COLOR_SCHEME_LIGHT:
+        set(KEY_GTK_THEME, GTK_THEME_DARK)
+        set(KEY_COLOR_SCHEME, COLOR_SCHEME_DARK)
+        f.write("dark")
+    else:
+        set(KEY_GTK_THEME, GTK_THEME_LIGHT)
+        set(KEY_COLOR_SCHEME, COLOR_SCHEME_LIGHT)
+        f.write("light")
+
+

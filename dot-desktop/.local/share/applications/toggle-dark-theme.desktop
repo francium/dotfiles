@@ -1,0 +1,6 @@
+[Desktop Entry]
+Exec=gnome-terminal -- bash -i -c "d=1 /home/$(whoami)/.local/ibin/toggle-dark-mode"
+Terminal=false
+Name=Toggle Dark Theme
+Type=Application
+Icon=book

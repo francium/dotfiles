@@ -1,1 +1,1 @@
-set ft=html
+autocmd BufNewFile,BufRead *.astro  set filetype=html

@@ -15,11 +15,16 @@ let g:markdown_conceallevel=3
 let &l:conceallevel=g:markdown_conceallevel
 
 " Hide and show the concealed characters when entering/exiting insert mode
-autocmd InsertEnter * let &l:conceallevel=0
-autocmd InsertLeave * let &l:conceallevel=g:markdown_conceallevel
+autocmd InsertEnter * setlocal conceallevel=0
+" autocmd InsertLeave * let &l:conceallevel=g:markdown_conceallevel
+" TODO:
+"   Error detected while processing InsertLeave Autocommands for "*":
+"   E521: Number required after =: conceallevel=g:markdown_conceallevel
+autocmd InsertLeave * let &l:conceallevel=3
 
 nmap <buffer> <leader>vv :TocV<cr>
 nmap <buffer> <leader>ap :call FormatMarkdown()<cr>
 
 com! Todo e todo/index.md
 com! TodoDone e todo/done.md
+com! WikiPush !wiki -c
