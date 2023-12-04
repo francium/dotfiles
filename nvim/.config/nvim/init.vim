@@ -71,7 +71,7 @@ function! BaseConfig()
     " only add to file buffer instead of non-file buffers like coc
     " and NERDTree -- does result in extension-less files not receiving
     " colorcolumns
-    autocmd FileType * setlocal colorcolumn=80,90,100
+    autocmd FileType * setlocal colorcolumn=80,90,100,120
 
     " Text width
     " 0 = no wrapping
