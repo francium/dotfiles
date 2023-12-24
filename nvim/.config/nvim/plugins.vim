@@ -47,7 +47,6 @@ function! LoadPlugins()
     Plug 'https://github.com/Shougo/denite.nvim'
     " Plug 'https://github.com/andymass/vim-matchup'
         " A bit slow, causing some performance problems
-    Plug 'https://github.com/editorconfig/editorconfig-vim'
     if v:version > 800 || has('nvim-0.4.0')
         Plug 'https://github.com/glacambre/firenvim'
     endif
