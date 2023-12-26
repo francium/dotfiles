@@ -38,6 +38,9 @@ function ConfigureColorscheme()
         hi clear ColorColumn
     endif
 
+    " HTML and Markdown links link to this highlight group.
+    hi Underlined gui=underline guifg=#ff8a7a
+
     " Using a double underline ensure underscores in text aren't ambiguous
     hi SpellBad cterm=underdouble gui=underdouble guisp=Red
     hi SpellCap cterm=underdouble gui=underdouble guisp=Blue

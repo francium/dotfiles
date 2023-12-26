@@ -235,3 +235,12 @@ function! FormatMarkdown()
     sleep 100m
     edit
 endfunction
+
+" Get syntax group under cursor
+" https://stackoverflow.com/questions/9464844
+function! SynStack()
+  if !exists("*synstack")
+    return
+  endif
+  echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
+endfunc
