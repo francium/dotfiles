@@ -39,7 +39,9 @@ function ConfigureColorscheme()
     endif
 
     " HTML and Markdown links link to this highlight group.
-    hi Underlined gui=underline guifg=#ff8a7a
+    if $d
+        hi Underlined gui=underline guifg=#ff8a7a
+    endif
 
     " Using a double underline ensure underscores in text aren't ambiguous
     hi SpellBad cterm=underdouble gui=underdouble guisp=Red
