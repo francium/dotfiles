@@ -11,6 +11,7 @@ install:
 		nautilus \
 		npm \
 		nvim \
+		nvim-lua \
 		mpv \
 		profile-sync-daemon \
 		python \
@@ -35,6 +36,7 @@ uninstall:
 		nautilus \
 		npm \
 		nvim \
+		nvim-lua \
 		mpv \
 		profile-sync-daemon \
 		python \
