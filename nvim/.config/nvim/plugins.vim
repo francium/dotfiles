@@ -97,6 +97,7 @@ function! LoadPlugins()
     if $copilot
         Plug 'https://github.com/github/copilot.vim'
     endif
+    Plug 'https://github.com/francium/mpv-audio.vim'
 
     " Git ----------------------------------------------------------------------
     source ~/.config/nvim/pluginconfigs/vim-signify.vim
