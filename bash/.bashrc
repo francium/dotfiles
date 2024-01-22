@@ -10,6 +10,10 @@
 
 # Bash history size
 export HISTSIZE=1000000
+# Technically redundant, as per `man bash`: "The  shell  sets the default value
+# to the value of HISTSIZE after reading any startup files."
+export HISTFILESIZE=$HISTSIZE
+
 # Prevent back-to-back duplicates from being saved
 export HISTCONTROL=ignoreboth:erasedups
 # shopt -s histappend
