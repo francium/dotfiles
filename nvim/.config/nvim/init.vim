@@ -1,11 +1,16 @@
 " Fixes -----------------------------------------------------------------------
 " If you use vim inside tmux, see https://github.com/vim/vim/issues/993
 " " set Vim-specific sequences for RGB colors
-set t_8b=^[[48;2;%lu;%lu;%lum
-set t_8f=^[[38;2;%lu;%lu;%lum
+" TODO: May not be needed anymore. Leaving it disabled until it's determined
+" for sure
+" set t_8b=^[[48;2;%lu;%lu;%lum
+" set t_8f=^[[38;2;%lu;%lu;%lum
 
 " Light colorshcmes background issue
-set t_ut=
+" Might be vim specific? https://serverfault.com/questions/268555
+" TODO: May not be needed anymore. Leaving it disabled until it's determined
+" for sure
+" set t_ut=
 
 if (has("termguicolors"))
     set termguicolors
