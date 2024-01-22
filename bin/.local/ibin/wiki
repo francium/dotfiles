@@ -34,7 +34,7 @@ function open_in_editor() {
 
     pushd . > /dev/null
     cd ~/wiki
-    if [ $OPEN_FZF -eq 1 ]; then
+    if [[ $OPEN_FZF -eq 1 ]]; then
         nvim $FILE -c "FZF"
     else
         nvim $FILE
