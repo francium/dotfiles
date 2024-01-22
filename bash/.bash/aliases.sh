@@ -9,10 +9,12 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
     alias ls='ls $LS_COMMON_OPTS --color=auto -X'
     alias l='ls $LS_COMMON_OPTS --color=auto -X'
     alias ll='ls $LS_COMMON_OPTS --color=auto -lX'
+    alias l1='ls $LS_COMMON_OPTS --color=auto -1X'
 elif [[ "$OSTYPE" == "darwin"* ]]; then
     alias ls='ls $LS_COMMON_OPTS -G'
     alias l='ls $LS_COMMON_OPTS -G'
     alias ll='ls $LS_COMMON_OPTS -G -l'
+    alias l1='ls $LS_COMMON_OPTS -G -1'
 fi
 
     # Usage: `gtk-light <gtk-application>`
@@ -112,7 +114,7 @@ fi
         ls -1 | grep --color=never -E $PATTERN > "00 - playlist.m3u"
     }
 
-    alias mpv-audio='mpv --no-video'
+    alias mpv-audio='mpv --no-video --keep-open=no'
 
     function passfzf() {
         FZF_CANCEL=130
