@@ -115,6 +115,8 @@ function! BaseConfig()
     " Splitting
     set splitbelow
     set splitright
+    " Don't resize automatically when split or split closed
+    set noequalalways
 
     " Disable mouse clicking (scrolling not affected)
     autocmd BufEnter * set mouse=

@@ -81,6 +81,8 @@ vim.o.foldlevelstart = 99
 -- Splitting behavior
 vim.o.splitbelow = true
 vim.o.splitright = true
+-- Don't resize automatically when split or split closed
+vim.o.equalalways = false
 
 -- TODO: Play around with this to get a better understanding (with coc, etc)
 -- " Fix deoplete being too eager and selecting first option automatically
