@@ -1,0 +1,41 @@
+#!/bin/env python3
+
+import argparse
+import sys
+import subprocess as sp
+
+YT_DL_CMD = "yt-dlp"
+
+ap = argparse.ArgumentParser()
+ap.add_argument("url", type=str, help="URL to media source")
+ap.add_argument(
+    "-t",
+    "--title",
+    type=str,
+    help="File name minus extension. Extension is automatically assigned.",
+)
+ap.add_argument(
+    "-f",
+    "--format",
+    type=str,
+    help="Audio format (Defaults to using same as original without conversion)",
+)
+args = ap.parse_args()
+
+url = args.url
+title = args.title
+format = args.format
+
+cmd = [YT_DL_CMD, "--extract-audio"]
+
+if format:
+    cmd.append("--audio-format")
+    cmd.append(format)
+
+if title is not None:
+    cmd.append("--output")
+    cmd.append(f"{title}.%(ext)s")
+
+cmd.append(url)
+r = sp.run(cmd)
+sys.exit(r.returncode)

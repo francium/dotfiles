@@ -1,0 +1,38 @@
+#!/bin/env python3
+
+import argparse
+import sys
+import subprocess as sp
+
+YT_DL_CMD = "yt-dlp"
+
+ap = argparse.ArgumentParser()
+ap.add_argument(
+    "playlist_url",
+    metavar="playlist-url",
+    type=str,
+    help="URL to playlist",
+)
+ap.add_argument(
+    "-f",
+    "--format",
+    type=str,
+    help="Audio format (Defaults to using same as original without conversion)",
+)
+args = ap.parse_args()
+
+url = args.playlist_url
+format = args.format
+
+cmd = [YT_DL_CMD, "--extract-audio"]
+
+if format:
+    cmd.append("--audio-format")
+    cmd.append(format)
+
+cmd.append("--output")
+cmd.append("%(playlist_index)s - %(title)s.%(ext)s")
+
+cmd.append(url)
+r = sp.run(cmd)
+sys.exit(r.returncode)
