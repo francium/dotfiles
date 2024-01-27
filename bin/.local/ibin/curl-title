@@ -1,0 +1,17 @@
+#!/bin/bash
+
+set -euo pipefail
+
+# Gets "<title>" of a HTML page
+# Read URL from either $1 or stdin
+
+if [[ $# == 0 ]]; then
+    while read line; do
+        URL=$line
+    done
+else
+    URL=$1
+fi
+
+curl $URL 2>/dev/null \
+    | grep -Po "(?<=<title>).*(?=</title>)"
