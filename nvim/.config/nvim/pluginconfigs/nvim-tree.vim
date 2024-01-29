@@ -14,13 +14,6 @@ lua << EOF
         sort_by = "case_sensitive",
         view = {
             adaptive_size = false,
-            mappings = {
-                list = {
-                    -- { key = "u", action = "dir_up" },
-                    -- { key = "<C-I>", action = "toggle_file_info" },
-                    -- { key = "<C-K>", action = nil },
-                },
-            },
         },
         renderer = {
             group_empty = false,
