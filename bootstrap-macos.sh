@@ -1,10 +1,14 @@
 #!/bin/bash
 
-if ! command -v brew > /dev/null; then
+if ! command -v /opt/homebrew/bin/brew > /dev/null; then
     echo "Installing brew..."
     BREW_URL="https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh"
     /bin/bash -c "$(curl -fsSL $BREW_URL)"
+fi
+
+if ! command -v brew > /dev/null; then
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' > ~/.zprofile
+    source ~/.zprofile
 fi
 
 brew install \
