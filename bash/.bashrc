@@ -21,7 +21,9 @@ export HISTCONTROL=ignoreboth:erasedups
 export EDITOR=nvim
 export PATH=$PATH:~/.local/bin:~/.local/ibin:~/.local/ibin_private:~/bin
 export XDG_CONFIG_HOME=~/.config
+
 export MANWIDTH=80
+export MANPATH=~/.local/share/man:$MANPATH
 
 
 if [ -e /usr/share/terminfo/x/xterm-256color ] && [ "$COLORTERM" == "gnome-terminal" ]; then
