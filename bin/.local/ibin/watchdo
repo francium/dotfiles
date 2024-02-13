@@ -1,22 +1,43 @@
 #!/bin/bash
 
+# Original Source
+# https://github.com/denilsonsa/small_scripts/blob/master/sleep_until_modified.sh
+#
 # Inspired by http://superuser.com/questions/181517/how-to-execute-a-command-whenever-a-file-changes/181543#181543
+#
+# The MIT License (MIT)
+#
+# Copyright (c) 2018 Denilson Figueiredo de Sá Maia
+#
+# Permission is hereby granted, free of charge, to any person obtaining a copy
+# of this software and associated documentation files (the "Software"), to deal
+# in the Software without restriction, including without limitation the rights
+# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+# copies of the Software, and to permit persons to whom the Software is
+# furnished to do so, subject to the following conditions:
+#
+# The above copyright notice and this permission notice shall be included in all
+# copies or substantial portions of the Software.
+#
+# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+# SOFTWARE.
 
 SCRIPTNAME=`basename "$0"`
 
 print_help() {
-    cat << EOF
-Usage: $SCRIPTNAME filename
-Uses 'inotifywait' to sleep until 'filename' has been modified.
-
-Example, 'while watchdo .watchfile; do make test; done'
-
-EOF
+    echo "Usage: $SCRIPTNAME filename"
+    echo "Uses 'inotifywait' to sleep until 'filename' has been modified."
+    echo "Example, 'while watchdo .watchfile; do make test; done'"
 }
 
 # check dependencies
-if ! type inotifywait &>/dev/null ; then
-    echo "You are missing the inotifywait dependency. Install the package inotify-tools (apt-get install inotify-tools)"
+if ! command -v inotifywait > /dev/null ; then
+    echo "inotifywait not installed"
     exit 1
 fi
 
@@ -49,36 +70,12 @@ BASENAME=`basename "$FULLNAME"`
 DIRNAME=`dirname "$FULLNAME"`
 
 coproc INOTIFY {
-inotifywait -q -m -e close_write,moved_to,create ${DIRNAME} &
-trap "kill $!" 1 2 3 6 15
-wait
+    inotifywait -q -m -e close_write,moved_to,create ${DIRNAME} &
+    trap "kill $!" 1 2 3 6 15
+    wait
 }
 
 trap "kill $INOTIFY_PID" 0 1 2 3 6 15
 
 # BUG! Não vai funcionar com arquivos contendo caracteres estranhos
 sed --regexp-extended -n "/ (CLOSE_WRITE|MOVED_TO|CREATE)(,CLOSE)? ${BASENAME}\$/q" 0<&${INOTIFY[0]}
-
-# Source: https://bitbucket.org/denilsonsa/small_scripts/src/default/sleep_until_modified.sh
-
-# The MIT License (MIT)
-#
-# Copyright (c) 2018 Denilson Figueiredo de Sá Maia
-#
-# Permission is hereby granted, free of charge, to any person obtaining a copy
-# of this software and associated documentation files (the "Software"), to deal
-# in the Software without restriction, including without limitation the rights
-# to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-# copies of the Software, and to permit persons to whom the Software is
-# furnished to do so, subject to the following conditions:
-#
-# The above copyright notice and this permission notice shall be included in all
-# copies or substantial portions of the Software.
-#
-# THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-# IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-# FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-# AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-# LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-# OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-# SOFTWARE.
