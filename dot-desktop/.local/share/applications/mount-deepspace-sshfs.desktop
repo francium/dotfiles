@@ -1,5 +1,5 @@
 [Desktop Entry]
-Exec=sshfs francium@nero.fr.local:/media/ deepspace-sshfs/
+Exec=sshfs francium@nero.rmrf.ca:/media/ deepspace-sshfs/
 Terminal=false
 Name=Mount Deepspace (SSHFS)
 Type=Application

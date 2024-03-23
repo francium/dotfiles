@@ -1,2 +1,2 @@
 mkdir -p ~/deepspace-sshfs
-sshfs francium@nero.fr.local:/media/ ~/deepspace-sshfs/
+sshfs francium@nero.rmrf.ca:/media/ ~/deepspace-sshfs/
