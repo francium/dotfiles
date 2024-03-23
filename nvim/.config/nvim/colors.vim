@@ -43,6 +43,11 @@ function ConfigureColorscheme()
         hi Underlined gui=underline guifg=#ff8a7a
     endif
 
+    if $d
+        " Whitespace is linked to Ignore
+        hi Ignore ctermfg=15 guifg=#e3e3e3
+    endif
+
     " Using a double underline ensure underscores in text aren't ambiguous
     hi SpellBad cterm=underdouble gui=underdouble guisp=Red
     hi SpellCap cterm=underdouble gui=underdouble guisp=Blue
