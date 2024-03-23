@@ -208,6 +208,7 @@ function! LoadPlugins()
     " Web ----------------------------------------------------------------------
     Plug 'https://github.com/evanleck/vim-svelte'
     Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
+    Plug 'https://github.com/wuelnerdotexe/vim-astro'
 
     " HTML ---------------------------------------------------------------------
     Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}
