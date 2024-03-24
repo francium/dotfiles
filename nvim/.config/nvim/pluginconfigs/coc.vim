@@ -89,6 +89,7 @@ else
 
     " Format buffer
     nnoremap <silent> <leader>ap :call CocAction('format')<CR>
+    nnoremap <silent> <leader>aP :call CocAction('format') <bar> call CocAction('runCommand', 'editor.action.organizeImport')<CR>
 
     " Organize imports
     command! -nargs=0  OrganizeImports :call CocAction('runCommand', 'editor.action.organizeImport')
