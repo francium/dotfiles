@@ -16,6 +16,9 @@ function d-load-pyenv {
 
 ## Aliases
 
+# TODO:
+#   - Auto detect pyproject.toml/pipfile/etc and auto select appropriate virtualenv
+#   - Allow overriding in case of ambiguity (eg, a ./venv/ and a pipfile)
 function venv {
     if [ $# -gt 0 ]; then
         if [ ! -d $1 ]; then
