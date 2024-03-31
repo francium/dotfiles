@@ -43,9 +43,11 @@ function ConfigureColorscheme()
         hi Underlined gui=underline guifg=#ff8a7a
     endif
 
+    " Whitespace is used for tabs (Go, Makefile)
     if $d
-        " Whitespace is linked to Ignore
-        hi Ignore ctermfg=15 guifg=#e3e3e3
+        hi Whitespace ctermfg=15 guifg=#e3e3e3
+    else
+        hi Whitespace ctermfg=15 guifg=#444444
     endif
 
     " Using a double underline ensure underscores in text aren't ambiguous
