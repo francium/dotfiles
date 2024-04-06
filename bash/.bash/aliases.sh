@@ -122,6 +122,7 @@ fi
 
         command cd ~/.password-store
         SELECTION=$(fd -tf --color=never | sed "s/\.gpg$//" | fzf)
+        echo $SELECTION
         if [[ "$?" == "$FZF_CANCEL" ]]; then
             cd $PREV_DIR
             return
