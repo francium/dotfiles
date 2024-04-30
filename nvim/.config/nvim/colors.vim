@@ -3,6 +3,8 @@ function! LoadColors()
     Plug 'https://github.com/lifepillar/vim-gruvbox8'
     Plug 'https://github.com/arzg/vim-colors-xcode'
     Plug 'https://github.com/tobi-wan-kenobi/zengarden'
+    Plug 'https://github.com/adigitoleo/vim-mellow'
+    Plug 'https://github.com/Biscuit-Colorscheme/nvim'
 endfunction
 
 function! PostLoadColors()
@@ -87,6 +89,17 @@ function ConfigureColorscheme()
         hi Directory guifg=#0058a1 gui=bold
         hi ExtraWhitespace guifg=#500000
     endif
+endfunction
+
+function ConfigureMellow()
+    colo mellow
+
+    " vim-mellow overrides
+    " Match Normal (dark)
+    hi EndOfBuffer ctermbg=232 guibg=#0f0908
+    hi LineNr ctermfg=223 ctermbg=232 guifg=#eccd9d guibg=#0f0908
+    hi CursorLine ctermbg=235 guibg=#291815
+    hi CursorLineNr ctermbg=235 guibg=#291815
 endfunction
 
 function ConfigureLightlineColors()
