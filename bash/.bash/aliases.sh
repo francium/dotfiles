@@ -35,6 +35,7 @@ fi
 
     alias reload='source ~/.bashrc'
     alias :q='exit'
+    alias :qa='exit'
     alias :wq='exit'
     alias grep='grep --color=always'
     alias vgrep='grep --color=always --invert-match'
