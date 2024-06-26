@@ -102,6 +102,7 @@ fi
         gammastep -P -O $1 &
     }
 
+    alias yt-480p="youtube-dl -f 'bestvideo[height<=480]+bestaudio'"
     alias yt-720p="youtube-dl -f 'bestvideo[height<=720]+bestaudio'"
     alias yt-1080p="youtube-dl -f 'bestvideo[height<=1080p]+bestaudio'"
     function make-m3u-playlist {
