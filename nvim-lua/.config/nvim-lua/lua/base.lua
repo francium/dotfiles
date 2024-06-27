@@ -8,81 +8,81 @@
 -- If you use vim inside tmux, see https://github.com/vim/vim/issues/993.
 -- Set Vim-specific sequences for RGB colors.
 -- TODO: See if this is still required. Try removing
-vim.o.t_8b = "^[[48;2;%lu;%lu;%lum"
-vim.o.t_8f = "^[[38;2;%lu;%lu;%lum"
+vim.opt.t_8b = "^[[48;2;%lu;%lu;%lum"
+vim.opt.t_8f = "^[[38;2;%lu;%lu;%lum"
 
 -- Fix light colorschemes background issue. Disable Background Color Erase
 -- (BCE).
 -- TODO: See if this is still required. Try removing
-vim.o.t_ut = nil
+vim.opt.t_ut = nil
 
 -- Enable 24-bit RGB colors in the TUI
 if vim.fn.has("termguicolors") then
-    vim.o.termguicolors = true
+    vim.opt.termguicolors = true
 end
 
 -- Default (4000) is too slow. Some plugins use this (coc, etc.).
-vim.o.updatetime = 100
+vim.opt.updatetime = 100
 
 -- Increase undo limit.
-vim.o.undolevels = 25000
+vim.opt.undolevels = 25000
 
 -- Enable spellchecking.
-vim.o.spell = true
+vim.opt.spell = true
 
 -- Case insensitive searching by default.
-vim.o.ignorecase = true
+vim.opt.ignorecase = true
 -- But allow searching case-sensitive with capitalized characters.
-vim.o.smartcase = true
+vim.opt.smartcase = true
 
--- -- `>` and `<` round the indenting to multiples of `shiftwidth`.
-vim.o.shiftround = true
+-- `>` and `<` round the indenting to multiples of `shiftwidth`.
+vim.opt.shiftround = true
 
 -- Highlight current line.
-vim.o.cursorline = true
+vim.opt.cursorline = true
 
 -- Don't softwrap long lines.
-vim.o.wrap = false
+vim.opt.wrap = false
 
 -- When `wrap` is enabled, show this character at the start of the soft-wrapped
 -- line.
-vim.o.showbreak = "↪ "
+vim.opt.showbreak = "↪ "
 
 -- When `wrap` is enabled, wrap long lines at a character in `breakat` rather
 -- than at the last character that fits on the screen.
-vim.o.linebreak = true
+vim.opt.linebreak = true
 
 -- Disable swapfiles
-vim.o.swapfile = false
+vim.opt.swapfile = false
 
 -- Don't write to backup file, to avoid issues with some build tools that watch
 -- files.
-vim.o.writebackup = false
+vim.opt.writebackup = false
 
 -- Show special characters
-vim.o.list = true
+vim.opt.list = true
 -- Special characters to show.
-vim.o.listchars = "tab:░░"
+vim.opt.listchars = "tab:░░"
 
 -- Enable line numbers.
-vim.o.number = true
+vim.opt.number = true
 -- Enable relative numbering. Sometimes it can be slow however.
-vim.o.relativenumber = true
+vim.opt.relativenumber = true
 
 -- Set minimal number of screen lines to keep above and below the cursor.
-vim.o.scrolloff = 2
+vim.opt.scrolloff = 2
 
 -- Disable tabs for indenting.
-vim.o.expandtab = true
+vim.opt.expandtab = true
 
 -- Don't fold things automatically
-vim.o.foldlevelstart = 99
+vim.opt.foldlevelstart = 99
 
 -- Splitting behavior
-vim.o.splitbelow = true
-vim.o.splitright = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true
 -- Don't resize automatically when split or split closed
-vim.o.equalalways = false
+vim.opt.equalalways = false
 
 -- TODO: Play around with this to get a better understanding (with coc, etc)
 -- " Fix deoplete being too eager and selecting first option automatically
