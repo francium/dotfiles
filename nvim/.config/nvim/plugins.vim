@@ -94,9 +94,6 @@ function! LoadPlugins()
     endif
     Plug 'https://github.com/thezeroalpha/vim-relatively-complete'
         imap <c-x><c-g> <Plug>RelativelyCompleteFile
-    if $copilot
-        Plug 'https://github.com/github/copilot.vim'
-    endif
     Plug 'https://github.com/francium/mpv-audio.vim'
     Plug 'https://github.com/francium/wiki-vim'
 
