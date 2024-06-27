@@ -1,4 +1,7 @@
 {
+    "suggest.floatConfig.border": true,
+    "suggest.floatConfig.rounded": true,
+
     // "coc.preferences.previewAutoClose": false,
 
     "list.nextKeymap": "<C-n>",
@@ -58,6 +61,11 @@
     "python.jediEnabled": false,
     "python.venvFolders": ["envs", ".pyenv", ".direnv", "venv", ".venv"],
     "python.terminal.activateEnvironment": true,
+    // Don't show inline virtual-text parameter hints
+    "pyright.inlayHints.parameterTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.variableTypes": false,
+    "pyright.inlayHints.functionReturnTypes": false,
 
     // JavaScript/TypeScript
     // "tsserver.trace.server": "verbose",
