@@ -14,6 +14,7 @@ fi
 
 brew install \
     git \
+    git-delta \
     neovim \
     pass \
     fzf \
