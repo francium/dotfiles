@@ -13,8 +13,8 @@
     excludesfile = ~/.gitignore_global
     autocrlf = input
 [pager]
-    diff = diff-so-fancy | less --tabs=1,5 -RFX
-    show = diff-so-fancy | less --tabs=1,5 -RFX
+    diff = delta
+    show = delta
 [interactive]
     singleKey = true # Needs `libterm-readkey-perl` (Ubuntu)
 [alias]
