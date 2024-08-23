@@ -8,6 +8,7 @@ fi
 
 if ! command -v brew > /dev/null; then
     echo 'eval "$(/opt/homebrew/bin/brew shellenv)"' > ~/.zprofile
+    echo "export HOMEBREW_NO_ANALYTICS=1" > ~/.zprofile
     source ~/.zprofile
 fi
 
