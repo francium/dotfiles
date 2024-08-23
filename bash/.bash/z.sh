@@ -1,5 +1,8 @@
 # https://github.com/rupa/z
+# Linux
 [[ -f /usr/share/z/z.sh ]] && source /usr/share/z/z.sh
+# MacOS
+[[ -f /opt/homebrew/etc/profile.d/z.sh ]] && source /opt/homebrew/etc/profile.d/z.sh
 
 # Slow down aging and keep results around longer
 export _Z_MAX_SCORE=250000
