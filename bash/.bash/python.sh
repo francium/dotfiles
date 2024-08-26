@@ -30,9 +30,12 @@ function venv {
     elif [ -d ./venv ]; then
         echo "Activating virtual environment in ./venv"
         . ./venv/bin/activate
+    elif [ -d ./.venv ]; then
+        echo "Activating virtual environment in ./.venv"
+        . ./.venv/bin/activate
     else
-        echo "No virtualenv specified and no ./venv found"
-        echo "Usage: venv [virtual environment directory name (defaults to ./venv)]"
+        echo "No virtualenv specified and neither venv/ or .venv/ found"
+        echo "Usage: venv [virtual environment directory name (optional)]"
     fi
 }
 
