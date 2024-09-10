@@ -94,6 +94,8 @@ function! LoadPlugins()
     endif
     Plug 'https://github.com/thezeroalpha/vim-relatively-complete'
         imap <c-x><c-g> <Plug>RelativelyCompleteFile
+    Plug 'https://github.com/michaeljsmith/vim-indent-object'
+
     Plug 'https://github.com/francium/mpv-audio.vim'
     Plug 'https://github.com/francium/wiki-vim'
 
