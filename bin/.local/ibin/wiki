@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 set -euo pipefail
 # Don't set `IFS=$'\n\t'`, because a subshell appears to join multiple lines of
 # output into a single space separated line (see the

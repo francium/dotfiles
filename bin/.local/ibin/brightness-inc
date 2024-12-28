@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 val=`cat /sys/class/backlight/intel_backlight/brightness`
 
