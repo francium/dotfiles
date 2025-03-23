@@ -1,30 +1,85 @@
 #!/bin/bash
 
 set -euo pipefail
-IFS=$'\n\t'
 
-SSH_KEY_PATH=$(compgen -G ~/.ssh/id_ed*)
-if [[ $? == 0 ]]; then
-    echo SSH key already exists: $SSH_KEY_PATH
-else
-    echo SSH key not found. Creating new SSH key...
-    echo ssh-keygen
-    echo ssh-copy-id francium@nero.rmrf.ca
+RED_PREFIX="\033[1;31m"
+GREEN_PREFIX="\033[1;32m"
+RESET="\033[00m"
+
+echo_info() {
+    echo -e "$GREEN_PREFIX$*$RESET"
+}
+echo_error() {
+    echo -e "$RED_PREFIX$*$RESET"
+}
+
+cleanup() {
+    EXIT_CODE=$?
+    if [[ $EXIT_CODE != 0 ]]; then
+        echo_error Something went wrong - exit code $EXIT_CODE
+    else
+        echo_info Done
+    fi
+}
+trap cleanup EXIT
+
+echo_info "Changing directory to ~"
+cd ~
+
+# Instead of using termux-change-repo, which doesn't work if running
+# without a tty, just manually do what it does
+TERMUX_PREFIX=/data/data/com.termux/files/usr
+MIRROR_GROUP=$TERMUX_PREFIX/etc/termux/mirrors/default
+if [ -L "$TERMUX_PREFIX/etc/termux/chosen_mirrors" ]; then
+    echo_info "Unlinking previous chosen_mirrors symlink..."
+    unlink "$TERMUX_PREFIX/etc/termux/chosen_mirrors"
 fi
-read -p "Press enter to continue"
+echo_info "Setting mirror group to DEFAULT..."
+ln -s $MIRROR_GROUP "$TERMUX_PREFIX/etc/termux/chosen_mirrors"
 
-echo Setting up termux repos. Select single mirror and default mirror in the next step...
-read -p "Press enter to continue"
-termux-change-repo
-
+echo_info "Updating package data..."
 pkg update
+
+echo_info "Upgrading packages..."
+pkg upgrade --yes
+
+echo_info "Installing basic packages..."
 pkg install \
     --yes \
-    neovim \
-    tree \
     curl \
-    wget \
     git \
     make \
+    neovim \
+    openssh \
     ripgrep \
-    stow
+    stow \
+    tree \
+    wget \
+
+echo_info "Setting up SSH key..."
+if compgen -G ~/.ssh/id_ed* > /dev/null; then
+    echo_info "SSH key already exists: $(compgen -G ~/.ssh/id_ed*)"
+else
+    echo_info "SSH key not found. Creating new SSH key..."
+    ssh-keygen -t ed25519 -N "" -f ~/.ssh/id_ed25519 <<<y
+fi
+echo_info "Copying SSH key to nero.rmrf.ca..."
+ssh-copy-id francium@nero.rmrf.ca
+
+if [ ! -d ~/dotfiles ]; then
+    echo_info "Cloning dotfiles..."
+    git clone ssh://francium@nero.rmrf.ca/git/francium/dotfiles.git
+else
+    echo_info "Dotfiles already exists..."
+fi
+
+echo_info "Setting up termux storage..."
+termux-setup-storage || true
+
+WIKI_PATH=~/storage/shared/wiki
+if [ ! -d $WIKI_PATH ]; then
+    echo_info "Cloning wiki..."
+    git clone ssh://francium@nero.rmrf.ca/git/francium/wiki.git $WIKI_PATH
+else
+    echo_info "Wiki already exists..."
+fi
