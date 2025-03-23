@@ -1,17 +1,30 @@
-#!/usr/bin/env python3
+#!/bin/bash
 
-import subprocess as sp
+set -euo pipefail
+IFS=$'\n\t'
 
-PKGS_TO_INSTALL = [
-    "neovim",
-    "tree",
-    "curl",
-    "wget",
-    "git",
-    "make",
-    "ripgrep",
-    "stow",
-]
+SSH_KEY_PATH=$(compgen -G ~/.ssh/id_ed*)
+if [[ $? == 0 ]]; then
+    echo SSH key already exists: $SSH_KEY_PATH
+else
+    echo SSH key not found. Creating new SSH key...
+    echo ssh-keygen
+    echo ssh-copy-id francium@nero.rmrf.ca
+fi
+read -p "Press enter to continue"
 
-sp.run(["pkg", "update"])
-sp.run(["pkg", "install", "--yes", *PKGS_TO_INSTALL])
+echo Setting up termux repos. Select single mirror and default mirror in the next step...
+read -p "Press enter to continue"
+termux-change-repo
+
+pkg update
+pkg install \
+    --yes \
+    neovim \
+    tree \
+    curl \
+    wget \
+    git \
+    make \
+    ripgrep \
+    stow
