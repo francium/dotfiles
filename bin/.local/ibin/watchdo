@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Original Source
 # https://github.com/denilsonsa/small_scripts/blob/master/sleep_until_modified.sh
@@ -36,10 +36,10 @@ print_help() {
 }
 
 # check dependencies
-if ! command -v inotifywait > /dev/null ; then
-    echo "inotifywait not installed"
-    exit 1
-fi
+# if ! command -v inotifywait > /dev/null ; then
+#     echo "inotifywait not installed"
+#     exit 1
+# fi
 
 # parse_parameters:
 while [[ "$1" == -* ]] ; do
@@ -70,12 +70,12 @@ BASENAME=`basename "$FULLNAME"`
 DIRNAME=`dirname "$FULLNAME"`
 
 coproc INOTIFY {
-    inotifywait -q -m -e close_write,moved_to,create ${DIRNAME} &
+    fswatch ${DIRNAME} &
+    # inotifywait -q -m -e close_write,moved_to,create ${DIRNAME} &
     trap "kill $!" 1 2 3 6 15
     wait
 }
 
 trap "kill $INOTIFY_PID" 0 1 2 3 6 15
 
-# BUG! Não vai funcionar com arquivos contendo caracteres estranhos
-sed --regexp-extended -n "/ (CLOSE_WRITE|MOVED_TO|CREATE)(,CLOSE)? ${BASENAME}\$/q" 0<&${INOTIFY[0]}
+sed -n "/${BASENAME}\$/q" 0<&${INOTIFY[0]}

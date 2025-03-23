@@ -94,6 +94,8 @@ function! LoadPlugins()
     endif
     Plug 'https://github.com/thezeroalpha/vim-relatively-complete'
         imap <c-x><c-g> <Plug>RelativelyCompleteFile
+    Plug 'https://github.com/michaeljsmith/vim-indent-object'
+
     Plug 'https://github.com/francium/mpv-audio.vim'
     Plug 'https://github.com/francium/wiki-vim'
 
@@ -207,6 +209,9 @@ function! LoadPlugins()
     Plug 'https://github.com/evanleck/vim-svelte'
     Plug 'https://github.com/MaxMEllon/vim-jsx-pretty'
     Plug 'https://github.com/wuelnerdotexe/vim-astro'
+    Plug 'https://github.com/posva/vim-vue'
+        " Not maintained as of 2024, but haven't found any better syntax
+        " highlighting plugin
 
     " HTML ---------------------------------------------------------------------
     Plug 'https://github.com/othree/html5.vim', {'for': ['html', 'svg']}
