@@ -1,0 +1,17 @@
+#!/usr/bin/env python3
+
+import subprocess as sp
+
+PKGS_TO_INSTALL = [
+    "neovim",
+    "tree",
+    "curl",
+    "wget",
+    "git",
+    "make",
+    "ripgrep",
+    "stow",
+]
+
+sp.run(["pkg", "update"])
+sp.run(["pkg", "install", "--yes", *PKGS_TO_INSTALL])
