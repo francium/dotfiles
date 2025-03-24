@@ -1,8 +1,8 @@
 " Disable some defaults /usr/share/nvim/runtime/ftplugin/markdown.vim sets
 let g:markdown_recommended_style=0
 
-set tw=80
-set sw=2 ts=2
+setlocal tw=80
+setlocal sw=2 ts=2
 setlocal nowrap
 
 let g:markdown_conceallevel=3
