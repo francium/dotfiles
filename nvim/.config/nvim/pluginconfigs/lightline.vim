@@ -56,11 +56,21 @@ endfunction
 
 " Slightly modified original, returns pwd relative file path with `expand(...:f)`
 " See https://github.com/itchyny/lightline.vim/blob/master/autoload/lightline/tab.vim#L11
+" Also truncates long paths like this: a/b/c/delta/echo.txt
 function! LightlineTabFilepath(n) abort
   let buflist = tabpagebuflist(a:n)
   let winnr = tabpagewinnr(a:n)
-  let _ = expand('#'.buflist[winnr - 1].':f')
-  return _ !=# '' ? _ : '[No Name]'
+  " let _ = expand('#'.buflist[winnr - 1].':f')
+  " return _ !=# '' ? _ : '[No Name]'
+  let path = expand('#'.buflist[winnr - 1].':f')
+  let parts = split(path, '/')
+  if len(parts) == 1
+    let result = path
+  else
+    let shortened = map(parts[:-2], 'v:val[0]') + [parts[-2], parts[-1]]
+    let result = join(shortened, '/')
+  endif
+  return result !=# '' ? result : '[No Name]'
 endfunction
 
 function! LightlineLangClient()
