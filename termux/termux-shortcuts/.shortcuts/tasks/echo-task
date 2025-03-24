@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+
+echo hi
+sleep 2
+echo bye
