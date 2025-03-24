@@ -141,6 +141,8 @@ fi
 
 # Vim
     alias n='nvim'
+    # Temporarily add n2 alias until old config is completely replaced
+    alias n2='NVIM_APPNAME=nvim-lua n'
 
 
 # Rename shell
