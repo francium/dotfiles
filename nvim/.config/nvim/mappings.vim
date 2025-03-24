@@ -244,3 +244,6 @@ function! SynStack()
   endif
   echo map(synstack(line('.'), col('.')), 'synIDattr(v:val, "name")')
 endfunc
+
+" Adds newline between header flags
+com! ReformatCurlCommand :%s/-H/\\\r-H/g
