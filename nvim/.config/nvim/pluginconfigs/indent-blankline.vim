@@ -2,15 +2,13 @@
 " enable on a per machine basis
 
 function __Install_IndentBlankline()
-    if $vim_virtcolumn
-        Plug 'lukas-reineke/indent-blankline.nvim'
-    endif
+    Plug 'lukas-reineke/indent-blankline.nvim'
 endfunction
 
 function __Configure_IndentBlankline()
     if $vim_virtcolumn
 lua << EOF
-        require("indent_blankline").setup {}
+        require("ibl").setup {}
 EOF
         " hi IndentBlanklineChar cterm=nocombine ctermfg=15 gui=nocombine guifg=#f0f0f0
             " You can also edit the color, but it also results in the cursor taking
