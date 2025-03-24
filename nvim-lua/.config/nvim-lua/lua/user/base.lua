@@ -8,17 +8,17 @@
 -- If you use vim inside tmux, see https://github.com/vim/vim/issues/993.
 -- Set Vim-specific sequences for RGB colors.
 -- TODO: See if this is still required. Try removing
-vim.opt.t_8b = "^[[48;2;%lu;%lu;%lum"
-vim.opt.t_8f = "^[[38;2;%lu;%lu;%lum"
+-- vim.opt.t_8b = "^[[48;2;%lu;%lu;%lum"
+-- vim.opt.t_8f = "^[[38;2;%lu;%lu;%lum"
 
 -- Fix light colorschemes background issue. Disable Background Color Erase
 -- (BCE).
 -- TODO: See if this is still required. Try removing
-vim.opt.t_ut = nil
+-- vim.opt.t_ut = nil
 
 -- Enable 24-bit RGB colors in the TUI
-if vim.fn.has("termguicolors") then
-    vim.opt.termguicolors = true
+if vim.fn.has "termguicolors" then
+  vim.opt.termguicolors = true
 end
 
 -- Default (4000) is too slow. Some plugins use this (coc, etc.).
@@ -84,43 +84,13 @@ vim.opt.splitright = true
 -- Don't resize automatically when split or split closed
 vim.opt.equalalways = false
 
--- TODO: Play around with this to get a better understanding (with coc, etc)
--- " Fix deoplete being too eager and selecting first option automatically
--- " set completeopt+=noinsert
--- set completeopt =longest,menu
--- " set completeopt-=preview
+-- Show vertical column markers
+vim.opt.colorcolumn = { "80", "90", "100" }
 
--- " Force quickfix window to open at bottom instead of below a vertical split
--- autocmd FileType qf wincmd J
---
--- " Terminal
---     " Start in insert mode
---     autocmd BufWinEnter,WinEnter term://* startinsert
---
---     autocmd TermOpen * setlocal nospell
---     autocmd TermOpen * setlocal  nonumber norelativenumber
+-- Disable mouse clicking, but keep scrolling
+vim.opt.mouse = ""
 
--- " Add suffixes for related files so `gf` works for files without extensions
--- augroup suffixes
---     autocmd!
---
---     let associations = [
---         \["javascript", ".js,.jsx,.ts,.tsx"],
---     \]
---
---     for ft in associations
---         execute "autocmd FileType " . ft[0] . " setlocal suffixesadd=" . ft[1]
---     endfor
--- augroup END
-
--- TODO: Should the autocmd be here or in another file? Should it be part of a
--- augroup?
--- 90 column warning
--- only add to file buffer instead of non-file buffers like coc
--- and NERDTree -- does result in extension-less files not receiving
--- colorcolumns
--- autocmd FileType * setlocal colorcolumn=80,90,100,120
---
--- " Disable mouse clicking (scrolling not affected)
--- autocmd BufEnter * set mouse=
---
+-- Make sure to setup `mapleader` and `maplocalleader` before
+-- loading lazy.nvim so that mappings are correct.
+vim.g.mapleader = "\\"
+vim.g.maplocalleader = " "
