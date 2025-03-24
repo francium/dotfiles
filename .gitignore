@@ -4,3 +4,4 @@ tmux/.tmux/plugins/
 nvim/.config/nvim/spell
 nvim/.config/nvim/plugged
 mpv/.config/mpv/watch_later
+nvim-lua/.config/nvim-lua/lazy-lock.json
