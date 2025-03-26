@@ -47,6 +47,8 @@ echo_info "Installing basic packages..."
 pkg install \
     --yes \
     curl \
+    file \
+    htop \
     git \
     make \
     neovim \
@@ -54,6 +56,7 @@ pkg install \
     ripgrep \
     stow \
     tree \
+    termux-api \
     wget \
 
 echo_info "Setting up SSH key..."
@@ -80,6 +83,7 @@ WIKI_PATH=~/storage/shared/wiki
 if [ ! -d $WIKI_PATH ]; then
     echo_info "Cloning wiki..."
     git clone ssh://francium@nero.rmrf.ca/git/francium/wiki.git $WIKI_PATH
+    git config --global --add safe.directory $WIKI_PATH
 else
     echo_info "Wiki already exists..."
 fi
