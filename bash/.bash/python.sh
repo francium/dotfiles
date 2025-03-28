@@ -16,9 +16,6 @@ function d-load-pyenv {
 
 ## Aliases
 
-# TODO:
-#   - Auto detect pyproject.toml/pipfile/etc and auto select appropriate virtualenv
-#   - Allow overriding in case of ambiguity (eg, a ./venv/ and a pipfile)
 function venv {
     if [ $# -gt 0 ]; then
         if [ ! -d $1 ]; then
@@ -33,6 +30,12 @@ function venv {
     elif [ -d ./.venv ]; then
         echo "Activating virtual environment in ./.venv"
         . ./.venv/bin/activate
+    elif [ -f ./Pipfile.lock ]; then
+        echo "Activating Pipenv virtual environment"
+        venv-pipenv
+    elif [ -f ./poetry.lock ]; then
+        echo "Activating Poetry virtual environment"
+        venv-poetry
     else
         echo "No virtualenv specified and neither venv/ or .venv/ found"
         echo "Usage: venv [virtual environment directory name (optional)]"
