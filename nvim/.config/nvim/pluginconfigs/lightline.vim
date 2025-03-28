@@ -64,7 +64,8 @@ function! LightlineTabFilepath(n) abort
   " return _ !=# '' ? _ : '[No Name]'
   let path = expand('#'.buflist[winnr - 1].':f')
   let parts = split(path, '/')
-  if len(parts) == 1
+  echom len(parts)
+  if len(parts) <= 2
     let result = path
   else
     let shortened = map(parts[:-2], 'v:val[0]') + [parts[-2], parts[-1]]
