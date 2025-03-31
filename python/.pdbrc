@@ -1,1 +1,4 @@
-from pprint import pp
+# https://stackoverflow.com/questions/15971201/autocomplete-and-tab-key-in-pdb
+import rlcompleter
+import pdb
+pdb.Pdb.complete=rlcompleter.Completer(locals()).complete
