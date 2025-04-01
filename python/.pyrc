@@ -3,12 +3,14 @@
 # This is not a standard config file. It requires the PYTHONSTARTUP environment
 # variable set pointing this this file's location
 
+import builtins;
 import platform
 import subprocess as sp
 import sys
 import json
 import math
 import random
+import os
 
 
 # Override prompts
@@ -17,12 +19,72 @@ sys.ps2='\x01\x1b[1;49;95m\x02...\x01\x1b[0m\x02 '
 
 
 # Copy to clipboard
-def copy(data):
+def sel(data):
     os_name = platform.system()
     if os_name == 'Linux':
-        sp.check_call(
-            f"echo {data} | xclip -selection c", shell=True, text=True
-        )
+        cmd = "xclip -selection c"
         print(f"Copied to clipboard: {data}")
+    elif os_name == 'Darwin':
+        cmd = "pbcopy"
     else:
         print(f"WARNING: sel does not support {os_name} yet.")
+        return
+
+    # Have to specify path to echo because otherwise shell's builtin echo
+    # version may be used, which doesn't seem to handle "-n" on MacOS same as
+    # Linux??
+    sp.check_call(
+        f"/bin/echo -n \"{data}\" | {cmd}", shell=True,
+    )
+builtins.sel = sel
+
+
+def custom_breakpoint():
+    import inspect
+    import pdb
+    import re
+    import subprocess
+
+    def enable_only():
+        output = (
+            subprocess
+            .check_output(["rg", "breakpoint\\(", "--type", "python"])
+            .decode("utf-8")
+            .split("\n")
+        )
+        for line in output:
+            line = line.strip()
+            if not line: continue
+            _, rg_match, *_ = map(lambda s: s.strip(), line.split(":"))
+            match = re.match(r"breakpoint\(.*?only.*?\)", rg_match)
+            if match: return True
+
+    only_mode_enabled = enable_only()
+
+    def breakpoint_(*args, **kwargs):
+        if only_mode_enabled and not kwargs.get("only", False):
+            return
+
+        if os.environ.get("PYTHONBREAKPOINT") == "0":
+            return
+
+        try:
+            del kwargs["only"]
+        except:
+            pass
+
+        frame = inspect.currentframe().f_back
+        # By default we should call: sys.breakpointhook(*args, **kwargs), but
+        # we can't because it will cause the debugger to pause within this
+        # custom breakpoint function, whereas we want it to pause where this
+        # custom breakpoint function is called from
+        pdb.Pdb().set_trace(frame=frame)
+
+    builtins.breakpoint = breakpoint_
+
+if os.environ.get("PYRC_DEBUGGER"):
+    print("Enabling custom pdb debugger")
+    custom_breakpoint()
+
+
+print(".pyrc loaded")

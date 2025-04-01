@@ -1,4 +1,22 @@
-# https://stackoverflow.com/questions/15971201/autocomplete-and-tab-key-in-pdb
 import rlcompleter
 import pdb
+import readline
+
+
+
+# https://stackoverflow.com/questions/15971201/autocomplete-and-tab-key-in-pdb
 pdb.Pdb.complete=rlcompleter.Completer(locals()).complete
+
+
+
+historyPath = os.path.expanduser("~/.pdb_history")
+
+def save_history(historyPath=historyPath):
+    readline.write_history_file(historyPath)
+
+readline.set_history_length(50_000)
+
+if os.path.exists(historyPath):
+    readline.read_history_file(historyPath)
+
+atexit.register(save_history, historyPath=historyPath)

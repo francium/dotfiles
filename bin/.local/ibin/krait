@@ -1,0 +1,34 @@
+#!/usr/bin/env python
+
+import code
+from os import path
+import sys
+import runpy
+import argparse
+
+python_startup = path.expanduser("~/.pyrc")
+if path.isfile(python_startup):
+    with open(python_startup, "r") as f:
+        exec(f.read())
+
+parser = argparse.ArgumentParser(description='Wrapper script to run PYTHONSTARTUP and target script or module.')
+parser.add_argument('-m', '--module', help='Run library module as a script', action='store_true')
+parser.add_argument('target', nargs='?', help='Target python script or module')
+parser.add_argument('args', nargs=argparse.REMAINDER, help='Arguments for the target script or module')
+args = parser.parse_args()
+
+if args.module:
+    module_name = args.target
+    sys.argv = [args.target] + args.args  # Adjust sys.argv to remove the '-m' flag
+    runpy.run_module(module_name, run_name='__main__', alter_sys=True)
+elif args.target:
+    target_script = args.target
+    script_dir = os.path.dirname(os.path.abspath(target_script))
+    sys.path.insert(0, script_dir)
+
+    with open(target_script, "r") as f:
+        script_code = f.read()
+    sys.argv = [target_script] + args.args
+    exec(script_code, {'__name__': '__main__'})
+else:
+    code.interact(local=locals())
