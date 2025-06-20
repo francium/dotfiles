@@ -6,6 +6,7 @@ install:
 		bin \
 		dot-desktop \
 		gitconfig \
+		gtk \
 		guile \
 		inputrc \
 		nautilus \
@@ -31,6 +32,7 @@ uninstall:
 		bin \
 		dot-desktop \
 		gitconfig \
+		gtk \
 		guile \
 		inputrc \
 		nautilus \
